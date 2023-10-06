@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+// line-height
+@mixin u-lh() {
+  .u-lh {
+    @each $name, $var in $lineHeightSettings {
+      &\:#{$name} { line-height: $var; } 
+    }
+    @each $switchName, $switchVal in $FontSwitch {
+      @if $switchVal == t {
+        @if $switchName != base {
+          @include mq-min($switchName){
+            @each $name, $var in $lineHeightSettings {
+              &\@#{$switchName}\:#{$name} { line-height: $var; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

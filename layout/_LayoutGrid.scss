@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+// Grid Mixin -----------------------------------------------------------------
+@mixin l-gd($val, $both, $mgb: 30px) {
+  $percent: 100% / $val;
+
+  @include flex($fw: wp, $ai: stretch);
+  margin-left: vw(-$both/2);
+  margin-right: vw(-$both/2);
+
+  > * {
+    @include flex-item($percent, t);
+    padding-left: vw($both/2);
+    padding-right: vw($both/2);
+    margin-bottom: $mgb;
+
+    @content;
+  }
+}
+
+@mixin l-gd($both: 30,$mgb: 30px) {
+  margin-left: vw(-$both/2);
+  margin-right: vw(-$both/2);
+  & > * {
+    padding-right: vw($both/2);
+    padding-left: vw($both/2);
+    margin-bottom: $mgb;
+  }
+}
+// Grid SASS ------------------------------------------------------------------
+@mixin l-grid() {
+  [class*="l-gd-"] {
+    @include flex($fw: wrap);
+  }
+
+  .l-gd {
+    @each $val in $gridCount {
+      &-#{$val} {
+        > * {
+          @include flex-item(calc(100%/#{$val}), t);
+          @if $val <= 2 {
+            @include mq-max(phone){
+              @include flex-item(100%);
+            }
+          }
+          @else if $val <= 3 {
+            @include mq-max(pad) {
+              @include flex-item(50%);
+            }
+            @include mq-max(phone){
+              @include flex-item(100%);
+            }
+          }
+          @else if $val <= 4 {
+            @include mq-max(pc) {
+              @include flex-item(calc(100%/3));
+            }
+            @include mq-max(pad) {
+              @include flex-item(50%);
+            }
+            @include mq-max(phone){
+              @include flex-item(100%);
+            }
+          }
+          @else if $val <= 6 {
+            @include mq-max(pc) {
+              @include flex-item(calc(100%/3));
+            }
+            @include mq-max(pad) {
+              @include flex-item(50%)
+            }
+            @include mq-max(phone) {
+              @include flex-item(100%);
+            }
+          }
+        }
+      }
+    }
+    @content;
+  }
+}

@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+// display
+@mixin display-attributes() {
+  &\:type { display: type; }
+  &\:none, &\:hide, &\:hidden { display: none; }
+  &\:flex {
+    display: -ms-flexbox;
+    display: flex;
+  }
+  &\:grid { display: grid; }
+  &\:inline { display: inline; }
+  &\:block { display: block; }
+  &\:table { display: table; }
+  &\:contents { display: contents }
+  &\:inline-block{ display: inline-block; }
+  &\:inline-flex {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  &\:inline-grid { display: inline-grid; }
+  &\:inline-table { display: inline-table; }
+  &\:table-cell { display: table-cell; }
+  &\:table-caption { display: table-caption; }
+  &\:flow-root { display: flow-root; }
+  &\:list-item { display: list-item; }
+  &\:table-row { display: table-row; }
+  &\:table-column { display: table-column; }
+  &\:table-row-group { display: table-row-group; }
+  &\:table-column-group { display: table-column-group; }
+  &\:table-header-group { display: table-header-group; }
+  &\:table-footer-group { display: table-footer-group; }
+}
+
+@mixin u-display() {
+  .u {
+    &-d {
+      @include display-attributes();
+      @each $size, $switch in $displaySwitch {
+        @if $switch == t {
+          @include mq-min($size) {
+            &\@#{$size} { @include display-attributes(); }
+          }
+        }
+      }
+    }
+    
+    &\:show { display: initial; }
+    &\:hide { display: none !important; }
+  }
+
+  .u-show, .u-display, .u-d {
+    @include mq-max() {
+      &\:pc { display: none !important; }
+    }
+    @include mq-min() {
+      &\:mobile{ display: none !important; }
+    }
+    @each $size, $switch in $displaySwitch {
+      @if $switch == t {
+        @include mq-max($size) {
+          &\@#{$size}\:pc { display: none !important; }
+        }
+        @include mq-min($size) {
+          &\@#{$size}\:mobile { display: none !important; }
+        }
+      }
+    }
+  }
+}

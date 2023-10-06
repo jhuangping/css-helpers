@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@mixin l-typography() {
+  a {
+    cursor: pointer;
+
+    @include mq-min() {
+      // MAC 電腦能自動辨斷所以關閉
+      // &[href^="tel:"] { pointer-events: none }
+      &:hover{
+        color: cr(hover);
+        // opacity: .5
+      }
+    }
+  }
+
+  p:not(:last-child) { margin-bottom: 1em; }
+
+  h1, h2, h3, h4, h5, h6 { display: inline-block }
+
+  @content;
+}
+@mixin l-text-layout() {
+  @include l-typography();
+}
+
+@mixin l-edit() {
+  @include noReset();
+  // @include bs-grid();
+  @content;
+}

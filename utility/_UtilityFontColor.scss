@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+@mixin u-fc() {
+  .u-fc {
+    @each $fcName, $fcVal in $color {
+      &\:#{$fcName} { color: map-get($color, $fcName); }
+    }
+  }
+}

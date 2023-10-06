@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+@mixin u-image() {
+  [class*="u-imgfix"], [class*="u-imgfit"] {
+    line-height: 0;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: percentage(9 / 16);
+    }
+    img{
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-position: center;
+    }
+  }
+  .u-imgfix\:full, .u-imgfit\:full {
+    img { object-fit: scale-down; }
+  }
+  .u-imgfix\:out, .u-imgfix\:cover, .u-imgfit\:out, .u-imgfit\:cover {
+    img { object-fit: cover; }
+  }
+  .u-imgfix\:in, .u-imgfix\:contain, .u-imgfit\:in, .u-imgfit\:contain {
+    img{ object-fit: contain }
+  }
+  .u-imgfix\:fullScreen, .u-imgfix\:full-screen, .u-imgfit\:fullScreen, .u-imgfit\:full-screen {
+    width: 100%;
+    min-width: vh(1920);
+    height: 100vh;
+    &::before {
+      padding-bottom: 0px;
+      min-height: 100%;
+      height: vw(1080);
+    }
+    img {
+      object-fit: cover;
+    }
+
+  }
+
+  @content;
+}
+
+@mixin u-imgfix-height($h: 9, $w: 16, $patch: null){
+  &::before{
+    @if $h == full{
+      padding-bottom: 100%;
+      @if $patch != null {
+        padding-top: $patch + px;
+      }
+    }
+    @else {
+      padding-bottom: percentage($h / $w);
+      @if $patch != null {
+        padding-top: $patch + px;
+      }
+    }
+  }
+}
+
+@mixin u-imgfix-h($h: 9, $w: 16, $patch: null) {
+  @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
+}
+
+@mixin u-imgfit-height($h: 9, $w: 16, $patch: null){
+  @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
+}
+
+@mixin u-imgfit-h($h: 9, $w: 16, $patch: null) {
+  @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
+}

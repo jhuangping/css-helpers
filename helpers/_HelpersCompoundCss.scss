@@ -1,0 +1,578 @@
+// Catalog <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// $Layout
+// $flex
+// $line-height
+// $text
+// $border
+// $appearance
+// transition
+// $spacing
+// $scrollbar
+// $font
+// $function
+// $Effect
+// $grid
+// $Sizing
+// $Media
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+// $Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Reset
+@mixin el-reset($item: default) {
+  margin: 0px;
+  padding: 0px;
+  @if $item == font {
+    font-size: 100%;
+    font-weight: inherit;
+  }
+  @else if $item == ul {
+    list-style: none;
+  }
+  @else if $item == li{
+    list-style: none;
+  }
+}
+
+@mixin full() {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin size($width, $height: $width){
+  width: $width;
+  height: $height;
+}
+
+// Position Center
+@mixin position-center($z-index: auto) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  @if $z-index != auto { z-index: $z-index; }
+}
+@mixin abs-center($z: auto) {
+  @include position-center($z);
+}
+
+// Position Full
+@mixin position-full($z-index: auto) {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  @if $z-index != auto { z-index: $z-index; }
+}
+@mixin abs-full($z: auto){
+  @include position-full($z);
+}
+
+// z-index
+@mixin z-index($val: auto) {
+  z-index: map-get($zIndex, $val);
+}
+@mixin z($val) {
+  @include z-index($val)
+}
+
+// $flex <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Display Flex
+@mixin flex($dis: flex, $fd: default, $fw: default, $ai: default, $jc: default){
+  @if $dis == flex { display: $dis; }
+  @else if $dis == cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @else if $dis == lc{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @else if $dis == rc{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  @else if $dis == ccc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @if $fd != default {
+    @if $fd == row { flex-direction: row ; }
+    @else if $fd == row-r{ flex-direction: row-reverse; }
+    @else if $fd == col{ flex-direction: column; }
+    @else if $fd == col-r{ flex-direction: column-reverse; }
+    @else{ flex-direction: $fd; }
+  }
+  
+  @if $fw != default {
+    @if $fw == wp { flex-wrap: wrap; }
+    @else if $fw == wp-r { flex-wrap: wrap-reverse; }
+    @else if $fw == n-wp { flex-wrap: nowrap; }
+    @else { flex-wrap: $fw; }
+  }
+  
+  @if $ai != default {
+    @if $ai == start { align-items: flex-start; }
+    @else if $ai == end { align-items: flex-end; }
+    @else { align-items: $ai; }
+  }
+  
+  @if $jc != default {
+    @if $jc == sa { justify-content: space-around; }
+    @else if $jc == sb { justify-content: space-between; }
+    @else if $jc == start { justify-content: flex-start; }
+    @else if $jc == end { justify-content: flex-end; }
+    @else { justify-content: $jc; }
+  }
+}
+@mixin fx($dis: flex, $fd: default, $fw: default, $ai: default, $jc: default) {
+  @include flex($dis, $fd, $fw, $ai, $jc);
+}
+
+// Flex 置中
+@mixin flex-center($dis: flex, $fd: default, $fw: default, $ai: center, $jc: center){
+  @include flex($dis, $fd, $fw, $ai, $jc);
+}
+@mixin fx-c($dis: flex, $fd: default, $fw: default, $ai: center, $jc: center){
+  @include flex($dis, $fd, $fw, $ai, $jc);
+}
+
+// Flex Default
+@mixin flex-cc() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin fx-cc() { @include flex-cc(); }
+
+@mixin flex-lc() {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin fx-lc() { @include flex-lc(); }
+
+@mixin flex-rc() {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+@mixin fx-rc() { @include flex-rc(); }
+
+@mixin flex-ccc() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin fx-ccc() { @include flex-ccc(); }
+
+// Flex item
+@mixin flex-item($b: base, $s: 1, $g: 0, $o: null, $as: auto){
+  @if $b != base { flex-basis: $b; } 
+  @if $s != 1 { flex-shrink: $s; }
+  @if $g != 0 { flex-grow: $g; }
+  @if $o != null { order: $o; }
+  @if $as != auto { 
+    @if $as == start { align-self: flex-start; }
+    @else if $as == end { align-self: flex-end; }
+    @else if $as == center { align-self: center; }
+    @else if $as == c { align-self: center; }
+    @else if $as == baseline { align-self: baseline; }
+    @else if $as == b { align-self: baseline; }
+    @else if $as == stretch { align-self: stretch; }
+    @else if $as == s { align-self: stretch; }
+    @else { align-self: $as; }
+  }
+}
+@mixin fx-i($b: base, $s: 1, $g: 0, $o: null, $as: auto) {
+  @include flex-item($b, $s, $g, $o, $as)
+}
+
+@mixin fx-gd($item: auto, $col: null, $row: $col, $init: null){
+  @if $init != null {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @if $col != null { gap: $col $row; }
+  @if $item != auto {
+    @if $col != null { > * { width: calc(100%/#{$item} - #{$col * 2}); } }
+    @else { > * { width: calc(100%/#{$item}); } }
+  }
+}
+
+// $line-height <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// line height
+@mixin line-height($lh: map-get($webBase, bodyLineHeight), $px: map-get($webBase, bodyFontSize)) {
+  line-height: $lh / $px;
+}
+@mixin lh($lh: map-get($webBase, bodyLineHeight), $px: map-get($webBase, bodyFontSize)) {
+  @include line-height($lh, $px);
+}
+
+// $text <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Text Linear Gradient 文字漸層
+@mixin text-lg($L: #f00, $R: #00f, $path: to left){
+  background: linear-gradient($path, $L, $R);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+@mixin t-lg($L: #f00, $R: #00f, $path: to left){
+  @include text-lg($L, $R, $path)
+}
+
+// Text Overflow
+@mixin text-overflow($row: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $row == 1 {
+    white-space: nowrap;
+  }
+  @else {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $row;
+  }
+}
+@mixin t-o($row: 1) {
+  @include text-overflow($row);
+}
+
+// $border <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Border Linear Gradient 邊線漸層
+@mixin border-lg($L: #f00, $R: #00f, $path: to left) {
+  border-style: solid;
+  border-image: linear-gradient($path, $L, $R);
+  border-image-slice: 1;
+}
+@mixin b-lg($L: #f00, $R: #00f, $path: to left) { @include border-lg($L, $R, $path); }
+
+// Arrow (border, ::before, ::after)
+@mixin b-arrow($w: 25px,$h: 25px,$path: top,$cr: #f00) {
+  border-style: solid;
+  border-width: $h $w;
+  border-color: transparent;
+  border-#{$path}-color: $cr;
+}
+
+// $appearance <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// appearance
+@mixin appearance($arrow: none) {
+  -webkit-appearance: $arrow;
+  /*Chrome*/
+  -moz-appearance: $arrow;
+  /*FF*/
+  appearance: $arrow;
+  /*CSS3*/
+  &:-ms-expand{
+      display: $arrow; 
+  }
+  /*IE*/ 
+}
+
+// transition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// transition(trs)
+@mixin transition($time: .5, $tag: all, $delay: 0, $fn: linear){
+  transition: $tag $time + s;
+  @if $delay != 0 { transition-delay: $delay + s; }
+  @if $fn != linear { transition-timing-function: $fn; }
+}
+@mixin trs($time: .5, $tag: all, $delay: 0, $fn: linear) {
+  @include transition($time, $tag, $delay, $fn);
+}
+
+// $spacing <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Padding
+@mixin p($val, $direction: null) {
+  @if $direction == x {
+    padding-left: $val;
+    padding-right: $val;
+  }
+  @else if $direction == y {
+    padding-top: $val;
+    padding-bottom: $val;
+  }
+  @else if $direction == l {
+    padding-left: $val;
+  }
+  @else if $direction == r {
+    padding-right: $val;
+  }
+  @else if $direction == t {
+    padding-top: $val;
+  }
+  @else if $direction == b {
+    padding-bottom: $val;
+  }
+  @else if $direction == null {
+    padding: $val;
+  }
+}
+
+// Margin
+@mixin m($val, $direction: null) {
+  @if $direction == x {
+    margin-left: $val;
+    margin-right: $val;
+  }
+  @else if $direction == y {
+    margin-top: $val;
+    margin-bottom: $val;
+  }
+  @else if $direction == l {
+    margin-left: $val;
+  }
+  @else if $direction == r {
+    margin-right: $val;
+  }
+  @else if $direction == t {
+    margin-top: $val;
+  }
+  @else if $direction == b {
+    margin-bottom: $val;
+  }
+  @else if $direction == null {
+    margin: $val;
+  }
+}
+@mixin mx-auto() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// $scrollbar <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Scrollbar
+@mixin scrollbar($bar: #00f,$bg: #f00,$w: 5, $radius: null) {
+    // -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        // -webkit-appearance: none;
+        width: $w + px;
+        background: $bg;
+        @if $radius != null { border-radius: $radius + px; }
+    }
+
+    &::-webkit-scrollbar-track { 
+        background: $bg; 
+        @if $radius != null { border-radius: $radius + px; }
+    }
+
+    &::-webkit-scrollbar-thumb { 
+        background: $bar; 
+        @if $radius != null { border-radius: $radius + px; }
+    }
+}
+@mixin scrollbar-x($bar: #00f,$bg: #f00,$w: 5, $radius: null) {
+  overflow-x: hidden;
+  @include scrollbar($bar, $bg, $w, $radius);
+}
+
+// $font <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// font family
+@mixin font-family($fontVal, $default: $fontDefault){
+  @if $default == base {
+    font-family: map-get($font, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
+	}
+	@else {
+		font-family: map-get($font, $fontVal), $default;
+	}
+}
+@mixin ff($fontVal, $default: $fontDefault){
+  @include font-family($fontVal, $default);
+}
+
+// Font Size System
+@mixin fs($base: 16, $ary: null,$fun: min, $unit: px) {
+  font-size: unit($base, $unit);
+
+  @if $ary != null {
+    @each $size ,$var in $ary {
+      @if $fun == min {
+        @include mq-min($size){
+          font-size: unit($var, $unit);
+        }
+      }
+      @else{
+        @include mq-max($size){
+          font-size: unit($var, $unit);
+        }
+      }
+    }
+
+  }
+}
+
+// font-weight
+@mixin fw($val: base) {
+
+  $judgeFW:(
+    el: 200, // ExtraLight 200
+    l: 300,  // Light 300
+    r: 400,  // Regular 400
+    m: 500,  // Medium 500
+    sb: 600, // SemiBold 600
+    b: 700,  // Bold 700
+    eb: 800, // ExtraBold 800
+    bl: 900  // Black 900
+  );
+  @if $val != base {
+    @each $name, $var in $judgeFW {
+      @if $val == $name {
+        font-weight: $var;
+      }
+      @else if $val == $var{
+        font-weight: $val;
+      }
+    }
+  }
+  @else{
+    font-weight: bold;
+  }
+}
+@mixin f-lighter { font-weight: lighter; }
+@mixin f-bolder { font-weight: bolder; }
+@mixin f-thin	{ font-weight: 100; }
+@mixin f-extralight	{ font-weight: 200; }
+@mixin f-light	{ font-weight: 300; }
+@mixin f-regular	{ font-weight: 400; }
+@mixin f-medium	{ font-weight: 500; }
+@mixin f-semibold	{ font-weight: 600; }
+@mixin f-bold	{ font-weight: 700; }
+@mixin f-extrabold	{ font-weight: 800; }
+@mixin f-heavy { font-weight: 900; }
+
+// $function <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Element Display
+@mixin el-hide(){
+  opacity: 0;
+  pointer-events: none;
+}
+@mixin el-show(){
+  opacity: 1;
+  pointer-events: auto;
+}
+@mixin el-display($switch: hide) {
+  @if $switch == show {
+    @include el-show();
+  }
+  @else if $switch == 1 {
+    @include el-show();
+  }
+  @else {
+    @include el-hide();
+  }
+}
+
+// test element
+@mixin test($tip: 0, $tstCr: #fff, $tstBg: #E06666) {
+  color: $tstCr !important;
+  background: $tstBg !important;
+  @if $tip != 0 {
+    mix-blend-mode: difference !important;
+  }
+  @content;
+}
+@mixin tst($tip: 0, $tstCr: #fff, $tstBg: #E06666) {
+  @include test($tip, $tstCr, $tstBg);
+  @content;
+}
+
+// Percentage Height
+@mixin pa-height($h: 9, $w: 16, $patch: null) {
+  // 16:9 (youtube: 1280:720) youtube 56.25%  
+
+  // (height / width)
+  padding-bottom: percentage($h / $w);
+  @if $patch != null{
+    padding-top: $patch + px;
+  }
+}
+@mixin pa-h($h: 9, $w: 16, $patch: null) { @include pa-height($h, $w, $patch); }
+
+// Table Width Percentage
+@mixin tab-width($td,$tab){
+  width: $td / $tab * 100%;
+}
+
+// $Effect <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Mask image
+@mixin mask-init($position: center, $size: contain, $repeat: no-repeat) {
+  mask-position: $position;
+  mask-repeat: $repeat;
+  @if $size != null { mask-size: $size; }
+}
+@mixin mask-img($img: $maskImage){
+  mask-image: url(#{$img});
+}
+@mixin mask($img: $maskImage, $position: center, $size: contain, $repeat: no-repeat) {
+  @include mask-init($position, $size, $repeat);
+  @include mask-img($img);
+}
+
+// $background <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Background linear gradient 背景漸層
+@mixin bg-lg($L: #f00, $R: #00f, $path: to left){
+  background: linear-gradient($path, $L, $R);
+}
+// background image
+@mixin bg-init($position: center, $size: null, $repeat: no-repeat){
+  background-repeat: $repeat;
+  background-position: $position;
+  @if $size != null { background-size: $size; }
+}
+@mixin bg-img($img: $backgroundImage){
+  background-image: url(#{$img});
+}
+@mixin bg($img: $backgroundImage, $position: center, $size: null, $repeat: no-repeat) {
+  @include bg-init($position, $size, $repeat);
+  @include bg-img($img)
+}
+// background other init
+@mixin bg-cc() {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// $grid <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// grid
+@mixin gd($item: 4, $col: null, $row: null, $d: grid) {
+  display: $d;
+  grid-template-columns: repeat($item, minmax(0, 1fr));
+  @if $col != null { grid-column-gap: $col + px; }
+  @if $row != null { grid-row-gap: $row + px; }
+}
+
+// $Sizing <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// aspect-ratio
+@mixin aspect($w: 16, $h: 9) {
+  aspect-ratio: $w / $h;
+}
+
+// $Media <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+@mixin object($fit: default, $position: default) {
+  @if $position != default {
+    @if $position == t { object-position: top; }
+    @else if $position == b { object-position: bottom; }
+    @else if $position == l { object-position: left; }
+    @else if $position == r { object-position: right; }
+    @else if $position == c { object-position: center; }
+    @else { object-position: $position; }
+  }
+  @if $fit != default {
+    @if $fit == n { object-fit: none; }
+    @else if $fit == in { object-fit: contain; }
+    @else if $fit == out { object-fit: cover; }
+    @else if $fit == f { object-fit: fill; }
+    @else if $fit == full { object-fit: scale-down; }
+    @else { object-fit: $fit; }
+  }
+}
+@mixin obj($fit: default, $position: default) { @include object($fit, $position) }

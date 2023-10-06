@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+// scroll
+@mixin u-scroll() {
+  .u-scroll {
+    &\:no { 
+      overflow: hidden; 
+    }
+    &\:x {
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    &\:y{
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}

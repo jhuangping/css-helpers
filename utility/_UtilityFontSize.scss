@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+// font size
+@mixin u-fs() {
+  .u-fs {
+    @each $var in $fontSizeSettings {
+      &\:#{$var} { font-size: rem($var); }
+    }
+    @each $switchName, $switchVal in $FontSwitch {
+      @if $switchVal == t {
+        @if $switchName != base {
+          @include mq-min($switchName) {
+            @each $var in $fontSizeSettings {
+              &\@#{$switchName}\:#{$var} { font-size: rem($var); }
+            }
+          }
+        }
+      }
+    }
+  }
+}

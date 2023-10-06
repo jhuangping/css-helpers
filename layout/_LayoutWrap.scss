@@ -1,0 +1,89 @@
+@charset "utf-8";
+// Wrap Mixin -----------------------------------------------------------------
+// $wpRange: 1024 !default // 基本範圍
+// $wpBoth: 15 !default // 左右間距(px)
+@mixin l-wp($w: map-get($warp , range),$both: map-get($warp , both)) {
+  max-width: $w + px;
+  // @extend %wpBoth;
+}
+
+@mixin wp($w: map-get($warp , range),$both: map-get($warp , both)) { 
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $w + px;
+  width: calc(100% - #{$both * 2 + px});
+}
+
+@mixin wp-w($w: map-get($warp , range), $both: map-get($warp , both)) {
+  width: calc(100% - #{$both * 2 + px});
+  max-width: $w + px;
+}
+
+// Wrap SASS ------------------------------------------------------------------
+@mixin l-wrap($both: map-get($warp , both), $custom: map-get($warp , customName)) {
+  %wpBoth {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - #{$both * 2 + px});
+    // @include p($both, x);
+  }
+
+  [class*="l-wp"] {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(90% - #{$both * 2 + px});
+    @media all  and (max-width: ($sm + px)) {
+      width: calc(100% - #{$both * 2 + px});
+    }
+  }
+
+  .l-wp {
+    &\:html {
+      width: 100%;
+      max-width: 100%;
+      min-width: 320px;
+      overflow: hidden;
+    }
+          
+    &\:main {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    // @include l-wp($wpRange);
+
+    @if $custom == true {
+      @each $name,$val in $warpSize {
+        &\:#{$name} { @include l-wp($val); }
+      }
+    }
+    @else {
+      @each $val in $warpSize {
+        &\:#{$val}{ @include l-wp($val); }
+      }
+    }
+
+    &\:full,&\:max {
+      max-width: 100%;
+      width: 100%;
+      // @extend %wpBoth;
+    }
+    @content;
+  }
+}
+
+// Width Mixin ----------------------------------------------------------------
+@mixin l-w($custom: map-get($warp , customName)) {
+  .l-w {
+    @if $custom == true {
+      @each $name,$val in $warpSize {
+        &\:#{$name} { max-width: $val + px; }
+      }
+    }
+    @else {
+      @each $val in $warpSize {
+        &\:#{$val} { max-width: $val + px; }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@charset 'utf-8';
+
+@mixin l-default() {
+	$htmlSize: map-get($webBase, htmlFontSize);
+	html {
+		@if $htmlSize != null {
+			font-size: $htmlSize + px;
+			// @if $htmlSize == 16 {
+			// 	@include mq-min($rwdPad) { font-size: 11.25px; }
+			// }
+			// @else {
+			// 	@include mq-max($rwdPad) { font-size: 8.88889px; }
+			// }
+		}
+	}
+	body {
+		font-family: $fontDefault;
+		font-size: rem(map-get($webBase, bodyFontSize));
+		line-height: lh();
+		letter-spacing: 1px;
+		color: map-get($webBase, bodyFontColor);
+		overflow-x: hidden;
+		// opacity: 0;
+		// animation: m-opacity_in 1s both;
+
+		@content;
+	}
+}
+@mixin l-base() {
+	@include l-default();
+};

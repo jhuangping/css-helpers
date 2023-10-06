@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+@mixin u-padding() {
+  .u-p {
+    @if $paddingDetail == t {
+      @each $val in map-get($paddingSize, l) {
+        &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
+      }
+      @each $val in map-get($paddingSize, r) {
+        &r\:#{$val} { padding-right: unit($val, $paddingUnit); }
+      }
+      @each $val in map-get($paddingSize, t) {
+        &t\:#{$val} { padding-top: unit($val, $paddingUnit); }
+      }
+      @each $val in map-get($paddingSize, b) {
+        &b\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
+      }
+      @each $val in map-get($paddingSize, x) {
+        &x\:#{$val} {
+          padding-left: unit($val, $paddingUnit);
+          padding-right: unit($val, $paddingUnit);
+        }
+      }
+      @each $val in map-get($paddingSize, y) {
+        &y\:#{$val} {
+          padding-top: unit($val, $paddingUnit);
+          padding-bottom: unit($val, $paddingUnit);
+        }
+      }
+      @each $val in map-get($paddingSize, all) {
+        &\:#{$val} { padding: unit($val, $paddingUnit); }
+      }
+            
+      @each $size, $val in $paddingSwitch {
+        @if $val == t {
+          @include mq-min($size) {
+            @each $val in map-get($paddingSize, l) {
+              &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
+            }
+            @each $val in map-get($paddingSize, r) {
+              &r\@#{$size}\:#{$val} { padding-right: unit($val, $paddingUnit); }
+            }
+            @each $val in map-get($paddingSize, t) {
+              &t\@#{$size}\:#{$val} { padding-top: unit($val, $paddingUnit); }
+            }
+            @each $val in map-get($paddingSize, b) {
+              &b\@#{$size}\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
+            }
+            @each $val in map-get($paddingSize, x) {
+              &x\@#{$size}\:#{$val} {
+                padding-left: unit($val, $paddingUnit);
+                padding-right: unit($val, $paddingUnit);
+              }
+            }
+            @each $val in map-get($paddingSize, y) {
+              &y\@#{$size}\:#{$val} {
+                padding-top: unit($val, $paddingUnit);
+                padding-bottom: unit($val, $paddingUnit);
+              }
+            }
+            @each $val in map-get($paddingSize, all) {
+              &\@#{$size}\:#{$val} { padding: unit($val, $paddingUnit); }
+            }
+          }
+        }
+      }
+    }
+    @else {
+      @each $val in $paddingSize {
+        &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
+        &r\:#{$val} { padding-right: unit($val, $paddingUnit); }
+        &t\:#{$val} { padding-top: unit($val, $paddingUnit); }
+        &b\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
+        &x\:#{$val} {
+          padding-left: unit($val, $paddingUnit);
+          padding-right: unit($val, $paddingUnit);
+        }
+        &y\:#{$val} {
+          padding-top: unit($val, $paddingUnit);
+          padding-bottom: unit($val, $paddingUnit);
+        }
+        &\:#{$val} { padding: unit($val, $paddingUnit); }
+      }
+
+      @each $size, $val in $paddingSwitch {
+        @if $val == t {
+          @include mq-min($size) {
+            @each $val in $paddingSize {
+              &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
+              &r\@#{$size}\:#{$val} { padding-right: unit($val, $paddingUnit); }
+              &t\@#{$size}\:#{$val} { padding-top: unit($val, $paddingUnit); }
+              &b\@#{$size}\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
+              &x\@#{$size}\:#{$val} {
+                padding-left: unit($val, $paddingUnit);
+                padding-right: unit($val, $paddingUnit);
+              }
+              &y\@#{$size}\:#{$val} {
+                padding-top: unit($val, $paddingUnit);
+                padding-bottom: unit($val, $paddingUnit);
+              }
+              &\@#{$size}\:#{$val} { padding: unit($val, $paddingUnit); }
+            }
+          }
+        }
+      }
+    }
+  }
+}

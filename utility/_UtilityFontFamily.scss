@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+// font-family
+@mixin u-ff() {
+  .u-ff {
+    &\:default, &\:clear, &\:main { font-family: $fontDefault; }
+
+    @each $ffName, $ffVal in $font {
+      &\:#{$ffName} { font-family: map-get($font, $ffName), $fontDefault; }
+    }
+  }
+}

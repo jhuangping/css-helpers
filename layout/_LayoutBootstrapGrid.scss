@@ -1,0 +1,235 @@
+@charset "utf-8";
+// Bootstraap Grid ------------------------------------------------------------
+@mixin bootstrap-grid() {
+  $bgArray: sm, md, lg, xl;
+  $col: 100% / 12;
+
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    @media all  and (min-width: ($sm + 1 + px)) { max-width: 540px; }
+    @media all  and (min-width: ($md + 1 + px)) { max-width: 720px; }
+    @media all  and (min-width: ($lg + 1 + px)) { max-width: 960px; }
+    @media all  and (min-width: ($xl + 1 + px)) { max-width: 1140px; }
+    &-fluid {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    };
+  }
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .no-gutters{
+    margin-right: 0;
+    margin-left: 0;
+    > .col, > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  %col {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+  .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+  .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+  .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+  .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+  .col-xl-auto {
+      @extend %col;
+  }
+
+  .col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+
+    &-auto{
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+    }
+
+    $i: 1;
+    @while $i <= 12 {
+      &-#{$i} {
+        flex: 0 0 $i * $col;
+        max-width: $i * $col;
+      }
+
+      $i: $i + 1;
+    }
+  }
+
+  .order {
+    &-first { order: -1; }
+    &-last { order: 13; }
+
+    $i: 0;
+    @while $i <= 12 {
+      &-#{$i} { order: $i; }
+      $i: $i + 1;
+    }
+  }
+
+  .offset {
+    $i: 1;
+    @while $i <= 12 {
+      &-#{$i} { margin-left: $i * $col; }
+      $i: $i + 1;
+    }
+  }
+
+  @each $size in $bgArray{
+    @include mq-min($size) {
+      .col-#{$size} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+  
+        &-auto {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: none;
+        }
+  
+        $i: 1;
+        @while $i <= 12 {
+          &-#{$i} {
+            flex: 0 0 $i * $col;
+            max-width: $i * $col;
+            // +bg-extend()
+          }
+
+          $i: $i + 1
+        }
+      }
+      .order-#{$size} {
+        &-first { order: -1 }
+        &-last { order: 13 }
+            
+        $i: 0;
+        @while $i <= 12 {
+          &-#{$i} { order: $i }
+          $i: $i + 1;
+        }
+      }
+  
+      .offset-#{$size} {
+        $i: 1;
+        @while $i <= 12 {
+          &-#{$i} { margin-left: $i * $col; }
+          $i: $i + 1;
+        }
+      }
+    }
+  }
+}
+
+// BS Grid
+@mixin bs-grid($size:$rwd) {
+  $grid: 100%/12;
+  .row{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+  }
+
+  [class^="col-"]{
+      padding: 10px 15px;
+      // Position
+      &.gdp,&.gd{
+          display: flex;
+          flex-wrap: wrap;
+          padding: 10px 15px;
+      }
+  }
+
+  $i: 1;
+  @while $i <= 12 {
+    .col-#{$i} {
+      width: $grid * $i;
+      padding: 0 15px;
+      @if $i == 12{ }
+      @else if $i >= 6 {
+        @include mq-max($rwdPhone){
+          width: 100%;
+        }
+      }
+      @else if $i >= 3 {
+        @include mq-max($rwdPad){
+          width: 50%;
+        }
+        @include mq-max($rwdPhone){
+          width: 100%;
+        }
+      }
+      @else if $i >= 1 {
+        @include mq-max(1500){
+          width: calc(100%/4);
+        }
+        @include mq-max(1366) {
+          width: calc(100%/3);
+        }
+        @include mq-max($rwdPad){
+          width: 50%;
+        }
+        @include mq-max($rwdPhone){
+          width: 100%;
+        }
+      }
+      $i: $i + 1;
+    }
+  }
+
+  .row{
+    &--center{
+      justify-content: center;
+      align-items: center;
+    }
+
+    // 水平 
+    &--left{
+      justify-content: flex-start;
+    }
+    &--right{
+      justify-content: flex-end;
+    }
+
+    // 垂直 
+    &--on{
+      align-items: flex-start;
+    }
+    &--under{
+      align-items: flex-end;
+    }
+  }
+}
+
+// BS row
+@mixin bs-row($val){
+  margin-left: -$val;
+  margin-right: -$val;
+  > *{
+    padding-left: $val;
+    padding-right: $val;
+  }
+}

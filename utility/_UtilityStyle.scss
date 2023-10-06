@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+// style
+@mixin u-style() {
+  .u-style {
+    &\:none {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+}

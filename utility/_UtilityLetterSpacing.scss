@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+// letter-spacing
+@mixin u-ls() {
+  .u-ls {
+    @each $name, $var in $letterSpacingSettings {
+      &\:#{$name} { letter-spacing: $var + px; }
+    }
+    @each $switchName, $switchVal in $FontSwitch {
+      @if $switchVal == t {
+        @if $switchName != base {
+          @include mq-min($switchName) {
+            @each $name, $var in $letterSpacingSettings {
+              &\@#{$switchName}\:#{$name} { letter-spacing: $var + px; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

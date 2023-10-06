@@ -1,0 +1,226 @@
+@import 'variable/_VarColor';
+@import 'variable/_VarCss';
+@import 'variable/_VarOther';
+
+// Module Default <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Media 
+//-----------------------------------------------
+// PC: 1920x1080, 1680x1050, 1600x900, 1440x900, 1366x800, 1366x768, 1024x768
+// Pad: 800x1280, 768x1024, 600x1024, 600x962
+// Phone: [iPhone 6/7/8 Plus, 414x736] [iPhone 6/7/8, 375x667] [iPhone 5/SE, 320x568]
+//-----------------------------------------------
+
+// Breakpoints
+//-----------------------------------------------
+// xl4 : Dell UltraSharp U2711 / Apple iMac 27-inch …
+// xl3 : Dell UltraSharp U2412M / Dell S2340M / Apple iMac 21.5-inch …
+// xl2 : Dell Inspiron 14 series …
+// xl  : Macbook Air 2020 M1 / MacBook Pro 15 …
+// lg  : Google Chromebook Pixel / Samsung Chromebook …
+// md  : iPad Pro 12.9 / Microsoft Surface Pro 3 …
+// sm  : Microsoft Surface / iPad Pro 9.7 / iPad Mini …
+// xs  : LG G Pad 8.3 / Amazon Kindle Fire …
+// xs2 : Blackberry Passport / Amazon Kindle Fire HD 7 …
+// xs3 : iPhone 6, 7, 8, X, 11, 12 / Galaxy S8 / HTC One…
+
+$breakpoints: (
+  changeMobile: 1280,
+  xl4: 2560,
+  xl3: 1920,
+  xl2: 1600,
+  xl: 1440,
+  lg: 1280,
+  md: 1024,
+  sm: 768,
+  xs: 600,
+  xs2: 480,
+  xs3: 360,
+) !default;
+
+// Default (c-default)
+// 預設字級 16px
+$webBase: (
+  htmlFontSize: 10,
+  bodyFontSize: 16,
+  bodyLineHeight: 24,
+  bodyFontColor: #333
+) !default;
+
+// z-index
+$zIndex: (
+  header: 99,
+  gotop: 1,
+) !default;
+
+// Typography <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Fonts Style
+// $fontDefault  預設 ( Arial, 'Microsoft JhengHei', sans-serif )
+$fontDefault: Arial, 'Microsoft JhengHei', sans-serif !default;
+$font: (dfk:'DFKai-sb') !default;
+
+// Typography Default
+// Typography (c-typography)
+// Font Awesome Icon
+$fa: 'Font Awesome 5 Solid','Font Awesome 5 Regular','Font Awesome 5 Brands' !default;
+$fas: 'Font Awesome 5 Solid' !default;
+$far: 'Font Awesome 5 Regular' !default;
+$fab: 'Font Awesome 5 Brands' !default;
+
+// Icomoon ICON
+$icon: 'icomoon' !default;
+
+// Icon Setting
+$iconGlyph: $icon !default;
+$icons: (
+  add: \e900,
+  arrow-left: \e901,
+  arrow-right: \e902,
+  arrow-top: \e903,
+  catalog: \e904,
+  close: \e905,
+  delete: \e906,
+  download: \e907,
+  edit: \e908,
+  facebook: \e909,
+  hook: \e90a,
+  ig: \e90b,
+  line: \e90c,
+  menu: \e90d,
+  play: \e90e,
+  search: \e90f
+) !default;
+
+// Module Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Wrap (l-wp)
+$warp: (
+  range: 1024,
+  both: 15,
+  customName: false
+) !default;
+$warpSize: 1680, 1440, 1366, 1140, 1024, 960, 720, 540 !default;
+
+// Grid (l-gd)
+$gridCount: 2, 3, 4 !default;
+
+// Banner (c-bn)
+$bnWidth: 1920 !default;
+$bnHeight: 300 !default;
+$bnMask: false !default; // true, false
+$bnMaskStyle: style01 !default;
+
+// Color
+$color: ( 
+  'base': map-get($webBase, bodyFontColor),
+  'hover': #007bff,
+  'black': #000,
+  'blue': #007bff,
+  'indigo': #6610f2,
+  'purple': #6f42c1,
+  'pink': #e83e8c,
+  'red': #dc3545,
+  'orange': #fd7e14,
+  'yellow': #ffc107,
+  'green': #28a745,
+  'teal': #20c997,
+  'cyan': #17a2b8,
+  'white': #fff,
+  'gray': #6c757d,
+  'gray-dark': #343a40,
+  'primary': #007bff,
+  'secondary': #6c757d,
+  'success': #28a745,
+  'info': #17a2b8,
+  'warning': #ffc107,
+  'danger': #dc3545,
+  'light': #f8f9fa,
+  'dark': #343a40
+) !default;
+
+// Utillity Module <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Font (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
+$FontSwitch: (
+  base: f, 
+  sm: t, 
+  md: t, 
+  lg: t, 
+  xl: t
+) !default;
+
+// Font Size (u-fs)
+$fontSizeSettings: 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60 !default;
+
+// Letter Spacing (u-ls) [plus +, negative -, dot .]
+$letterSpacingSettings: (
+  '-1\\.5': -1.5, 
+  '-1': -1, 
+  '1': 1,
+  '1\\.5': 1.5, 
+  '2': 2
+) !default;
+
+// Line Height (u-lh) [plus +, negative -, dot .]
+$lineHeightSettings: (
+  0: 0, 
+  1: lh(16, 16)
+) !default;
+
+// Display (u-display)
+$displaySwitch: (
+  sm: t, 
+  md: t, 
+  lg: t, 
+  xl: t
+) !default;
+
+// Flex Layout (u-fl, u-jc, u-ai, u-ac, u-as)
+$flexSwitch: (
+  sm: t, 
+  md: t, 
+  lg: t, 
+  xl: t
+) !default;
+
+// Margin (u-m)
+$marginUnit: vw !default;
+
+$marginSwitch: (
+  sm: t, 
+  md: t, 
+  lg: t, 
+  xl: t
+) !default;
+
+$marginDetail: f !default; // [ false ]
+$marginSize: 50, 40, 30, 20, 10, auto, clear !default;
+
+// $marginDetail: t !default  // [ true ]
+// $marginSize: (all: (50, 40, 30, 20, 10),
+// t: (50, 40, 30, 20, 10),
+// b: (50, 40, 30, 20, 10),
+// l: (50, 40, 30, 20, 10),
+// r: (50, 40, 30, 20, 10),
+// x: (50, 40, 30, 20, 10),
+// y: (50, 40, 30, 20, 10)) !default
+
+
+// Padding (u-p)
+$paddingUnit: vw !default;
+
+$paddingSwitch: (
+  sm: t, 
+  md: t, 
+  lg: t, 
+  xl: t
+) !default;
+
+$paddingDetail: f !default;
+$paddingSize: 50, 40, 30, 20, 10, auto, clear !default;
+
+// $paddingDetail: t // !default [ true ]
+// $paddingSize: (all: (50, 40, 30, 20, 10),
+// t: (50, 40, 30, 20, 10),
+// b: (50, 40, 30, 20, 10),
+// l: (50, 40, 30, 20, 10),
+// r: (50, 40, 30, 20, 10),
+// x: (50, 40, 30, 20, 10),
+// y: (50, 40, 30, 20, 10)) !default
