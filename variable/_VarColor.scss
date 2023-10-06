@@ -25,9 +25,9 @@ $c-font-white: $white;
 $c-font-grey: $gray-700;
 
 
-$grays: () !default;
+$useGrays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$grays: map-merge(
+$useGrays: map-merge(
   (
     "100": $gray-100, 
     "200": $gray-200, 
@@ -38,12 +38,12 @@ $grays: map-merge(
     "700": $gray-700, 
     "800": $gray-800, 
     "900": $gray-900
-  ), $grays
+  ), $useGrays
 );
 
-$theme-colors: () !default;
+$useThemeColors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$theme-colors: map-merge(
+$useThemeColors: map-merge(
   (
     "main": $c-main, 
     "sub": $c-sub, 
@@ -53,5 +53,5 @@ $theme-colors: map-merge(
     "danger": $c-danger, 
     "light": $c-light, 
     "dark": $c-dark 
-  ),$theme-colors 
+  ),$useThemeColors 
 );

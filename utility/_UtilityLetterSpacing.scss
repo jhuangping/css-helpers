@@ -3,14 +3,14 @@
 // letter-spacing
 @mixin u-ls() {
   .u-ls {
-    @each $name, $var in $letterSpacingSettings {
+    @each $name, $var in $useLetterSpacingSettings {
       &\:#{$name} { letter-spacing: $var + px; }
     }
-    @each $switchName, $switchVal in $FontSwitch {
+    @each $switchName, $switchVal in $useFontSwitch {
       @if $switchVal == t {
         @if $switchName != base {
           @include mq-min($switchName) {
-            @each $name, $var in $letterSpacingSettings {
+            @each $name, $var in $useLetterSpacingSettings {
               &\@#{$switchName}\:#{$name} { letter-spacing: $var + px; }
             }
           }

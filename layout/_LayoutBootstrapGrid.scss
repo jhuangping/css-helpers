@@ -1,7 +1,7 @@
 @charset "utf-8";
 // Bootstraap Grid ------------------------------------------------------------
 @mixin bootstrap-grid() {
-  $bgArray: sm, md, lg, xl;
+  $useBgArray: sm, md, lg, xl;
   $col: 100% / 12;
 
   .container {
@@ -98,7 +98,7 @@
     }
   }
 
-  @each $size in $bgArray{
+  @each $size in $useBgArray{
     @include mq-min($size) {
       .col-#{$size} {
         flex-basis: 0;

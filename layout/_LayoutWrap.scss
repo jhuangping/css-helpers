@@ -2,25 +2,25 @@
 // Wrap Mixin -----------------------------------------------------------------
 // $wpRange: 1024 !default // 基本範圍
 // $wpBoth: 15 !default // 左右間距(px)
-@mixin l-wp($w: map-get($warp , range),$both: map-get($warp , both)) {
+@mixin l-wp($w: map-get($useWarp , range),$both: map-get($useWarp , both)) {
   max-width: $w + px;
   // @extend %wpBoth;
 }
 
-@mixin wp($w: map-get($warp , range),$both: map-get($warp , both)) { 
+@mixin wp($w: map-get($useWarp , range),$both: map-get($useWarp , both)) { 
   margin-left: auto;
   margin-right: auto;
   max-width: $w + px;
   width: calc(100% - #{$both * 2 + px});
 }
 
-@mixin wp-w($w: map-get($warp , range), $both: map-get($warp , both)) {
+@mixin wp-w($w: map-get($useWarp , range), $both: map-get($useWarp , both)) {
   width: calc(100% - #{$both * 2 + px});
   max-width: $w + px;
 }
 
 // Wrap SASS ------------------------------------------------------------------
-@mixin l-wrap($both: map-get($warp , both), $custom: map-get($warp , customName)) {
+@mixin l-wrap($both: map-get($useWarp , both), $custom: map-get($useWarp , customName)) {
   %wpBoth {
     margin-left: auto;
     margin-right: auto;
@@ -53,12 +53,12 @@
     // @include l-wp($wpRange);
 
     @if $custom == true {
-      @each $name,$val in $warpSize {
+      @each $name,$val in $useWarpSize {
         &\:#{$name} { @include l-wp($val); }
       }
     }
     @else {
-      @each $val in $warpSize {
+      @each $val in $useWarpSize {
         &\:#{$val}{ @include l-wp($val); }
       }
     }
@@ -73,15 +73,15 @@
 }
 
 // Width Mixin ----------------------------------------------------------------
-@mixin l-w($custom: map-get($warp , customName)) {
+@mixin l-w($custom: map-get($useWarp , customName)) {
   .l-w {
     @if $custom == true {
-      @each $name,$val in $warpSize {
+      @each $name,$val in $useWarpSize {
         &\:#{$name} { max-width: $val + px; }
       }
     }
     @else {
-      @each $val in $warpSize {
+      @each $val in $useWarpSize {
         &\:#{$val} { max-width: $val + px; }
       }
     }

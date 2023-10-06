@@ -7,7 +7,7 @@
     color: $dna;
   }
 
-  @each $name, $glyph in $icons {
+  @each $name, $glyph in $useIcons {
     [data-icon="#{$name}"]::before {
       content: content($glyph)
     }

@@ -32,20 +32,20 @@
         &_label, &_name
             font-size: rem(20)
             font-weight: 600
-            &--red
+            &-red, &\:red
                 &::after
                     content: '*'
                     color: cr(red)
                     font-weight: normal
                     margin-left: 10px
         
-        &--row
+        &-row, &\:row
             flex-direction: row
             
-        &--column
+        &-column, &\:column, &-col, &\:col
             flex-direction: column
 
-        &--file
+        &-file, &\:file
             position: relative
             input
                 position: relative
@@ -75,12 +75,12 @@
                     height: 45px
                     // background: url('images/common/icon-paperclip.svg')no-repeat center
                     background-size: 20px
-        &--file &
+        &-file &, &\:file &
             &_input
                 position: relative
                 background: #FAFAFA
 
-        &--verification &
+        &-verification &, &\:verification &
             &_input
                 +flex($jc: sb, $ai: center)
                 &-code
@@ -88,13 +88,13 @@
                 input
                     +flex-item(calc(100% - 125px), t)
             +mq-max(sm)
-                &__input
-                    &-code
+                &_input
+                    &Code
                         +flex-item(90px)
                     input
                         +flex-item(calc(100% - 100px))
                         
-        &--user, &--password
+        &-user, &-password, &\:user, &\:password
             position: relative
             label
                 position: absolute
@@ -117,9 +117,9 @@
                 background: #FAFAFA
                 padding-left: 50px
 
-        &--user label
+        &-user label, &\:user label
             // background-image: url(images/common/icon-user2.svg)
         
-        &--password label
+        &-password label, &\:password label
             // background-image: url(images/common/icon-password.svg)
     @content

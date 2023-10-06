@@ -10,7 +10,7 @@
 
     &\:clear { font-weight: normal; }
 
-    @each $switchName, $switchVal in $FontSwitch {
+    @each $switchName, $switchVal in $useFontSwitch {
       @if $switchVal == t {
         @if $switchName != base {
           @include mq-min($switchName) {

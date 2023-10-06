@@ -1,22 +1,22 @@
 //  Var Module Changes
 
-// Breakpoints <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// useBreakpoints <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Master Media (px)
-$xl4: map-get($breakpoints, xl4) !default;
-$xl3: map-get($breakpoints, xl3) !default;
-$xl2: map-get($breakpoints, xl2) !default;
-$xl: map-get($breakpoints, xl) !default;
-$lg: map-get($breakpoints, lg) !default;
-$md: map-get($breakpoints, md) !default;
-$sm: map-get($breakpoints, sm) !default;
-$xs: map-get($breakpoints, xs) !default;
-$xs2: map-get($breakpoints, xs2) !default;
-$xs3: map-get($breakpoints, xs3) !default;
+$xl4: map-get($useBreakpoints, xl4) !default;
+$xl3: map-get($useBreakpoints, xl3) !default;
+$xl2: map-get($useBreakpoints, xl2) !default;
+$xl: map-get($useBreakpoints, xl) !default;
+$lg: map-get($useBreakpoints, lg) !default;
+$md: map-get($useBreakpoints, md) !default;
+$sm: map-get($useBreakpoints, sm) !default;
+$xs: map-get($useBreakpoints, xs) !default;
+$xs2: map-get($useBreakpoints, xs2) !default;
+$xs3: map-get($useBreakpoints, xs3) !default;
 
-$rwd: map-get($breakpoints, changeMobile) !default; //轉換移動裝置
-$rwdPc: map-get($breakpoints, xl) !default; //電腦尺寸
-$rwdPcs: map-get($breakpoints, lg) !default; //小電腦尺寸
-$rwdPad: map-get($breakpoints, md) !default; //平板尺寸
-$rwdPads: map-get($breakpoints, sm) !default; //小平板尺寸
-$rwdPhone: map-get($breakpoints, xs2) !default; //手機尺寸
-$rwdPhones: map-get($breakpoints, xs3) !default; //小手機尺寸
+$rwd: map-get($useBreakpoints, changeMobile) !default; //轉換移動裝置
+$rwdPc: map-get($useBreakpoints, xl) !default; //電腦尺寸
+$rwdPcs: map-get($useBreakpoints, lg) !default; //小電腦尺寸
+$rwdPad: map-get($useBreakpoints, md) !default; //平板尺寸
+$rwdPads: map-get($useBreakpoints, sm) !default; //小平板尺寸
+$rwdPhone: map-get($useBreakpoints, xs2) !default; //手機尺寸
+$rwdPhones: map-get($useBreakpoints, xs3) !default; //小手機尺寸

@@ -9,24 +9,24 @@
 
 // $config <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Reset
-$CSS_ATTRIBUTES_RESET: normal, initial, transparent;
-$CSS_ATTRIBUTES_INHERIT: inherit;
+$useCssAttributesReset: normal, initial, transparent;
+$cssAttributesInherit: inherit;
 
 // $font <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-$font-reset: nth($CSS_ATTRIBUTES_RESET, 1) !default;
-$font-re: nth($CSS_ATTRIBUTES_RESET, 1) !default;
-$f-re: nth($CSS_ATTRIBUTES_RESET, 1) !default;
+$fontReset: nth($useCssAttributesReset, 1) !default;
+$fontRe: nth($useCssAttributesReset, 1) !default;
+$fRe: nth($useCssAttributesReset, 1) !default;
 
 // $initial <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-$css-reset: nth($CSS_ATTRIBUTES_RESET, 2) !default;
-$css-re: nth($CSS_ATTRIBUTES_RESET, 2) !default;
-$re: nth($CSS_ATTRIBUTES_RESET, 2) !default;
+$cssReset: nth($useCssAttributesReset, 2) !default;
+$cssRe: nth($useCssAttributesReset, 2) !default;
+$csRe: nth($useCssAttributesReset, 2) !default;
 
 // $inherit <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-$css-dna: $CSS_ATTRIBUTES_INHERIT !default;
-$dna: $CSS_ATTRIBUTES_INHERIT !default;
+$cssDna: $cssAttributesInherit !default;
+$dna: $cssAttributesInherit !default;
 
 // $color <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-$color-reset: nth($CSS_ATTRIBUTES_RESET, 3) !default;
-$color-re: nth($CSS_ATTRIBUTES_RESET, 3) !default;
-$cr-re: nth($CSS_ATTRIBUTES_RESET, 3) !default;
+$colorReset: nth($useCssAttributesReset, 3) !default;
+$colorRe: nth($useCssAttributesReset, 3) !default;
+$cRe: nth($useCssAttributesReset, 3) !default;

@@ -7,7 +7,7 @@
     @each $val in $TextAlign {
       &\:#{$val} { text-align: $val; }
     }
-    @each $switchName, $switchVal in $FontSwitch {
+    @each $switchName, $switchVal in $useFontSwitch {
       @if $switchVal == t {
         @if $switchName != base {
           @include mq-min($switchName) {

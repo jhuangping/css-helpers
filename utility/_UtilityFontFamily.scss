@@ -5,8 +5,8 @@
   .u-ff {
     &\:default, &\:clear, &\:main { font-family: $fontDefault; }
 
-    @each $ffName, $ffVal in $font {
-      &\:#{$ffName} { font-family: map-get($font, $ffName), $fontDefault; }
+    @each $ffName, $ffVal in $useFont {
+      &\:#{$ffName} { font-family: map-get($useFont, $ffName), $fontDefault; }
     }
   }
 }

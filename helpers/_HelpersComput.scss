@@ -5,7 +5,7 @@
 }
 
 // Font Size px to rem
-@function rem($val, $fz: map-get($webBase, bodyFontSize) ){
+@function rem($val, $fz: map-get($useWebBase, bodyFontSize) ){
 	$unit: $fz;
 	@if $fz == null { $unit: 16 }
 	@if $val == auto { @return auto; }
@@ -13,7 +13,7 @@
 }
 
 // Font Size px to em
-@function em($val,$fz: map-get($webBase, bodyFontSize) ){
+@function em($val,$fz: map-get($useWebBase, bodyFontSize) ){
 	$unit: $fz;
 	@if $fz == null { $unit: 16 }
 	@if $val == auto { @return auto; }
@@ -21,12 +21,12 @@
 }
 
 // Font line-height
-@function lh($lh: map-get($webBase, bodyLineHeight), $px: map-get($webBase, bodyFontSize)){
+@function lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)){
 	@return $lh / $px;
 }
 
 // Color map-get 
-@function cr($n,$c: $color){
+@function cr($n,$c: $useColor){
 	@return map-get($c, $n);
 }
 
@@ -52,10 +52,10 @@
 // font
 @function font($fontVal, $default: $fontDefault){
 	@if $default == base {
-		@return map-get($font, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
+		@return map-get($useFont, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
 	}
 	@else {
-		@return map-get($font, $fontVal), $default;
+		@return map-get($useFont, $fontVal), $default;
 	}
 }
 

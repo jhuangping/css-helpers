@@ -1,7 +1,7 @@
 @charset 'utf-8';
 
 @mixin l-default() {
-	$htmlSize: map-get($webBase, htmlFontSize);
+	$htmlSize: map-get($useWebBase, htmlFontSize);
 	html {
 		@if $htmlSize != null {
 			font-size: $htmlSize + px;
@@ -15,10 +15,10 @@
 	}
 	body {
 		font-family: $fontDefault;
-		font-size: rem(map-get($webBase, bodyFontSize));
+		font-size: rem(map-get($useWebBase, bodyFontSize));
 		line-height: lh();
 		letter-spacing: 1px;
-		color: map-get($webBase, bodyFontColor);
+		color: map-get($useWebBase, bodyFontColor);
 		overflow-x: hidden;
 		// opacity: 0;
 		// animation: m-opacity_in 1s both;

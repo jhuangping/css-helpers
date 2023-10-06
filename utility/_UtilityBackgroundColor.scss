@@ -3,8 +3,8 @@
 // background color
 @mixin u-bgc() {
   .u-bgc {
-    @each $name, $val in $color {
-      &\:#{$name} { background: map-get($color, $name); }
+    @each $name, $val in $useColor {
+      &\:#{$name} { background: map-get($useColor, $name); }
     }
   }
 }

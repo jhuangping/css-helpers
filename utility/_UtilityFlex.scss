@@ -67,7 +67,7 @@
       &s { @include align-self(); }
     }
 
-    @each $size, $switch in $flexSwitch {
+    @each $size, $switch in $useFlexSwitch {
       @if $switch == t {
         @include mq-min($size) {
           &-fx\@#{$size} {

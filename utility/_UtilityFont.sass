@@ -7,7 +7,7 @@
   // @return unquote("'#{ $fa-var }'") // 這個也可以
   @return unquote("\"#{ $fa-var }\"")
 
-$icons: (skull: \e18c,
+$useIcons: (skull: \e18c,
 warning: \e243,
 checkmark: \e258,
 instagram: \e32e,
@@ -21,6 +21,6 @@ stackoverflow: \e367)
 //   @extend %icon
 //   content: attr(data-icon)
 
-@each $name, $glyph in $icons
+@each $name, $glyph in $useIcons
   [data-icon="#{$name}"]::before 
     content: fa-content($glyph)

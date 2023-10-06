@@ -45,7 +45,7 @@
 // Banner Edit ----------------------------------------------------------------
 
 // Banner Mixin ---------------------------------------------------------------
-@mixin c-bn-mask($switch: $bnMask,$bnMaskStyle: style01){
+@mixin c-bn-mask($switch: $isBannerMask,$bnMaskStyle: style01){
     @if $switch{
         @if $bnMaskStyle == style01 {
             &::before,&::after {

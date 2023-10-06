@@ -9,33 +9,33 @@
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 // $breakpoint-down
-@mixin mq-max($media: map-get($breakpoints, changeMobile)){
+@mixin mq-max($media: map-get($useBreakpoints, changeMobile)){
 	@if $media == phones {
 		// Phones
-		@media all and (max-width: (map-get($breakpoints , smallPhone) + px)) { @content; }
+		@media all and (max-width: (map-get($useBreakpoints , smallPhone) + px)) { @content; }
 	}
 	@else if $media == phone {
 		// Phone
-		@media all and (max-width: (map-get($breakpoints , xs2) + px)) { @content; }
+		@media all and (max-width: (map-get($useBreakpoints , xs2) + px)) { @content; }
 	}
 	@else if $media == pads {
 		// Pads
-		@media all  and (max-width: (map-get($breakpoints , smallPad) + px)) { @content; }
+		@media all  and (max-width: (map-get($useBreakpoints , smallPad) + px)) { @content; }
 	}
 	@else if $media == pad {
 		// Pad
-		@media all and (max-width: (map-get($breakpoints , pad) + px)) { @content; }
+		@media all and (max-width: (map-get($useBreakpoints , pad) + px)) { @content; }
 	}
 	@else if $media == pcs {
 		// small PC
-		@media all and (max-width: (map-get($breakpoints , smallPc) + px)) { @content; }
+		@media all and (max-width: (map-get($useBreakpoints , smallPc) + px)) { @content; }
 	}
 	@else if $media == netbook {
 		// Netbook
-		@media all and (max-width: (map-get($breakpoints , pc) + px)) { @content; }
+		@media all and (max-width: (map-get($useBreakpoints , pc) + px)) { @content; }
 	}
 	@else if $media == pc {
-		@media all and (max-width: (map-get($breakpoints , pc) + px)) {@content; }
+		@media all and (max-width: (map-get($useBreakpoints , pc) + px)) {@content; }
 	}
 	@else if $media == sm {
 		// sm
@@ -61,33 +61,33 @@
 
 // Media Queries min-width
 // $breakpoint-up
-@mixin mq-min($media: map-get($breakpoints, changeMobile)) {
+@mixin mq-min($media: map-get($useBreakpoints, changeMobile)) {
 	@if $media == phones {
 		// Phones
-		@media all and (min-width: (map-get($breakpoints , smallPhone) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , smallPhone) + 1 + px)) { @content; }
 	}
 	@else if $media == phone {
 		// Phone
-		@media all and (min-width: (map-get($breakpoints , xs2) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , xs2) + 1 + px)) { @content; }
 	}
 	@else if $media == pads {
 		// Pads
-		@media all and (min-width: (map-get($breakpoints , smallPad) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , smallPad) + 1 + px)) { @content; }
 	}
 	@else if $media == pad {
 		// Pad
-		@media all and (min-width: (map-get($breakpoints , pad) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , pad) + 1 + px)) { @content; }
 	}
 	@else if $media == pcs {
 		// small PC
-		@media all and (min-width: (map-get($breakpoints , smallPc) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , smallPc) + 1 + px)) { @content; }
 	}
 	@else if $media == netbook {
 		// Netbook
-		@media all and (min-width: (map-get($breakpoints , pc) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , pc) + 1 + px)) { @content; }
 	}
 	@else if $media == pc {
-		@media all and (min-width: (map-get($breakpoints , pc) + 1 + px)) { @content; }
+		@media all and (min-width: (map-get($useBreakpoints , pc) + 1 + px)) { @content; }
 	}
 	@else if $media == sm {
 		// sm
@@ -113,24 +113,24 @@
 
 // 自訂 range-width
 // $breakpoint-range
-@mixin mq-range($max: 1920, $min: map-get($breakpoints, changeMobile)) {
+@mixin mq-range($max: 1920, $min: map-get($useBreakpoints, changeMobile)) {
 	@media all and (min-width: ($min + 1 + px)) and (max-width: ($max + px)) { @content; }
 }
 
 // 自訂 Max-height
 // $breakpoint-height-down
-@mixin mq-max-h($size: map-get($breakpoints, changeMobile)) {
+@mixin mq-max-h($size: map-get($useBreakpoints, changeMobile)) {
 	@media all and (max-height: ($size + px)) { @content; }
 }
 
 // 自訂 min-height
 // $breakpoint-height-up
-@mixin mq-min-h($size: map-get($breakpoints, changeMobile)) {
+@mixin mq-min-h($size: map-get($useBreakpoints, changeMobile)) {
 	@media all and (min-height: ($size + 1 + px)) { @content; }
 }
 
 // 自訂 range-height
 // $breakpoint-height-range
-@mixin mq-range-h($max: 1080, $min: map-get($breakpoints, changeMobile)){
+@mixin mq-range-h($max: 1080, $min: map-get($useBreakpoints, changeMobile)){
 	@media screen and (min-height: ($min + 1 + px)) and (max-height: ($max + px)) { @content; }
 }

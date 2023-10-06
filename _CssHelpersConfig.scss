@@ -23,7 +23,7 @@
 // xs2 : Blackberry Passport / Amazon Kindle Fire HD 7 …
 // xs3 : iPhone 6, 7, 8, X, 11, 12 / Galaxy S8 / HTC One…
 
-$breakpoints: (
+$useBreakpoints: (
   changeMobile: 1280,
   xl4: 2560,
   xl3: 1920,
@@ -39,7 +39,7 @@ $breakpoints: (
 
 // Default (c-default)
 // 預設字級 16px
-$webBase: (
+$useWebBase: (
   htmlFontSize: 10,
   bodyFontSize: 16,
   bodyLineHeight: 24,
@@ -47,7 +47,7 @@ $webBase: (
 ) !default;
 
 // z-index
-$zIndex: (
+$useZIndex: (
   header: 99,
   gotop: 1,
 ) !default;
@@ -56,7 +56,7 @@ $zIndex: (
 // Fonts Style
 // $fontDefault  預設 ( Arial, 'Microsoft JhengHei', sans-serif )
 $fontDefault: Arial, 'Microsoft JhengHei', sans-serif !default;
-$font: (dfk:'DFKai-sb') !default;
+$useFont: (dfk:'DFKai-sb') !default;
 
 // Typography Default
 // Typography (c-typography)
@@ -71,7 +71,7 @@ $icon: 'icomoon' !default;
 
 // Icon Setting
 $iconGlyph: $icon !default;
-$icons: (
+$useIcons: (
   add: \e900,
   arrow-left: \e901,
   arrow-right: \e902,
@@ -92,25 +92,25 @@ $icons: (
 
 // Module Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Wrap (l-wp)
-$warp: (
+$useWarp: (
   range: 1024,
   both: 15,
   customName: false
 ) !default;
-$warpSize: 1680, 1440, 1366, 1140, 1024, 960, 720, 540 !default;
+$useWarpSize: 1680, 1440, 1366, 1140, 1024, 960, 720, 540 !default;
 
 // Grid (l-gd)
-$gridCount: 2, 3, 4 !default;
+$useGridCount: 2, 3, 4 !default;
 
 // Banner (c-bn)
 $bnWidth: 1920 !default;
 $bnHeight: 300 !default;
-$bnMask: false !default; // true, false
+$isBannerMask: false !default; // true, false
 $bnMaskStyle: style01 !default;
 
 // Color
-$color: ( 
-  'base': map-get($webBase, bodyFontColor),
+$useColor: ( 
+  'base': map-get($useWebBase, bodyFontColor),
   'hover': #007bff,
   'black': #000,
   'blue': #007bff,
@@ -138,7 +138,7 @@ $color: (
 
 // Utillity Module <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Font (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
-$FontSwitch: (
+$useFontSwitch: (
   base: f, 
   sm: t, 
   md: t, 
@@ -147,10 +147,10 @@ $FontSwitch: (
 ) !default;
 
 // Font Size (u-fs)
-$fontSizeSettings: 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60 !default;
+$useFontSizeSettings: 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60 !default;
 
 // Letter Spacing (u-ls) [plus +, negative -, dot .]
-$letterSpacingSettings: (
+$useLetterSpacingSettings: (
   '-1\\.5': -1.5, 
   '-1': -1, 
   '1': 1,
@@ -159,13 +159,13 @@ $letterSpacingSettings: (
 ) !default;
 
 // Line Height (u-lh) [plus +, negative -, dot .]
-$lineHeightSettings: (
+$useLineHeightSettings: (
   0: 0, 
   1: lh(16, 16)
 ) !default;
 
 // Display (u-display)
-$displaySwitch: (
+$useDisplaySwitch: (
   sm: t, 
   md: t, 
   lg: t, 
@@ -173,7 +173,7 @@ $displaySwitch: (
 ) !default;
 
 // Flex Layout (u-fl, u-jc, u-ai, u-ac, u-as)
-$flexSwitch: (
+$useFlexSwitch: (
   sm: t, 
   md: t, 
   lg: t, 
@@ -183,7 +183,7 @@ $flexSwitch: (
 // Margin (u-m)
 $marginUnit: vw !default;
 
-$marginSwitch: (
+$useMarginSwitch: (
   sm: t, 
   md: t, 
   lg: t, 
@@ -191,10 +191,10 @@ $marginSwitch: (
 ) !default;
 
 $marginDetail: f !default; // [ false ]
-$marginSize: 50, 40, 30, 20, 10, auto, clear !default;
+$useMarginSize: 50, 40, 30, 20, 10, auto, clear !default;
 
 // $marginDetail: t !default  // [ true ]
-// $marginSize: (all: (50, 40, 30, 20, 10),
+// $useMarginSize: (all: (50, 40, 30, 20, 10),
 // t: (50, 40, 30, 20, 10),
 // b: (50, 40, 30, 20, 10),
 // l: (50, 40, 30, 20, 10),
@@ -206,7 +206,7 @@ $marginSize: 50, 40, 30, 20, 10, auto, clear !default;
 // Padding (u-p)
 $paddingUnit: vw !default;
 
-$paddingSwitch: (
+$usePaddingSwitch: (
   sm: t, 
   md: t, 
   lg: t, 
@@ -214,10 +214,10 @@ $paddingSwitch: (
 ) !default;
 
 $paddingDetail: f !default;
-$paddingSize: 50, 40, 30, 20, 10, auto, clear !default;
+$usePaddingSize: 50, 40, 30, 20, 10, auto, clear !default;
 
 // $paddingDetail: t // !default [ true ]
-// $paddingSize: (all: (50, 40, 30, 20, 10),
+// $usePaddingSize: (all: (50, 40, 30, 20, 10),
 // t: (50, 40, 30, 20, 10),
 // b: (50, 40, 30, 20, 10),
 // l: (50, 40, 30, 20, 10),

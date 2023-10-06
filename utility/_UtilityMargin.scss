@@ -3,80 +3,80 @@
 @mixin u-margin() {
   .u-m {
     @if $marginDetail == t {
-      @each $val in map-get($marginSize, l) {
+      @each $val in map-get($useMarginSize, l) {
         &l\:#{$val} {
           margin-left: unit($val, $marginUnit);
         }
       }
-      @each $val in map-get($marginSize, r) {
+      @each $val in map-get($useMarginSize, r) {
         &r\:#{$val} {
           margin-right: unit($val, $marginUnit);
         }
       }
-      @each $val in map-get($marginSize, t) {
+      @each $val in map-get($useMarginSize, t) {
         &t\:#{$val} {
           margin-top: unit($val, $marginUnit);
         }
       }
-      @each $val in map-get($marginSize, b) {
+      @each $val in map-get($useMarginSize, b) {
         &b\:#{$val} {
           margin-bottom: unit($val, $marginUnit);
         }
       }
-      @each $val in map-get($marginSize, x) {
+      @each $val in map-get($useMarginSize, x) {
         &x\:#{$val} {
           margin-left: unit($val, $marginUnit);
           margin-right: unit($val, $marginUnit);
         }
       }
-      @each $val in map-get($marginSize, y) {
+      @each $val in map-get($useMarginSize, y) {
         &y\:#{$val} {
           margin-top: unit($val, $marginUnit);
           margin-bottom: unit($val, $marginUnit);
         }
       }
-      @each $val in map-get($marginSize, all) {
+      @each $val in map-get($useMarginSize, all) {
         &\:#{$val}{
           margin: unit($val, $marginUnit);
         }
       }
             
-      @each $size, $val in $marginSwitch {
+      @each $size, $val in $useMarginSwitch {
         @if $val == t {
           @include mq-min($size) {
-            @each $val in map-get($marginSize, l) {
+            @each $val in map-get($useMarginSize, l) {
               &l\@#{$size}\:#{$val} {
                 margin-left: unit($val, $marginUnit);
               }
             }
-            @each $val in map-get($marginSize, r) {
+            @each $val in map-get($useMarginSize, r) {
               &r\@#{$size}\:#{$val} {
                 margin-right: unit($val, $marginUnit);
               }
             }
-            @each $val in map-get($marginSize, t) {
+            @each $val in map-get($useMarginSize, t) {
               &t\@#{$size}\:#{$val} {
                 margin-top: unit($val, $marginUnit);
               }
             }
-            @each $val in map-get($marginSize, b) {
+            @each $val in map-get($useMarginSize, b) {
               &b\@#{$size}\:#{$val} {
                 margin-bottom: unit($val, $marginUnit);
               }
             }
-            @each $val in map-get($marginSize, x) {
+            @each $val in map-get($useMarginSize, x) {
               &x\@#{$size}\:#{$val} {
                 margin-left: unit($val, $marginUnit);
                 margin-right: unit($val, $marginUnit);
               }
             }
-            @each $val in map-get($marginSize, y) {
+            @each $val in map-get($useMarginSize, y) {
               &y\@#{$size}\:#{$val} {
                 margin-top: unit($val, $marginUnit);
                 margin-bottom: unit($val, $marginUnit);
               }
             }
-            @each $val in map-get($marginSize, all) {
+            @each $val in map-get($useMarginSize, all) {
               &\@#{$size}\:#{$val} {
                 margin: unit($val, $marginUnit);
               }
@@ -86,7 +86,7 @@
       }
     }
     @else {
-      @each $val in $marginSize {
+      @each $val in $useMarginSize {
         &l\:#{$val} { margin-left: unit($val, $marginUnit); }
         &r\:#{$val} { margin-right: unit($val, $marginUnit); }
         &t\:#{$val} { margin-top: unit($val, $marginUnit); }
@@ -102,10 +102,10 @@
         &\:#{$val} { margin: unit($val, $marginUnit); }
       }
 
-      @each $size, $val in $marginSwitch {
+      @each $size, $val in $useMarginSwitch {
         @if $val == t {
           @include mq-min($size){
-            @each $val in $marginSize {
+            @each $val in $useMarginSize {
               &l\@#{$size}\:#{$val} { margin-left: unit($val, $marginUnit); }
               &r\@#{$size}\:#{$val} { margin-right: unit($val, $marginUnit); }
               &t\@#{$size}\:#{$val} { margin-top: unit($val, $marginUnit); }

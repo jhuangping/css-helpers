@@ -70,7 +70,7 @@
 
 // z-index
 @mixin z-index($val: auto) {
-  z-index: map-get($zIndex, $val);
+  z-index: map-get($useZIndex, $val);
 }
 @mixin z($val) {
   @include z-index($val)
@@ -209,10 +209,10 @@
 
 // $line-height <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // line height
-@mixin line-height($lh: map-get($webBase, bodyLineHeight), $px: map-get($webBase, bodyFontSize)) {
+@mixin line-height($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
   line-height: $lh / $px;
 }
-@mixin lh($lh: map-get($webBase, bodyLineHeight), $px: map-get($webBase, bodyFontSize)) {
+@mixin lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
   @include line-height($lh, $px);
 }
 
@@ -378,10 +378,10 @@
 // font family
 @mixin font-family($fontVal, $default: $fontDefault){
   @if $default == base {
-    font-family: map-get($font, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
+    font-family: map-get($useFont, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
 	}
 	@else {
-		font-family: map-get($font, $fontVal), $default;
+		font-family: map-get($useFont, $fontVal), $default;
 	}
 }
 @mixin ff($fontVal, $default: $fontDefault){

@@ -25,22 +25,37 @@
 
 // SASS Mixin
 @mixin c-btn-fillet($radius: 5, $name: null){
-    [class*="c-btn-fillet#{$name}"] {
+    [class*="c-btn-fillet#{$name}"], [class*="c-btn:fillet#{$name}"] {
         border-radius: $radius + px;
         @content;
     }
 }
 
-@mixin c-btn-circle() {
-    .c-btn--circle, [class*="c-btn--circle"]{
-        border-radius: 100%;
-        @content;
+@mixin c-btn-circle($name: null) {
+    @if $name == null {
+        .c-btn-circle {
+            border-radius: 100%;
+            @content;
+        }
+    } @else {
+        [class*="c-btn-circle#{$name}"], [class*="c-btn:circle#{$name}"]{
+            border-radius: 100%;
+            @content;
+        }
     }
 }
 
-@mixin c-btn-semicircle() {
-    .c-btn--semicircle, [class*="c-btn--semicircle"]{
-        border-radius: 50px;
-        @content;
+@mixin c-btn-semicircle($name: null) {
+    @if $name == null {
+        .c-btn-semicircle{
+            border-radius: 50px;
+            @content;
+        }
+    } @else {
+        [class*="c-btn-semicircle#{$name}"], [class*="c-btn:semicircle#{$name}"]{
+            border-radius: 100%;
+            @content;
+        }
     }
+    
 }

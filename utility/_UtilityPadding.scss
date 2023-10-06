@@ -3,62 +3,62 @@
 @mixin u-padding() {
   .u-p {
     @if $paddingDetail == t {
-      @each $val in map-get($paddingSize, l) {
+      @each $val in map-get($usePaddingSize, l) {
         &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($paddingSize, r) {
+      @each $val in map-get($usePaddingSize, r) {
         &r\:#{$val} { padding-right: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($paddingSize, t) {
+      @each $val in map-get($usePaddingSize, t) {
         &t\:#{$val} { padding-top: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($paddingSize, b) {
+      @each $val in map-get($usePaddingSize, b) {
         &b\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($paddingSize, x) {
+      @each $val in map-get($usePaddingSize, x) {
         &x\:#{$val} {
           padding-left: unit($val, $paddingUnit);
           padding-right: unit($val, $paddingUnit);
         }
       }
-      @each $val in map-get($paddingSize, y) {
+      @each $val in map-get($usePaddingSize, y) {
         &y\:#{$val} {
           padding-top: unit($val, $paddingUnit);
           padding-bottom: unit($val, $paddingUnit);
         }
       }
-      @each $val in map-get($paddingSize, all) {
+      @each $val in map-get($usePaddingSize, all) {
         &\:#{$val} { padding: unit($val, $paddingUnit); }
       }
             
-      @each $size, $val in $paddingSwitch {
+      @each $size, $val in $usePaddingSwitch {
         @if $val == t {
           @include mq-min($size) {
-            @each $val in map-get($paddingSize, l) {
+            @each $val in map-get($usePaddingSize, l) {
               &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($paddingSize, r) {
+            @each $val in map-get($usePaddingSize, r) {
               &r\@#{$size}\:#{$val} { padding-right: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($paddingSize, t) {
+            @each $val in map-get($usePaddingSize, t) {
               &t\@#{$size}\:#{$val} { padding-top: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($paddingSize, b) {
+            @each $val in map-get($usePaddingSize, b) {
               &b\@#{$size}\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($paddingSize, x) {
+            @each $val in map-get($usePaddingSize, x) {
               &x\@#{$size}\:#{$val} {
                 padding-left: unit($val, $paddingUnit);
                 padding-right: unit($val, $paddingUnit);
               }
             }
-            @each $val in map-get($paddingSize, y) {
+            @each $val in map-get($usePaddingSize, y) {
               &y\@#{$size}\:#{$val} {
                 padding-top: unit($val, $paddingUnit);
                 padding-bottom: unit($val, $paddingUnit);
               }
             }
-            @each $val in map-get($paddingSize, all) {
+            @each $val in map-get($usePaddingSize, all) {
               &\@#{$size}\:#{$val} { padding: unit($val, $paddingUnit); }
             }
           }
@@ -66,7 +66,7 @@
       }
     }
     @else {
-      @each $val in $paddingSize {
+      @each $val in $usePaddingSize {
         &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
         &r\:#{$val} { padding-right: unit($val, $paddingUnit); }
         &t\:#{$val} { padding-top: unit($val, $paddingUnit); }
@@ -82,10 +82,10 @@
         &\:#{$val} { padding: unit($val, $paddingUnit); }
       }
 
-      @each $size, $val in $paddingSwitch {
+      @each $size, $val in $usePaddingSwitch {
         @if $val == t {
           @include mq-min($size) {
-            @each $val in $paddingSize {
+            @each $val in $usePaddingSize {
               &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
               &r\@#{$size}\:#{$val} { padding-right: unit($val, $paddingUnit); }
               &t\@#{$size}\:#{$val} { padding-top: unit($val, $paddingUnit); }

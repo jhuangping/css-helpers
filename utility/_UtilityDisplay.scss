@@ -36,7 +36,7 @@
   .u {
     &-d {
       @include display-attributes();
-      @each $size, $switch in $displaySwitch {
+      @each $size, $switch in $useDisplaySwitch {
         @if $switch == t {
           @include mq-min($size) {
             &\@#{$size} { @include display-attributes(); }
@@ -56,7 +56,7 @@
     @include mq-min() {
       &\:mobile{ display: none !important; }
     }
-    @each $size, $switch in $displaySwitch {
+    @each $size, $switch in $useDisplaySwitch {
       @if $switch == t {
         @include mq-max($size) {
           &\@#{$size}\:pc { display: none !important; }
