@@ -1,15 +1,12 @@
-{%hackmd @themes/orangeheart %}
----
-
 # css-helpers
 
 ## 初使設定
 
-1. 建立一個 `config.scss` 檔
+1. 建立一個 `config.scss` 檔，來管控 Module 預設值
 
-2. 引入 `CssHelpersConfig.scss` : `@import '{ 路徑 }/css-helpers/CssHelpersConfig'`
+2. 引入 `CssHelpersConfig.scss` : `@import '{ 路徑 }/css-helpers/CssHelpersConfig.scss'`
 
-3. 設定 css-helpers 的值
+3. 設定 css-helpers `config.scss` 的值
    
    ```
    // Module Default ///////////////////////////////
@@ -165,6 +162,72 @@
      header: 99,
      gotop: 1,
    );
+   ```
+
+4. 再建立 `style.scss` 檔，管控使用的 Module
+
+5. 引入剛剛設定好的`config.scss`  以及  `CssHelpers.scss` : `@import '{ 路徑 }/css-helpers/CssHelpers.scss'`
+   
+   ```
+   // Module Config ////////////////////////////////
+   @import 'config.scss' // 剛剛的config
+   
+   @import '{ path }/css-helpers/CssHelpers'
+   ```
+
+6. 設定 css-helpers `style.scss` 的值
+   SCSS
+   SASS
+   
+   ```
+   // Plugin Style /////////////////////////////////
+   // ... Edit Plugin Style
+   
+   // Module Components ////////////////////////////
+   +c-banner()
+   +c-button()
+   +c-card()
+   +c-input()
+   +c-textarea()
+   +c-form()
+   +c-lightbox()
+   +c-table() <- 不實用，可刪
+   
+   // Module Layout ////////////////////////////////
+   +l-reset()
+   
+   +l-base()
+   +l-typography()
+   +l-main()
+   +l-wrap()
+   +l-w()
+   +l-grid()
+   +bootstrap-grid() <- 仿 bootstrap grid v3，可刪
+   
+   .l-edit
+       +l-edit()
+       
+   // Page Style ///////////////////////////////////
+   // ... Edit Page Style
+   
+   // Module Utility ///////////////////////////////
+   +u-image()
+   +u-javascript() <- 可刪
+   +u-style()
+   +u-scroll()
+   +u-ff()
+   +u-fs()
+   +u-ta()
+   +u-fc()
+   +u-fw()
+   +u-bgc()
+   +u-ls()
+   +u-lh()
+   +u-display()
+   +u-flex()
+   +u-margin()
+   +u-padding()
+   +u-other()
    ```
 
 ## 結構
