@@ -1,6 +1,3 @@
-{%hackmd @themes/orangeheart %}
----
-
 # css-helpers
 
 ## 初使設定
