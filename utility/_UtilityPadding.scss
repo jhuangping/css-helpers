@@ -3,62 +3,62 @@
 @mixin u-padding() {
   .u-p {
     @if $paddingDetail == t {
-      @each $val in map-get($usePaddingSize, l) {
+      @each $val in map-get($usePaddingValue, l) {
         &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($usePaddingSize, r) {
+      @each $val in map-get($usePaddingValue, r) {
         &r\:#{$val} { padding-right: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($usePaddingSize, t) {
+      @each $val in map-get($usePaddingValue, t) {
         &t\:#{$val} { padding-top: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($usePaddingSize, b) {
+      @each $val in map-get($usePaddingValue, b) {
         &b\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
       }
-      @each $val in map-get($usePaddingSize, x) {
+      @each $val in map-get($usePaddingValue, x) {
         &x\:#{$val} {
           padding-left: unit($val, $paddingUnit);
           padding-right: unit($val, $paddingUnit);
         }
       }
-      @each $val in map-get($usePaddingSize, y) {
+      @each $val in map-get($usePaddingValue, y) {
         &y\:#{$val} {
           padding-top: unit($val, $paddingUnit);
           padding-bottom: unit($val, $paddingUnit);
         }
       }
-      @each $val in map-get($usePaddingSize, all) {
+      @each $val in map-get($usePaddingValue, all) {
         &\:#{$val} { padding: unit($val, $paddingUnit); }
       }
             
-      @each $size, $val in $usePaddingSwitch {
+      @each $size, $val in $usePaddingBreakpoints {
         @if $val == true {
           @include mq-min($size) {
-            @each $val in map-get($usePaddingSize, l) {
+            @each $val in map-get($usePaddingValue, l) {
               &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($usePaddingSize, r) {
+            @each $val in map-get($usePaddingValue, r) {
               &r\@#{$size}\:#{$val} { padding-right: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($usePaddingSize, t) {
+            @each $val in map-get($usePaddingValue, t) {
               &t\@#{$size}\:#{$val} { padding-top: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($usePaddingSize, b) {
+            @each $val in map-get($usePaddingValue, b) {
               &b\@#{$size}\:#{$val} { padding-bottom: unit($val, $paddingUnit); }
             }
-            @each $val in map-get($usePaddingSize, x) {
+            @each $val in map-get($usePaddingValue, x) {
               &x\@#{$size}\:#{$val} {
                 padding-left: unit($val, $paddingUnit);
                 padding-right: unit($val, $paddingUnit);
               }
             }
-            @each $val in map-get($usePaddingSize, y) {
+            @each $val in map-get($usePaddingValue, y) {
               &y\@#{$size}\:#{$val} {
                 padding-top: unit($val, $paddingUnit);
                 padding-bottom: unit($val, $paddingUnit);
               }
             }
-            @each $val in map-get($usePaddingSize, all) {
+            @each $val in map-get($usePaddingValue, all) {
               &\@#{$size}\:#{$val} { padding: unit($val, $paddingUnit); }
             }
           }
@@ -66,7 +66,7 @@
       }
     }
     @else {
-      @each $val in $usePaddingSize {
+      @each $val in $usePaddingValue {
         &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
         &r\:#{$val} { padding-right: unit($val, $paddingUnit); }
         &t\:#{$val} { padding-top: unit($val, $paddingUnit); }
@@ -82,10 +82,10 @@
         &\:#{$val} { padding: unit($val, $paddingUnit); }
       }
 
-      @each $size, $val in $usePaddingSwitch {
+      @each $size, $val in $usePaddingBreakpoints {
         @if $val == true {
           @include mq-min($size) {
-            @each $val in $usePaddingSize {
+            @each $val in $usePaddingValue {
               &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
               &r\@#{$size}\:#{$val} { padding-right: unit($val, $paddingUnit); }
               &t\@#{$size}\:#{$val} { padding-top: unit($val, $paddingUnit); }

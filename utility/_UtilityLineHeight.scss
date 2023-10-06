@@ -3,14 +3,14 @@
 // line-height
 @mixin u-lh() {
   .u-lh {
-    @each $name, $var in $useLineHeightSettings {
+    @each $name, $var in $useLineHeightValue {
       &\:#{$name} { line-height: $var; } 
     }
-    @each $switchName, $switchVal in $useFontSwitch {
+    @each $switchName, $switchVal in $useFontBreakpoints {
       @if $switchVal == true {
         @if $switchName != base {
           @include mq-min($switchName){
-            @each $name, $var in $useLineHeightSettings {
+            @each $name, $var in $useLineHeightValue {
               &\@#{$switchName}\:#{$name} { line-height: $var; }
             }
           }

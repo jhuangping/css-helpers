@@ -2,7 +2,7 @@
 @import 'variable/_VarCss';
 @import 'variable/_VarOther';
 
-// Module Default <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Module Default ///////////////////////////////
 // Media 
 //-----------------------------------------------
 // PC: 1920x1080, 1680x1050, 1600x900, 1440x900, 1366x800, 1366x768, 1024x768
@@ -10,7 +10,7 @@
 // Phone: [iPhone 6/7/8 Plus, 414x736] [iPhone 6/7/8, 375x667] [iPhone 5/SE, 320x568]
 //-----------------------------------------------
 
-// Breakpoints
+//- Breakpoints
 //-----------------------------------------------
 // xl4 : Dell UltraSharp U2711 / Apple iMac 27-inch …
 // xl3 : Dell UltraSharp U2412M / Dell S2340M / Apple iMac 21.5-inch …
@@ -37,7 +37,7 @@ $useBreakpoints: (
   xs3: 360,
 ) !default;
 
-// Default (c-default)
+//- Default (c-default)
 // 預設字級 16px
 $useWebBase: (
   htmlFontSize: 10,
@@ -46,14 +46,7 @@ $useWebBase: (
   bodyFontColor: #333
 ) !default;
 
-// z-index
-$useZIndex: (
-  header: 99,
-  gotop: 1,
-) !default;
-
-// Typography <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// Fonts Style
+//- Typography Fonts
 // $fontDefault  預設 ( Arial, 'Microsoft JhengHei', sans-serif )
 $fontDefault: Arial, 'Microsoft JhengHei', sans-serif !default;
 $useFont: (dfk:'DFKai-sb') !default;
@@ -90,24 +83,6 @@ $useIcons: (
   search: \e90f
 ) !default;
 
-// Module Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// Wrap (l-wp)
-$useWarp: (
-  range: 1024,
-  both: 15,
-  customName: false
-) !default;
-$useWarpSize: 1680, 1440, 1366, 1140, 1024, 960, 720, 540 !default;
-
-// Grid (l-gd)
-$useGridCount: 2, 3, 4 !default;
-
-// Banner (c-bn)
-$bnWidth: 1920 !default;
-$bnHeight: 300 !default;
-$isBannerMask: false !default; // true, false
-$bnMaskStyle: style01 !default;
-
 // Color
 $useColor: ( 
   'base': map-get($useWebBase, bodyFontColor),
@@ -136,9 +111,28 @@ $useColor: (
   'dark': #343a40
 ) !default;
 
+// Layout Module <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Wrap (l-wp)
+$useWarp: (
+  range: 1024,
+  both: 15,
+  customName: false
+) !default;
+$useWarpSize: 1680, 1440, 1366, 1140, 1024, 960, 720, 540 !default;
+
+// Grid (l-gd)
+$useGridCount: 2, 3, 4 !default;
+
+// Components Module ////////////////////////////
+// Banner (c-bn)
+$bnWidth: 1920 !default;
+$bnHeight: 300 !default;
+$isBannerMask: false !default; // true, false
+$bnMaskStyle: style01 !default;
+
 // Utillity Module <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// Font (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
-$useFontSwitch: (
+// Fonts (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
+$useFontBreakpoints: (
   base: false, 
   sm: true, 
   md: true, 
@@ -147,10 +141,10 @@ $useFontSwitch: (
 ) !default;
 
 // Font Size (u-fs)
-$useFontSizeSettings: 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60 !default;
+$useFontSizeValue: 12, 14, 16, 18, 20, 25, 30, 35, 40, 45, 50, 55, 60 !default;
 
 // Letter Spacing (u-ls) [plus +, negative -, dot .]
-$useLetterSpacingSettings: (
+$useLetterSpacingValue: (
   '-1\\.5': -1.5, 
   '-1': -1, 
   '1': 1,
@@ -159,13 +153,13 @@ $useLetterSpacingSettings: (
 ) !default;
 
 // Line Height (u-lh) [plus +, negative -, dot .]
-$useLineHeightSettings: (
+$useLineHeightValue: (
   0: 0, 
   1: lh(16, 16)
 ) !default;
 
 // Display (u-display)
-$useDisplaySwitch: (
+$useDisplayBreakpoints: (
   sm: true, 
   md: true, 
   lg: true, 
@@ -173,7 +167,7 @@ $useDisplaySwitch: (
 ) !default;
 
 // Flex Layout (u-fl, u-jc, u-ai, u-ac, u-as)
-$useFlexSwitch: (
+$useFlexBreakpoints: (
   sm: true, 
   md: true, 
   lg: true, 
@@ -183,7 +177,7 @@ $useFlexSwitch: (
 // Margin (u-m)
 $marginUnit: vw !default;
 
-$useMarginSwitch: (
+$useMarginBreakpoints: (
   sm: true, 
   md: true, 
   lg: true, 
@@ -191,10 +185,10 @@ $useMarginSwitch: (
 ) !default;
 
 $marginDetail: false !default; // [ false ]
-$useMarginSize: 50, 40, 30, 20, 10, auto, clear !default;
+$useMarginValue: 50, 40, 30, 20, 10, auto, clear !default;
 
 // $marginDetail: true !default  // [ true ]
-// $useMarginSize: (all: (50, 40, 30, 20, 10),
+// $useMarginValue: (all: (50, 40, 30, 20, 10),
 // t: (50, 40, 30, 20, 10),
 // b: (50, 40, 30, 20, 10),
 // l: (50, 40, 30, 20, 10),
@@ -206,7 +200,7 @@ $useMarginSize: 50, 40, 30, 20, 10, auto, clear !default;
 // Padding (u-p)
 $paddingUnit: vw !default;
 
-$usePaddingSwitch: (
+$usePaddingBreakpoints: (
   sm: true, 
   md: true, 
   lg: true, 
@@ -214,13 +208,20 @@ $usePaddingSwitch: (
 ) !default;
 
 $paddingDetail: false !default;
-$usePaddingSize: 50, 40, 30, 20, 10, auto, clear !default;
+$usePaddingValue: 50, 40, 30, 20, 10, auto, clear !default;
 
 // $paddingDetail: true // !default [ true ]
-// $usePaddingSize: (all: (50, 40, 30, 20, 10),
+// $usePaddingValue: (all: (50, 40, 30, 20, 10),
 // t: (50, 40, 30, 20, 10),
 // b: (50, 40, 30, 20, 10),
 // l: (50, 40, 30, 20, 10),
 // r: (50, 40, 30, 20, 10),
 // x: (50, 40, 30, 20, 10),
 // y: (50, 40, 30, 20, 10)) !default
+
+// CSS Style ////////////////////////////////////
+// z-index
+$useZIndex: (
+  header: 99,
+  gotop: 1,
+) !default;
