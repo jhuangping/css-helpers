@@ -76,20 +76,20 @@
                     // background: url('images/common/icon-paperclip.svg')no-repeat center
                     background-size: 20px
         &-file &, &\:file &
-            &_input
+            &__input
                 position: relative
                 background: #FAFAFA
 
         &-verification &, &\:verification &
-            &_input
+            &__input
                 +flex($jc: sb, $ai: center)
                 &-code
                     +flex-item(115px, t)
                 input
                     +flex-item(calc(100% - 125px), t)
             +mq-max(sm)
-                &_input
-                    &Code
+                &__input
+                    &-code
                         +flex-item(90px)
                     input
                         +flex-item(calc(100% - 100px))

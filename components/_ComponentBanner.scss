@@ -7,7 +7,7 @@
         overflow: hidden;
         position: relative;
 
-        &_ctr {
+        &__ctr {
             // background: #ccc;
             max-width: 100%;
             position: relative;
@@ -16,7 +16,7 @@
             @include c-bn-mask()
         }
 
-        &_info {
+        &__info {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -27,7 +27,7 @@
             z-index: 3;
         }
 
-        &_pic,&_img,&_bg {
+        &__pic, &__img, &__bg {
             width: 100%;
             min-height: 150px;
             img {
@@ -59,11 +59,11 @@
             }
             &::before {
                 top: 0px;
-                @include bg-lg(rgba(#000,.15), $cr-re, top);
+                @include bg-lg(rgba(#000,.15), $cRe, top);
             }
             &::after {
                 bottom: 0px;
-                @include bg-lg(rgba(#000,.15), $cr-re, bottom);
+                @include bg-lg(rgba(#000,.15), $cRe, bottom);
             }
         }
 

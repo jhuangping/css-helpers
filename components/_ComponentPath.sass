@@ -2,7 +2,7 @@
 
 @mixin c-path()
     .c-path
-        &_list
+        &__list
             +el-reset(li)
             +flex($fw: wrap)
             font-size: rem(14)
@@ -12,7 +12,7 @@
 
             &::before
                 // 
-        &_item, li
+        &__item, li
             display: inline-block 
             &::after
                 content: '>'
@@ -24,7 +24,7 @@
             &:first-child:after
                 display: inline-block
 
-        &_link, a 
+        &__link, a 
             color: cr(innerText)
         // +mq-min()
         //         &:hover

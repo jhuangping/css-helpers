@@ -6,14 +6,14 @@
             position: relative;
         }
         
-        &_lbx, &_float {
+        &__lbx, &__float {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
 
-        &_mask, &_mk{
+        &__mask, &__mk{
             position: absolute;
             top: 0px;
             left: 0px;

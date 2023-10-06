@@ -14,8 +14,8 @@
         pointer-events: none
         +trs()
 
-        &_toolbar
-            &Close
+        &__toolbar
+            &-close
                 position: absolute
                 top: 0
                 right: 0
@@ -59,23 +59,23 @@
                         width: 2px
                         height: 0px
 
-        &_mask
+        &__mask
             position: absolute
             top: 0
             left: 0
             width: 100%
             height: 100%
             background: rgba(#000, .7)
-        &_ctr
+        &__ctr
             position: absolute
             z-index: 1
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
             transition: all .5s
-        &_ir
+        &__ir
             // 
-        &_movie
+        &__movie
             position: relative
             +pa-height()
             iframe
@@ -88,14 +88,14 @@
         &.is-show, &.is\:show
             opacity: 1
             pointer-events: auto
-        &.is-show &_ctr, &.is\:show &_ctr
+        &.is-show &__ctr, &.is\:show &__ctr
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
 
         &.is-show &, &.is\:show &
-            &_toolbar
-                &Close
+            &__toolbar
+                &-close
                     transform: translate(0,0)
                     span
                         &::before
@@ -106,7 +106,7 @@
         &-video, &\:video
 
             .c-lbox
-                &_ir
+                &__ir
                     width: per(1275)
                     position: absolute
                     top: 50%

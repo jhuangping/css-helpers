@@ -29,13 +29,13 @@
 }
 // Grid SASS ------------------------------------------------------------------
 @mixin l-grid() {
-  [class*="l-gd-"] {
+  [class*="l-gd:"] {
     @include flex($fw: wrap);
   }
 
   .l-gd {
     @each $val in $uesGridCount {
-      &-#{$val} {
+      &\:#{$val} {
         > * {
           @include flex-item(calc(100%/#{$val}), t);
           @if $val <= 2 {

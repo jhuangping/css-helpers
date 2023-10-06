@@ -4,17 +4,17 @@
     .c-page
         width: 100%
         +flex-center()
-        &_list
+        &__list
             +el-reset(li)
             +flex-center()
-        &_item
+        &__item
             &-prev, &-next, &\:prev, &\:next
                 // 
-        &_item.is-active &_link
+        &__item.is-active &_link
                 pointer-events: none
                 // color: #fff
                 // background: cr(red)
-        &_link
+        &__link
             +flex-center()
             // width: 40px
             // height: 40px
@@ -70,7 +70,7 @@
         /* p: 55px 0 45px 0 */
         position: relative
 
-        .c-btn-arrowTop
+        .c-btn\:arrow-top
             +flex-center()
             position: absolute
             width: 50px

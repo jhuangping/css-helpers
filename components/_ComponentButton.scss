@@ -15,7 +15,7 @@
         isolation: isolate; // Safari border-radius
     }
     .c-btn{
-        &_txt, &_name{
+        &__txt, &__name{
             color: $dna;
         }
     }
