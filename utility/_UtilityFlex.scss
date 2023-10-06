@@ -68,7 +68,7 @@
     }
 
     @each $size, $switch in $useFlexSwitch {
-      @if $switch == t {
+      @if $switch == true {
         @include mq-min($size) {
           &-fx\@#{$size} {
             @include flex-attributes();

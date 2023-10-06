@@ -139,11 +139,11 @@ $useColor: (
 // Utillity Module <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Font (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
 $useFontSwitch: (
-  base: f, 
-  sm: t, 
-  md: t, 
-  lg: t, 
-  xl: t
+  base: false, 
+  sm: true, 
+  md: true, 
+  lg: true, 
+  xl: true
 ) !default;
 
 // Font Size (u-fs)
@@ -166,34 +166,34 @@ $useLineHeightSettings: (
 
 // Display (u-display)
 $useDisplaySwitch: (
-  sm: t, 
-  md: t, 
-  lg: t, 
-  xl: t
+  sm: true, 
+  md: true, 
+  lg: true, 
+  xl: true
 ) !default;
 
 // Flex Layout (u-fl, u-jc, u-ai, u-ac, u-as)
 $useFlexSwitch: (
-  sm: t, 
-  md: t, 
-  lg: t, 
-  xl: t
+  sm: true, 
+  md: true, 
+  lg: true, 
+  xl: true
 ) !default;
 
 // Margin (u-m)
 $marginUnit: vw !default;
 
 $useMarginSwitch: (
-  sm: t, 
-  md: t, 
-  lg: t, 
-  xl: t
+  sm: true, 
+  md: true, 
+  lg: true, 
+  xl: true
 ) !default;
 
-$marginDetail: f !default; // [ false ]
+$marginDetail: false !default; // [ false ]
 $useMarginSize: 50, 40, 30, 20, 10, auto, clear !default;
 
-// $marginDetail: t !default  // [ true ]
+// $marginDetail: true !default  // [ true ]
 // $useMarginSize: (all: (50, 40, 30, 20, 10),
 // t: (50, 40, 30, 20, 10),
 // b: (50, 40, 30, 20, 10),
@@ -207,16 +207,16 @@ $useMarginSize: 50, 40, 30, 20, 10, auto, clear !default;
 $paddingUnit: vw !default;
 
 $usePaddingSwitch: (
-  sm: t, 
-  md: t, 
-  lg: t, 
-  xl: t
+  sm: true, 
+  md: true, 
+  lg: true, 
+  xl: true
 ) !default;
 
-$paddingDetail: f !default;
+$paddingDetail: false !default;
 $usePaddingSize: 50, 40, 30, 20, 10, auto, clear !default;
 
-// $paddingDetail: t // !default [ true ]
+// $paddingDetail: true // !default [ true ]
 // $usePaddingSize: (all: (50, 40, 30, 20, 10),
 // t: (50, 40, 30, 20, 10),
 // b: (50, 40, 30, 20, 10),

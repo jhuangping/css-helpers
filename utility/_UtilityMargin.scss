@@ -42,7 +42,7 @@
       }
             
       @each $size, $val in $useMarginSwitch {
-        @if $val == t {
+        @if $val == true {
           @include mq-min($size) {
             @each $val in map-get($useMarginSize, l) {
               &l\@#{$size}\:#{$val} {
@@ -103,7 +103,7 @@
       }
 
       @each $size, $val in $useMarginSwitch {
-        @if $val == t {
+        @if $val == true {
           @include mq-min($size){
             @each $val in $useMarginSize {
               &l\@#{$size}\:#{$val} { margin-left: unit($val, $marginUnit); }

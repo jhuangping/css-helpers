@@ -32,7 +32,7 @@
       }
             
       @each $size, $val in $usePaddingSwitch {
-        @if $val == t {
+        @if $val == true {
           @include mq-min($size) {
             @each $val in map-get($usePaddingSize, l) {
               &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }
@@ -83,7 +83,7 @@
       }
 
       @each $size, $val in $usePaddingSwitch {
-        @if $val == t {
+        @if $val == true {
           @include mq-min($size) {
             @each $val in $usePaddingSize {
               &l\@#{$size}\:#{$val} { padding-left: unit($val, $paddingUnit); }

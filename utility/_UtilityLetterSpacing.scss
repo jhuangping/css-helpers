@@ -7,7 +7,7 @@
       &\:#{$name} { letter-spacing: $var + px; }
     }
     @each $switchName, $switchVal in $useFontSwitch {
-      @if $switchVal == t {
+      @if $switchVal == true {
         @if $switchName != base {
           @include mq-min($switchName) {
             @each $name, $var in $useLetterSpacingSettings {
