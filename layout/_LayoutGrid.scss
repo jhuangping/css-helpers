@@ -34,7 +34,7 @@
   }
 
   .l-gd {
-    @each $val in $uesGridCount {
+    @each $val in $useGridCount {
       &\:#{$val} {
         > * {
           @include flex-item(calc(100%/#{$val}), t);
