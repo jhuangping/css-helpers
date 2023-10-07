@@ -225,3 +225,10 @@ $useZIndex: (
   header: 99,
   gotop: 1,
 ) !default;
+
+$useTransition:(
+  'time': .5, 
+  'target': all, 
+  'delay': 0, 
+  'function': linear
+) !default;

@@ -280,12 +280,12 @@
 
 // transition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // transition(trs)
-@mixin transition($time: .5, $tag: all, $delay: 0, $fn: linear){
+@mixin transition($time: map-get($useTransition, time), $tag: map-get($useTransition, target), $delay: map-get($useTransition, delay), $fn: map-get($useTransition, function)){
   transition: $tag $time + s;
   @if $delay != 0 { transition-delay: $delay + s; }
   @if $fn != linear { transition-timing-function: $fn; }
 }
-@mixin trs($time: .5, $tag: all, $delay: 0, $fn: linear) {
+@mixin trs($time: map-get($useTransition, time), $tag: map-get($useTransition, target), $delay: map-get($useTransition, delay), $fn: map-get($useTransition, function)) {
   @include transition($time, $tag, $delay, $fn);
 }
 
