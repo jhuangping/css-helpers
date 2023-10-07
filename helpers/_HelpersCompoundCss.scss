@@ -120,6 +120,9 @@
   @if $ai != default {
     @if $ai == start { align-items: flex-start; }
     @else if $ai == end { align-items: flex-end; }
+    @else if $ai == c { align-items: center; }
+    @else if $ai == bl { align-items: baseline; }
+    @else if $ai == str { align-items: stretch; }
     @else { align-items: $ai; }
   }
   
@@ -128,6 +131,7 @@
     @else if $jc == sb { justify-content: space-between; }
     @else if $jc == start { justify-content: flex-start; }
     @else if $jc == end { justify-content: flex-end; }
+    @else if $jc == c { justify-content: center; }
     @else { justify-content: $jc; }
   }
 }
@@ -174,25 +178,25 @@
 @mixin fx-ccc() { @include flex-ccc(); }
 
 // Flex item
-@mixin flex-item($b: base, $s: 1, $g: 0, $o: null, $as: auto){
+@mixin flex-item($b: base, $s: 1, $g: 0, $as: auto, $o: null){
   @if $b != base { flex-basis: $b; } 
   @if $s != 1 { flex-shrink: $s; }
   @if $g != 0 { flex-grow: $g; }
-  @if $o != null { order: $o; }
   @if $as != auto { 
     @if $as == start { align-self: flex-start; }
     @else if $as == end { align-self: flex-end; }
     @else if $as == center { align-self: center; }
     @else if $as == c { align-self: center; }
-    @else if $as == baseline { align-self: baseline; }
     @else if $as == b { align-self: baseline; }
-    @else if $as == stretch { align-self: stretch; }
+    @else if $as == bl { align-self: baseline; }
     @else if $as == s { align-self: stretch; }
+    @else if $as == str { align-self: stretch; }
     @else { align-self: $as; }
   }
+  @if $o != null { order: $o; }
 }
-@mixin fx-i($b: base, $s: 1, $g: 0, $o: null, $as: auto) {
-  @include flex-item($b, $s, $g, $o, $as)
+@mixin fx-i($b: base, $s: 1, $g: 0, $as: auto, $o: null) {
+  @include flex-item($b, $s, $g, $as, $o)
 }
 
 @mixin fx-gd($item: auto, $col: null, $row: $col, $init: null){
