@@ -23,6 +23,14 @@
     @content;
 }
 
+// build
+@mixin c-btn($name: null, $el: null) {
+    .c-btn\:#{$name}, .c-btn-#{$name} {
+        @if $el == null { @content; }
+        @else { .c-btn { @content; } }
+    }
+}
+
 // SASS Mixin
 @mixin c-btn-fillet($radius: 5, $name: null){
     [class*="c-btn-fillet#{$name}"], [class*="c-btn:fillet#{$name}"] {

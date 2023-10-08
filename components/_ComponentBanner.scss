@@ -43,6 +43,12 @@
     }
 }
 // Banner Edit ----------------------------------------------------------------
+@mixin c-bn($name: null, $el: null) {
+    .c-bn\:#{$name}, .c-bn-#{$name} {
+        @if $el == null { @content; }
+        @else { .c-bn { @content; } }
+    }
+}
 
 // Banner Mixin ---------------------------------------------------------------
 @mixin c-bn-mask($switch: $isBannerMask,$bnMaskStyle: style01){

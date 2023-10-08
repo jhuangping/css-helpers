@@ -2,7 +2,7 @@
 
 @mixin c-card() {
     .c-crd, [class*="c-crd-"], [class*="c-crd:"] {
-        &_pic, &_video{
+        &__pic, &__video{
             position: relative;
         }
         
@@ -25,5 +25,13 @@
     }
     .c-crd{
         @content;
+    }
+}
+
+// build
+@mixin c-crd($name: null, $el: null) {
+    .c-crd\:#{$name}, .c-crd-#{$name} {
+        @if $el == null { @content; }
+        @else { .c-crd { @content; } }
     }
 }
