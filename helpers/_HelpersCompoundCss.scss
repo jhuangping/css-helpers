@@ -199,14 +199,14 @@
   @include flex-item($b, $s, $g, $as, $o)
 }
 
-@mixin fx-gd($item: auto, $col: null, $row: $col, $init: null){
+@mixin fx-gd($item: auto, $row: null, $col: $row, $init: null){
   @if $init != null {
     display: flex;
     flex-wrap: wrap;
   }
-  @if $col != null { gap: $col $row; }
+  @if $row != null { gap: $row $col; }
   @if $item != auto {
-    @if $col != null { > * { width: calc(100%/#{$item} - #{$col * 2}); } }
+    @if $row != null { > * { width: calc(100%/#{$item} - #{$row * 2}); } }
     @else { > * { width: calc(100%/#{$item}); } }
   }
 }
@@ -260,7 +260,7 @@
 @mixin b-lg($L: #f00, $R: #00f, $path: to left) { @include border-lg($L, $R, $path); }
 
 // Arrow (border, ::before, ::after)
-@mixin b-arrow($w: 25px,$h: 25px,$path: top,$cr: #f00) {
+@mixin b-arrow($w: 25px,$h: $w, $path: top,$cr: #f00) {
   border-style: solid;
   border-width: $h $w;
   border-color: transparent;
@@ -417,14 +417,37 @@
 @mixin fw($val: base) {
 
   $judgeFW:(
+    lighter: lighter,
+    bolder: bolder,
+    thin: 100,
+    ExtraLight: 200,
+    extraLight: 200,
+    extralight: 200,
     el: 200, // ExtraLight 200
+    Light: 300,
+    light: 300,
     l: 300,  // Light 300
+    Regular: 400,
+    regular: 400,  
     r: 400,  // Regular 400
+    Medium: 500,
+    medium: 500,
     m: 500,  // Medium 500
+    SemiBold: 600,
+    semiBold: 600,
+    semibold: 600,
     sb: 600, // SemiBold 600
+    Bold: 700,
+    bold: 700,
     b: 700,  // Bold 700
+    ExtraBold: 800,
+    extraBold: 800
+    extrabold: 800,
     eb: 800, // ExtraBold 800
-    bl: 900  // Black 900
+    Black: 900,
+    black: 900,
+    bl: 900,  // Black 900
+    heavy: 900
   );
   @if $val != base {
     @each $name, $var in $judgeFW {
@@ -512,12 +535,12 @@
   mask-repeat: $repeat;
   @if $size != null { mask-size: $size; }
 }
-@mixin mask-img($img: $maskImage){
-  mask-image: url(#{$img});
+@mixin mask-img($url: $maskImage){
+  mask-image: url(#{$url});
 }
-@mixin mask($img: $maskImage, $position: center, $size: contain, $repeat: no-repeat) {
+@mixin mask($url: $maskImage, $position: center, $size: contain, $repeat: no-repeat) {
   @include mask-init($position, $size, $repeat);
-  @include mask-img($img);
+  @include mask-img($url);
 }
 
 // $background <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -531,12 +554,12 @@
   background-position: $position;
   @if $size != null { background-size: $size; }
 }
-@mixin bg-img($img: $backgroundImage){
-  background-image: url(#{$img});
+@mixin bg-img($url: $backgroundImage){
+  background-image: url(#{$url});
 }
-@mixin bg($img: $backgroundImage, $position: center, $size: null, $repeat: no-repeat) {
+@mixin bg($url: $backgroundImage, $position: center, $size: null, $repeat: no-repeat) {
   @include bg-init($position, $size, $repeat);
-  @include bg-img($img)
+  @include bg-img($url)
 }
 // background other init
 @mixin bg-cc() {
