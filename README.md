@@ -201,7 +201,7 @@
    +c-card()
    +c-input()
    +c-textarea()
-   +c-form()
+   +c-from()
    +c-lightbox()
    +c-table() // 不實用，可刪
    
@@ -555,41 +555,76 @@
 
   *Font Family*
   
-  `+ff($useFont.value)`
+  `+ff($useFont.value)` : 設定使用的字型，可在 `$useFont` 擴充
+
+  > **config :**
+  > $useFont: ( dfk:'DFKai-sb' );
+  >
+  > **SASS :**
+  > +ff(dfk)
+
   
   *Font Size*
   
-  `+fs($base, $ary, $fun, $unit)`
+  `+fs($base, $ary, $fun, $unit)` : 自訂各斷字級大小
+  - **$base :** `16` ，預設字級大小 `16`
+  - **$ary :** `('md', 24)` ， 預設為 `null` ， 設定格式 `(breakpoints : font-size, ...)`
+  - **$fun :** `min` `max` ， 選擇 @media 方式，預設 `min`
+  - **$unit :** `px` `rem` `em` `vw` 設定字級單位，預設 `px`
+  
+  > **SASS**
+  >
+  > +fs(16, (xs: 18, md: 24))
   
   *Font Weight*
   
-  `+fw()`
-  `+f-lighter` { font-weight: lighter; }
-  `+f-bolder` { font-weight: bolder; }
-  `+f-thin`	{ font-weight: 100; }
-  `+f-extralight`	{ font-weight: 200; }
-  `+f-light`	{ font-weight: 300; }
-  `+f-regular`	{ font-weight: 400; }
-  `+f-medium`	{ font-weight: 500; }
-  `+f-semibold`	{ font-weight: 600; }
-  `+f-bold` { font-weight: 700; }
-  `+f-extrabold`	{ font-weight: 800; }
-  `+f-heavy` { font-weight: 900; }
+  `+fw($val)` : 設定文字粗體
+  - **$val :** `lighter` `bolder` ... ，也可直接輸入`font-weight`數值
+  
+  
+  `+f-lighter` : font-weight: lighter
+  
+  `+f-bolder` : font-weight: bolder
+  
+  `+f-thin`	: font-weight: 100
+  
+  `+f-extralight` : font-weight: 200
+  
+  `+f-light` : font-weight: 300
+  
+  `+f-regular` : font-weight: 400
+  
+  `+f-medium` : font-weight: 500
+  
+  `+f-semibold`	: font-weight: 600
+  
+  `+f-bold` : font-weight: 700
+  
+  `+f-extrabold` : font-weight: 800
+  
+  `+f-heavy` : font-weight: 900
   
 - **Background :**
   
   *Mask*
   
   `+mask-init($position, $size, $repeat)`
+  
   `+mask-img($url)`
+  
   `+mask($url, $position, $size, $repeat)`
+  
   
   *Background*
   
   `+bg-lg($L, $R, $path)`
+  
   `+bg-init($position, $size, $repeat)`
+  
   `+bg-img($url)`
+  
   `+bg($url, $position, $size, $repeat)`
+  
   `+bg-cc()`
   
   `+pa-h($h, $w, $patch)`
@@ -599,13 +634,17 @@
   `+obj($fit, $position)`
   
 - **Other :**
-  `+el-display($switch)`
-  `+el-hide()`
-  `+el-show()`
+  `+el-display($switch)` : 顯示 / 隱藏 element
+  - **$switch :** `show` `hide` `1` `0`
+  
+  `+el-hide()` : 隱藏 element
+  
+  `+el-show()` : 顯示 element
+  
 
-  `+gd($item, $col, $row, $d)`
+  `+gd($item, $col, $row, $d)` : layout 網格 // 可改用 +fx-gd 
 
-  `+test($tip, $tstCr, $tstBg)`
+  `+test($tip, $tstCr, $tstBg)` : 測試 element 用
   
 #### Comput
 
