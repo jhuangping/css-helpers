@@ -52,12 +52,12 @@
 
 // Components <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // CssHelpers__components
-@import 'components/_ComponentInput.sass';
+@import 'components/_ComponentInput';
 @import 'components/_ComponentButton';
+@import 'components/_ComponentForm';
 @import 'components/_ComponentCard';
 @import 'components/_ComponentBanner';
-@import 'components/_ComponentPath.sass';
-@import 'components/_ComponentPage.sass';
-@import 'components/_ComponentTable.sass';
-@import 'components/_ComponentLightbox.sass';
-@import 'components/_ComponentForm.sass';
+@import 'components/_ComponentPath';
+@import 'components/_ComponentPage';
+@import 'components/_ComponentTable';
+@import 'components/_ComponentLightbox';

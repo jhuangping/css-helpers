@@ -25,7 +25,7 @@
 }
 
 @mixin l-edit() {
-  @include noReset();
+  @include no-reset();
   // @include bs-grid();
   @content;
 }

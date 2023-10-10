@@ -179,6 +179,7 @@
 
 // Flex item
 @mixin flex-item($b: base, $s: 1, $g: 0, $as: auto, $o: null){
+  // flex: flex-grow | flex-shrink | flex-basis
   @if $b != base { flex-basis: $b; } 
   @if $s != 1 { flex-shrink: $s; }
   @if $g != 0 { flex-grow: $g; }

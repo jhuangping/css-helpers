@@ -9,7 +9,7 @@
   margin-right: vw(-$both/2);
 
   > * {
-    @include flex-item($percent, t);
+    @include flex-item($percent, 0);
     padding-left: vw($both/2);
     padding-right: vw($both/2);
     margin-bottom: $mgb;
@@ -37,7 +37,7 @@
     @each $val in $useGridCount {
       &\:#{$val} {
         > * {
-          @include flex-item(calc(100%/#{$val}), t);
+          @include flex-item(calc(100%/#{$val}), 0);
           @if $val <= 2 {
             @include mq-max(phone){
               @include flex-item(100%);
