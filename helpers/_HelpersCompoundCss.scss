@@ -597,9 +597,12 @@
   @if $fit != default {
     @if $fit == n { object-fit: none; }
     @else if $fit == in { object-fit: contain; }
+    @else if $fit == con { object-fit: contain; }
     @else if $fit == out { object-fit: cover; }
+    @else if $fit == cov { object-fit: cover; }
     @else if $fit == f { object-fit: fill; }
     @else if $fit == full { object-fit: scale-down; }
+    @else if $fit == sd { object-fit: scale-down; }
     @else { object-fit: $fit; }
   }
 }
