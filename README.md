@@ -353,27 +353,40 @@
   `+el-reset($element)` : 重置元素 element : `font` `ul` `li`
   
   > `+el-reset()` : margin: 0px | padding: 0px  // 固定保留
+  > 
   > `+el-reset(font)` : font-size: 100% | font-weight: inherit 
+  > 
   > `+el-reset(ul)` `+el-reset(li)` : list-style: none
 
 - **Width / Height :**
+
   `+full()` : 填滿 
+
   > width: 100% | height: 100%
-  > 
+
+
   `+size($widthValue, $heightValue)` : 設定寬高，需 key 單位
+  
   > `+size(50px)` : width: 50px | height: 50px
+  > 
   > `+size(100px, 50px)` : width: 100px | height: 50px
 
 - **Position :**
+
   `+abs-center($z-index)` : Position Absolute Center
+  
   `+abs-full($z-index)` : Position Absolute Full
   
 - **z-index :**
+
   `+z($useZIndex.value)` : 設定層級，搭配 $useZIndex 來擴充管理使用的 z-index
+
   > **config :**
+  > 
   > $useZIndex: ( header: 99, gotop: 1 );
   >
   > **SASS :**
+  > 
   > `+z(header)` : z-index: 99
 
 - **Flex Layout :**
@@ -383,39 +396,64 @@
   `+fx($dis, $fd, $fw, $ai, $jc)` : 初始值 display: flex
   
   - **$dis :** `cc` `lc` `rc` `ccc`
+  
     > `+fx(cc)` : 水平垂直置中，row
+    > 
     > `+fx(lc)` : 靠左，垂直置中
+    > 
     > `+fx(rc)` : 靠右，垂直置中
+    > 
     > `+fx(ccc)` : 水平垂直置中，column
   
   - **$fd :** `row` `row-r` `col` `col-r`，*flex-direction*
+  
     > `+fx($fd: row)` : row
+    > 
     > `+fx($fd: row-r)` : row-reverse
+    > 
     > `+fx($fd: col)` : column
+    > 
     > `+fx($fd: col-r)` : column-reverse
+    > 
     > `+fx($fd: $val)` : $val : `row` `row-reverse` `column` `column-reverse`
   
   - **$fw :** `wp` `wp-r` `n-wp` ，*flex-wrap*
+  
     > `+fx($fw: wp)` : wrap
+    > 
     > `+fx($fw: wp-r)` : wrap-reverse
+    > 
     > `+fx($fw: n-wp)` : nowrap
+    > 
     > `+fx($fw: $val)` : $val : `wrap` `wrap-reverse` `nowrap`
   
   - **$ai :** `start` `end` `c` `bl` `str`，*align-items*
+  
     > `+fx($ai: start)` : flex-start
+    > 
     > `+fx($ai: end)` : flex-end
+    > 
     > `+fx($ai: c)` : center
+    > 
     > `+fx($ai: bl)` : baseline
+    > 
     > `+fx($ai: str)` : stretch
+    > 
     > `+fx($ai: $val)` : $val : `flex-start` `flex-end` `center` `baseline` `stretch`
   
   - **$jc :** `start` `end` `c` `sa` `sb`，*justify-content*
+
     > `+fx($jc: start)` : flex-start
+    > 
     > `+fx($jc: end)` : flex-end
+    > 
     > `+fx($jc: c)` : center
+    > 
     > `+fx($jc: sa)` : space-around
+    > 
     > `+fx($jc: sb)` : space-between
-    > `+fx($jc: $val)` : $val : `flex-start` `flex-end` `center` `space-between` `space-around`
+    > 
+    > `+fx($jc: $val)` : $val : `flex-start` `flex-end` `center` `space-between` ...
 
   `+fx-c($dis, $fd, $fw, $ai, $jc)` : 水平垂直置中, 設定值同 `+fx()`
   
@@ -440,11 +478,14 @@
   *其他 :*
   
   `+fx-gd($item, $row, $col, $init)` : flex 網格佈局應用
+
   - **$item :** 設置網格數量
   - **$row :** 設置網格佈局 "行" 間隙大小，需 key 單位
   - **$col :** 設置網格佈局 "列" 間隙大小，需 key 單位 ( 預設值為 $row )
   - **$init :** 是否啟用 $init : init
+ 
     > 第一次設置需啟用 $init: true
+    > 
     > 後繼的設定皆為調整網格
     ```
     SASS
@@ -470,7 +511,9 @@
     ``` 
   
 - **Line Height :** 
+
   `+lh($height, $font-size)` : 計算行高
+  
   - **$height :** `24` ...
   - **$font-size :** `16` ... ( 預設值為 $useWebBase.bodyFontSize )
 
@@ -493,16 +536,27 @@
   ```
  
 - **Text :**
+
   `+t-lg($L, $R, $path)` : 文字漸層
+  
   > `+t-lg(#f00, #00f, 45deg)`
   
   `+t-o($row)` : 文字溢出，預設為一行
+  
   > `+t-o()` : 大於一行後以 ' ... '表示
+  > 
   > `+t-o(3)` : 大於第三行後以 ' ... '表示
 
 - **Border :**
+
   `+b-lg($L, $R, $path)` : 線漸層
+  
+  - **$L :** `#f00` `red` `rgba(255, 0, 0, 1)`
+  - **$R :** `#f00` `red` `rgba(255, 0, 0, 1)`
+  - **$path :** `top` `bottom` `left` `right`
+  
   `+b-arrow($w, $h, $path, $cr)` : 用線 layout 出箭頭，常用於`::before` `::after`
+  
   - **$w :** `25px` ...
   - **$h :** `25px` ...
   - **$path :** `top` `bottom` `left` `right`
@@ -522,27 +576,41 @@
   
   - **$val :** `10px` `10em` ... ，間距數值 ( 需key單位 ) 
   - **$direction :** `t` `r` `b` `l` `x` `y` ，方向
-    > **t :** top
-    > **r :** right
-    > **b :** bottom
-    > **l :** left
-    > **x :** left & right 
-    > **y :** top & bottom
+  - 
+    > **t :** `top`
+    > 
+    > **r :** `right`
+    > 
+    > **b :** `bottom`
+    > 
+    > **l :** `left`
+    > 
+    > **x :** `left` `right` 
+    > 
+    > **y :** `top` `bottom`
   
   *margin*
   `+m($val, $direction)`
+  
   - **$val :** `10px` `10em` ... ，間距數值 ( 需key單位 ) 
   - **$direction :** `t` `r` `b` `l` `x` `y` ，方向
-    > **t :** top
-    > **r :** right
-    > **b :** bottom
-    > **l :** left
-    > **x :** left & right 
-    > **y :** top & bottom
+ 
+    > **t :** `top`
+    > 
+    > **r :** `right`
+    > 
+    > **b :** `bottom`
+    > 
+    > **l :** `left`
+    > 
+    > **x :** `left` `right` 
+    > 
+    > **y :** `top` `bottom`
 
   `+mx-auto()` : 左右自動對齊
   
 - **Scrollbar :**
+
   `+scrollbar($bar, $bg, $w, $radius)` : 滾動條樣式
     
   `+scrollbar-x($bar, $bg, $w, $radius)` : 滾動條樣式，多了 `overflow-x: hidden`
@@ -558,15 +626,18 @@
   `+ff($useFont.value)` : 設定使用的字型，可在 `$useFont` 擴充
 
   > **config :**
+  > 
   > $useFont: ( dfk:'DFKai-sb' );
   >
   > **SASS :**
+  > 
   > +ff(dfk)
 
   
   *Font Size*
   
   `+fs($base, $ary, $fun, $unit)` : 自訂各斷字級大小
+
   - **$base :** `16` ，預設字級大小 `16`
   - **$ary :** `('md', 24)` ， 預設為 `null` ， 設定格式 `(breakpoints : font-size, ...)`
   - **$fun :** `min` `max` ， 選擇 @media 方式，預設 `min`
@@ -579,6 +650,7 @@
   *Font Weight*
   
   `+fw($val)` : 設定文字粗體
+ 
   - **$val :** `lighter` `bolder` ... ，也可直接輸入`font-weight`數值
   
   
@@ -608,33 +680,92 @@
   
   *Mask*
   
-  `+mask-init($position, $size, $repeat)`
+  `+mask-init($position, $size, $repeat)` : CSS mask 初始設定
   
-  `+mask-img($url)`
+  - **$position :** 預設`center`，*mask-position*
+  - **$size :** 預設`contain`，*mask-size*
+  - **$repeat :** 預設`no-repeat`，*mask-repeat*
   
-  `+mask($url, $position, $size, $repeat)`
+  `+mask-img($url)` : 設定 mask 圖片
+
+  - **$url :** `圖片路徑 ...`，*mask-image*
+  
+  `+mask($url, $position, $size, $repeat)` : CSS mask 設定
   
   
   *Background*
   
-  `+bg-lg($L, $R, $path)`
+  `+bg-lg($L, $R, $path)` : 漸層背景
   
-  `+bg-init($position, $size, $repeat)`
+  - **$L :** `#f00` `red` `rgba(255, 0, 0, 1)`
+  - **$R :** `#f00` `red` `rgba(255, 0, 0, 1)`
+  - **$path :** `top` `bottom` `left` `right`
   
-  `+bg-img($url)`
+  `+bg-init($position, $size, $repeat)` : background 初始設定
   
-  `+bg($url, $position, $size, $repeat)`
+  - **$position :** 預設`center`，*background-position*
+  - **$size :** 預設`null`，*background-size*
+  - **$repeat :** 預設`no-repeat`，*background-repeat*
   
-  `+bg-cc()`
+  `+bg-img($url)` : 設定 background 圖片
   
-  `+pa-h($h, $w, $patch)`
+  - **$url :** `圖片路徑 ...`，*background-image*
   
-  `+aspect($w, $h)`
+  `+bg($url, $position, $size, $repeat)` : CSS background 設定
   
-  `+obj($fit, $position)`
+  `+bg-cc()` : 填滿置中對齊
+  
+  >　`background-position: center`
+  >　
+  >　`background-size: cover`
+
+
+  
+  `+pa-h($h, $w, $patch)` ： 設定彈性高 （% )
+  
+  - **$h :** 預設 `9` ，設定高的數值
+  - **$w :** 預設 `16` ，設定當前 element 的寬
+  - **$path :** 預設 `null`，補高的差值，單位為 px
+
+  ```
+  SASS
+  
+  .test::before
+    +pa-h(9, 16, 10)
+    
+  CSS
+  
+  .test::before {
+    padding-bottom: 56.25%;
+    padding-top: 10px;
+  }
+  ```
+  
+  `+aspect($w, $h)` : `aspect-ratio`
+  
+  - **$w :** 預設 `16`
+  - **$h :** 預設 `9`
+  
+  `+obj($fit, $position)` : 設定圖片對齊方式及是否填滿
+  
+  - **$fit :** `t` `b` `l` `r` `c`
+  
+    > **t :** `top`
+    > 
+    > **b :** `bottom`
+    > 
+    > **l :** `left`
+    >
+    > **r :** `right`
+    >
+    > **c :** `center`
+
+  - **$position :** `none` `contain` `cover` `fill` `scale-down`
   
 - **Other :**
+
   `+el-display($switch)` : 顯示 / 隱藏 element
+  
   - **$switch :** `show` `hide` `1` `0`
   
   `+el-hide()` : 隱藏 element
@@ -651,7 +782,9 @@
 - **Unit :**
 
   `rem($val, $fz)` : 單位轉換 px to rem
+  
   > Code View
+  
   ```
   SASS
   
@@ -663,7 +796,9 @@
   ```
   
   `em($val, $fz)` : 單位轉換 px to em
+  
   > Code View
+  
   ```
   SASS
   
@@ -675,7 +810,9 @@
   ```
   
   `vw($val, $win)` : 轉換 vw
+  
   > Code View
+  
   ```
   SASS
   
@@ -687,7 +824,9 @@
   ```
   
   `vh($val, $win)` : 轉換 vh
+  
   > Code View
+  
   ```
   SASS
   
@@ -699,7 +838,9 @@
   ```
   
   `pa($val, $win)` : 轉換 % (中文音譯"趴")
+  
   > Code View
+  
   ```
   SASS
   
@@ -713,13 +854,17 @@
 - **Font :**
 
   `font($fontVal, $default)`
+  
   > Code View
+  
   ```
   font-family: font($font-name)
   ```
 
   `lh($lh, $px)` : 計算文字行高
+  
   > Code View
+  
   ```
   SASS
   
@@ -736,7 +881,9 @@
 - **Color :**
  
   `cr($color-name)`
+  
   > Code View
+  
   ```
   SASS
   
@@ -792,6 +939,7 @@
   - **normal :** `$fontReset` `$fontRe` `$fRe`
  
     > Code View
+    
     ```
     font-weight: $fRe
     ```
@@ -799,6 +947,7 @@
   - **initial :** `$cssReset` `$cssRe` `$csRe`
  
     > Code View
+    
     ```
     color: $csRe
     ```
@@ -806,6 +955,7 @@
   - **inherit :** `$cssDna` `$dna`
 
     > Code View
+    
     ```
     color: $dna
     ```
@@ -813,6 +963,7 @@
   - **color :** `$colorReset` `$colorRe` `$cRe`
   
     > Code View
+    
     ```
     color: $cRe
     ```
