@@ -1,69 +1,69 @@
 @charset "utf-8";
 
 @mixin c-button() {
-    // Button Style
-    .c-btn, [class*="c-btn-"], [class*="c-btn:"] {
-        cursor: pointer;
-        display: inline-block;
-        line-height: 1;
-        text-align: center;
-        vertical-align: middle;
-        white-space: nowrap;
-        user-select: none;
-        border: none;
-        transition: all .5 ease;
-        isolation: isolate; // Safari border-radius
+  // Button Style
+  .c-btn, [class*="c-btn-"], [class*="c-btn:"] {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    user-select: none;
+    border: none;
+    transition: all .5 ease;
+    isolation: isolate; // Safari border-radius
+  }
+
+  .c-btn{
+    &__txt, &__name{
+      color: $dna;
     }
-    .c-btn{
-        &__txt, &__name{
-            color: $dna;
-        }
-    }
-        
-    @content;
+  }
+
+  @content;
 }
 
 // build
 @mixin c-btn($name: null, $el: null) {
-    .c-btn\:#{$name}, .c-btn-#{$name} {
-        @if $el == null { @content; }
-        @else { .c-btn { @content; } }
-    }
+  .c-btn\:#{$name}, .c-btn-#{$name} {
+    @if $el == null { @content; }
+    @else { .c-btn { @content; } }
+  }
 }
 
 // SASS Mixin
 @mixin c-btn-fillet($radius: 5, $name: null){
-    [class*="c-btn-fillet#{$name}"], [class*="c-btn:fillet#{$name}"] {
-        border-radius: $radius + px;
-        @content;
-    }
+  [class*="c-btn-fillet#{$name}"], [class*="c-btn:fillet#{$name}"] {
+    border-radius: $radius + px;
+    @content;
+  }
 }
 
 @mixin c-btn-circle($name: null) {
-    @if $name == null {
-        .c-btn-circle {
-            border-radius: 100%;
-            @content;
-        }
-    } @else {
-        [class*="c-btn-circle#{$name}"], [class*="c-btn:circle#{$name}"]{
-            border-radius: 100%;
-            @content;
-        }
+  @if $name == null {
+    .c-btn-circle {
+      border-radius: 100%;
+      @content;
     }
+  } @else {
+    [class*="c-btn-circle#{$name}"], [class*="c-btn:circle#{$name}"]{
+      border-radius: 100%;
+      @content;
+    }
+  }
 }
 
 @mixin c-btn-semicircle($name: null) {
-    @if $name == null {
-        .c-btn-semicircle{
-            border-radius: 50px;
-            @content;
-        }
-    } @else {
-        [class*="c-btn-semicircle#{$name}"], [class*="c-btn:semicircle#{$name}"]{
-            border-radius: 100%;
-            @content;
-        }
+  @if $name == null {
+    .c-btn-semicircle{
+      border-radius: 50px;
+      @content;
     }
-    
+  } @else {
+    [class*="c-btn-semicircle#{$name}"], [class*="c-btn:semicircle#{$name}"]{
+      border-radius: 100%;
+      @content;
+    }
+  }
 }

@@ -2,77 +2,77 @@
 @charset "utf-8";
 
 @mixin c-banner() {
-    .c-bn {
-        line-height: 0px;
-        overflow: hidden;
-        position: relative;
+  .c-bn {
+    line-height: 0px;
+    overflow: hidden;
+    position: relative;
 
-        &__ctr {
-            // background: #ccc;
-            max-width: 100%;
-            position: relative;
-            // 無圖時高度
-            // min-height: 150px;
-            @include c-bn-mask()
-        }
+    &__ctr {
+      // background: #ccc;
+      max-width: 100%;
+      position: relative;
+      // 無圖時高度
+      // min-height: 150px;
+      @include c-bn-mask()
+    }
 
-        &__info {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            @include fx($ai: center,$jc: center);
-            line-height: lh(24);
-            z-index: 3;
-        }
+    &__info {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      @include fx($ai: center,$jc: center);
+      line-height: lh(24);
+      z-index: 3;
+    }
 
-        &__pic, &__img, &__bg {
-            width: 100%;
-            min-height: 150px;
-            img {
-                width: 100%;
-            }
-        }
+    &__pic, &__img, &__bg {
+      width: 100%;
+      min-height: 150px;
+      img {
+        width: 100%;
+      }
     }
-    [class*="c-bn-"], [class*="c-bn:"]{
-        @extend .c-bn;
-    }
-    .c-bn {
-        @content;
-    }
+  }
+  [class*="c-bn-"], [class*="c-bn:"]{
+    @extend .c-bn;
+  }
+  .c-bn {
+    @content;
+  }
 }
 // Banner Edit ----------------------------------------------------------------
 @mixin c-bn($name: null, $el: null) {
-    .c-bn\:#{$name}, .c-bn-#{$name} {
-        @if $el == null { @content; }
-        @else { .c-bn { @content; } }
-    }
+  .c-bn\:#{$name}, .c-bn-#{$name} {
+    @if $el == null { @content; }
+    @else { .c-bn { @content; } }
+  }
 }
 
 // Banner Mixin ---------------------------------------------------------------
 @mixin c-bn-mask($switch: $isBannerMask,$bnMaskStyle: style01){
-    @if $switch{
-        @if $bnMaskStyle == style01 {
-            &::before,&::after {
-                content: '';
-                position: absolute;
-                z-index: 2;
-                left: 0px;
-                width: 100%;
-                @include pa-height(160 ,$bnWidth, 30);
-                pointer-events: none;
-            }
-            &::before {
-                top: 0px;
-                @include bg-lg(rgba(#000,.15), $cRe, top);
-            }
-            &::after {
-                bottom: 0px;
-                @include bg-lg(rgba(#000,.15), $cRe, bottom);
-            }
-        }
-
-        @content;
+  @if $switch{
+    @if $bnMaskStyle == style01 {
+      &::before,&::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        left: 0px;
+        width: 100%;
+        @include pa-height(160 ,$bnWidth, 30);
+        pointer-events: none;
+      }
+      &::before {
+        top: 0px;
+        @include bg-lg(rgba(#000,.15), $cRe, top);
+      }
+      &::after {
+        bottom: 0px;
+        @include bg-lg(rgba(#000,.15), $cRe, bottom);
+      }
     }
+
+    @content;
+  }
 }

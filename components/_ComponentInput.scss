@@ -1,151 +1,151 @@
 @charset "utf-8";
 
 @mixin c-input($style: default) {
-    input[type="text"],input[type="tel"],input[type="email"],input[type="file"],input[type="password"],textarea {
-        max-width: 100%;
-        width: 100%;
-        outline: none;
+  input[type="text"],input[type="tel"],input[type="email"],input[type="file"],input[type="password"],textarea {
+    max-width: 100%;
+    width: 100%;
+    outline: none;
 
-        @if $style == default {
-            font-size: 16px;
-            border: 1px solid #E2E2E2;
-            background: #FAFAFA;
-            padding: 12px 10px;
-            @include trs();
-            // &:focus
-            //     box-shadow: 0 0 10px rgba(#000, .2)
-        }
-        @else { @content; }
+    @if $style == default {
+      font-size: 16px;
+      border: 1px solid #E2E2E2;
+      background: #FAFAFA;
+      padding: 12px 10px;
+      @include trs();
+      // &:focus
+      //     box-shadow: 0 0 10px rgba(#000, .2)
     }
+    @else { @content; }
+  }
 }
 
 @mixin c-textarea($h: 100) {
-    textarea {
-        width: 100%;
-        max-width: 100%;
-        min-height: $h + px;
-        // padding: rem(10)
-        // border: 1px solid #DADADA
-        // &.m-fm_input--no-minheight
-        //     min-height: auto
-        @content;
-    }
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: $h + px;
+    // padding: rem(10)
+    // border: 1px solid #DADADA
+    // &.m-fm_input--no-minheight
+    //     min-height: auto
+    @content;
+  }
 }
 
 @mixin c-form() {
-    .c-fm {
-        @include flex($fd: column);
+  .c-fm {
+    @include flex($fd: column);
 
-        &__label, &__name {
-            font-size: rem(20);
-            font-weight: 600;
-            &-red, &\:red {
-                &::after {
-                    content: '*';
-                    color: cr(red);
-                    font-weight: normal;
-                    margin-left: 10px;
-                }
-            }
+    &__label, &__name {
+      font-size: rem(20);
+      font-weight: 600;
+      &-red, &\:red {
+        &::after {
+          content: '*';
+          color: cr(red);
+          font-weight: normal;
+          margin-left: 10px;
         }
-        
-        &-row, &\:row { flex-direction: row; }
-            
-        &-column, &\:column, &-col, &\:col { flex-direction: column; }
-
-        &-file, &\:file {
-            position: relative;
-
-            input {
-                position: relative;
-                z-index: 2;
-                width: 100%;
-                margin: 0;
-                opacity: 0;
-                pointer-events: none;
-            }
-
-            label {
-                cursor: pointer;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                border: 1px solid #E2E2E2;
-                padding: 12px 10px;
-                padding-right: 45px;
-                @include flex($ai: center);
-                &::before {
-                    font-family: $icon;
-                    content: '';
-                    position: absolute;
-                    top: 2px;
-                    right: 0px;
-                    width: 45px;
-                    height: 45px;
-                    // background: url('images/common/icon-paperclip.svg')no-repeat center
-                    background-size: 20px;
-                }
-            }
-        }
-
-        &-file &, &\:file & {
-            &__input {
-                position: relative;
-                background: #FAFAFA;
-            }
-        }
-
-        &-verification &, &\:verification & {
-            &__input {
-                @include flex($jc: sb, $ai: center);
-
-                &-code { @include flex-item(115px, 0) }
-                input { @include flex-item(calc(100% - 125px), 0) }
-            }
-
-            @include mq-max(sm) {
-                &__input {
-                    &-code { @include flex-item(90px) }
-                    input { @include flex-item(calc(100% - 100px)) } 
-                }
-            }
-        }
-
-        &-user, &-password, &\:user, &\:password {
-            position: relative;
-
-            label {
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 40px;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 15px;
-
-                &::after {
-                    position: absolute;
-                    top: 15%;
-                    right: 0px;
-                    content: '';
-                    width: 1px;
-                    height: 70%;
-                    background: #E1E1E1;
-                }
-            }
-            input[type="text"], input[type="password"] {
-                background: #FAFAFA;
-                padding-left: 50px;
-            }
-        }
-
-        // &-user label, &\:user label { background-image: url(images/common/icon-user2.svg) }
-        
-        // &-password label, &\:password label { background-image: url(images/common/icon-password.svg); }
+      }
     }
 
-    @content;
+    &-row, &\:row { flex-direction: row; }
+
+    &-column, &\:column, &-col, &\:col { flex-direction: column; }
+
+    &-file, &\:file {
+      position: relative;
+
+      input {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      label {
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E2E2E2;
+        padding: 12px 10px;
+        padding-right: 45px;
+        @include flex($ai: center);
+        &::before {
+          font-family: $icon;
+          content: '';
+          position: absolute;
+          top: 2px;
+          right: 0px;
+          width: 45px;
+          height: 45px;
+          // background: url('images/common/icon-paperclip.svg')no-repeat center
+          background-size: 20px;
+        }
+      }
+    }
+
+    &-file &, &\:file & {
+      &__input {
+        position: relative;
+        background: #FAFAFA;
+      }
+    }
+
+    &-verification &, &\:verification & {
+      &__input {
+        @include flex($jc: sb, $ai: center);
+
+        &-code { @include flex-item(115px, 0) }
+        input { @include flex-item(calc(100% - 125px), 0) }
+      }
+
+      @include mq-max(sm) {
+        &__input {
+          &-code { @include flex-item(90px) }
+          input { @include flex-item(calc(100% - 100px)) } 
+        }
+      }
+    }
+
+    &-user, &-password, &\:user, &\:password {
+      position: relative;
+
+      label {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 40px;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 15px;
+
+        &::after {
+          position: absolute;
+          top: 15%;
+          right: 0px;
+          content: '';
+          width: 1px;
+          height: 70%;
+          background: #E1E1E1;
+        }
+      }
+      input[type="text"], input[type="password"] {
+        background: #FAFAFA;
+        padding-left: 50px;
+      }
+    }
+
+    // &-user label, &\:user label { background-image: url(images/common/icon-user2.svg) }
+    
+    // &-password label, &\:password label { background-image: url(images/common/icon-password.svg); }
+  }
+
+  @content;
 }
