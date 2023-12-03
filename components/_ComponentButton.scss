@@ -33,7 +33,7 @@
 }
 
 // SASS Mixin
-@mixin c-btn-fillet($radius: 5, $name: null){
+@mixin c-btn-fillet($radius: 5, $name: null) {
   [class*="c-btn-fillet#{$name}"], [class*="c-btn:fillet#{$name}"] {
     border-radius: $radius + px;
     @content;

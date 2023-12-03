@@ -9,7 +9,7 @@
     @each $switchName, $switchVal in $useFontBreakpoints {
       @if $switchVal == true {
         @if $switchName != base {
-          @include mq-min($switchName){
+          @include mq-min($switchName) {
             @each $name, $var in $useLineHeightValue {
               &\@#{$switchName}\:#{$name} { line-height: $var; }
             }

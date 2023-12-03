@@ -48,7 +48,7 @@
   @content;
 }
 
-@mixin u-imgfix-height($h: 9, $w: 16, $patch: null){
+@mixin u-imgfix-height($h: 9, $w: 16, $patch: null) {
   &::before{
     @if $h == full{
       padding-bottom: 100%;
@@ -69,7 +69,7 @@
   @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
 }
 
-@mixin u-imgfit-height($h: 9, $w: 16, $patch: null){
+@mixin u-imgfit-height($h: 9, $w: 16, $patch: null) {
   @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
 }
 

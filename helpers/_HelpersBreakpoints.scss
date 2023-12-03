@@ -9,7 +9,7 @@
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 // $breakpoint-down
-@mixin mq-max($media: map-get($useBreakpoints, changeMobile)){
+@mixin mq-max($media: map-get($useBreakpoints, changeMobile)) {
 	@if $media == phones {
 		// Phones
 		@media all and (max-width: (map-get($useBreakpoints , smallPhone) + px)) { @content; }
@@ -103,7 +103,7 @@
 	}
 	@else if $media == xl {
 		// xl
-		@media all and (min-width: ($xl + 1 + px)){ @content; }
+		@media all and (min-width: ($xl + 1 + px)) { @content; }
 	}
 	@else {
 		// Custom
@@ -131,6 +131,6 @@
 
 // 自訂 range-height
 // $breakpoint-height-range
-@mixin mq-range-h($max: 1080, $min: map-get($useBreakpoints, changeMobile)){
+@mixin mq-range-h($max: 1080, $min: map-get($useBreakpoints, changeMobile)) {
 	@media screen and (min-height: ($min + 1 + px)) and (max-height: ($max + px)) { @content; }
 }

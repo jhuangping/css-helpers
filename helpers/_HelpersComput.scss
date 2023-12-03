@@ -1,11 +1,11 @@
 // Font px
-@function px($val){
+@function px($val) {
 	@if $val == auto { @return auto; }
 	@else { @return $val + px; }
 }
 
 // Font Size px to rem
-@function rem($val, $fz: map-get($useWebBase, bodyFontSize) ){
+@function rem($val, $fz: map-get($useWebBase, bodyFontSize) ) {
 	$unit: $fz;
 	@if $fz == null { $unit: 16 }
 	@if $val == auto { @return auto; }
@@ -13,7 +13,7 @@
 }
 
 // Font Size px to em
-@function em($val,$fz: map-get($useWebBase, bodyFontSize) ){
+@function em($val,$fz: map-get($useWebBase, bodyFontSize) ) {
 	$unit: $fz;
 	@if $fz == null { $unit: 16 }
 	@if $val == auto { @return auto; }
@@ -21,23 +21,23 @@
 }
 
 // Font line-height
-@function lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)){
+@function lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
 	@return $lh / $px;
 }
 
 // Color map-get 
-@function cr($n,$c: $useColor){
+@function cr($n,$c: $useColor) {
 	@return map-get($c, $n);
 }
 
 // vw 換算
-@function vw($val,$win: 1920){
+@function vw($val,$win: 1920) {
 	@if $val == auto{ @return auto; }
 	@else { @return ($val / ($win / 100)) + vw; }
 }
 
 // vh 換算
-@function vh($val,$win: 1080){
+@function vh($val,$win: 1080) {
 	@if $val == auto{ @return auto; }
 	@else { @return calc($val / ($win / 100)) + vh; }
 }
@@ -50,7 +50,7 @@
 }
 
 // font
-@function font($fontVal, $default: $fontDefault){
+@function font($fontVal, $default: $fontDefault) {
 	@if $default == base {
 		@return map-get($useFont, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
 	}
@@ -60,7 +60,7 @@
 }
 
 // Unit Judge (for Padding & Margin)
-@function unit($val, $unit: rem){
+@function unit($val, $unit: rem) {
 	@if $val == auto { @return auto; }
 	@else if $val == clear { @return inherit; }
 	@else{
@@ -73,7 +73,7 @@
 }
 
 // Content
-@function content($fa-var){
+@function content($fa-var) {
 	@return unquote("\"#{ $fa-var }\"");
 	// @return unquote("'#{ $fa-var }'"); // 這個也可以
 }

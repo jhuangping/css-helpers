@@ -38,9 +38,15 @@
   height: 100%;
 }
 
-@mixin size($width, $height: $width){
-  width: $width;
-  height: $height;
+@mixin size($width, $height: $width) {
+  @if $width == full {
+    width: 100%;
+    height: 100%;
+  }
+  @else {
+    width: $width;
+    height: $height;
+  }
 }
 
 // Position Center
@@ -64,7 +70,7 @@
   height: 100%;
   @if $z-index != auto { z-index: $z-index; }
 }
-@mixin abs-full($z: auto){
+@mixin abs-full($z: auto) {
   @include position-full($z);
 }
 
@@ -78,7 +84,7 @@
 
 // $flex <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Display Flex
-@mixin flex($dis: flex, $fd: default, $fw: default, $ai: default, $jc: default){
+@mixin flex($dis: flex, $fd: default, $fw: default, $ai: default, $jc: default) {
   @if $dis == flex { display: $dis; }
   @else if $dis == cc {
     display: flex;
@@ -140,10 +146,10 @@
 }
 
 // Flex 置中
-@mixin flex-center($dis: flex, $fd: default, $fw: default, $ai: center, $jc: center){
+@mixin flex-center($dis: flex, $fd: default, $fw: default, $ai: center, $jc: center) {
   @include flex($dis, $fd, $fw, $ai, $jc);
 }
-@mixin fx-c($dis: flex, $fd: default, $fw: default, $ai: center, $jc: center){
+@mixin fx-c($dis: flex, $fd: default, $fw: default, $ai: center, $jc: center) {
   @include flex($dis, $fd, $fw, $ai, $jc);
 }
 
@@ -178,7 +184,7 @@
 @mixin fx-ccc() { @include flex-ccc(); }
 
 // Flex item
-@mixin flex-item($b: base, $s: 1, $g: 0, $as: auto, $o: null){
+@mixin flex-item($b: base, $s: 1, $g: 0, $as: auto, $o: null) {
   // flex: flex-grow | flex-shrink | flex-basis
   @if $b != base { flex-basis: $b; } 
   @if $s != 1 { flex-shrink: $s; }
@@ -200,7 +206,7 @@
   @include flex-item($b, $s, $g, $as, $o)
 }
 
-@mixin fx-gd($item: auto, $row: null, $col: $row, $init: null){
+@mixin fx-gd($item: auto, $row: null, $col: $row, $init: null) {
   @if $init != null {
     display: flex;
     flex-wrap: wrap;
@@ -223,14 +229,14 @@
 
 // $text <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Text Linear Gradient 文字漸層
-@mixin text-lg($L: #f00, $R: #00f, $path: to left){
+@mixin text-lg($L: #f00, $R: #00f, $path: to left) {
   background: linear-gradient($path, $L, $R);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
-@mixin t-lg($L: #f00, $R: #00f, $path: to left){
+@mixin t-lg($L: #f00, $R: #00f, $path: to left) {
   @include text-lg($L, $R, $path)
 }
 
@@ -285,7 +291,7 @@
 
 // transition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // transition(trs)
-@mixin transition($time: map-get($useTransition, time), $tag: map-get($useTransition, target), $delay: map-get($useTransition, delay), $fn: map-get($useTransition, function)){
+@mixin transition($time: map-get($useTransition, time), $tag: map-get($useTransition, target), $delay: map-get($useTransition, delay), $fn: map-get($useTransition, function)) {
   transition: $tag $time + s;
   @if $delay != 0 { transition-delay: $delay + s; }
   @if $fn != linear { transition-timing-function: $fn; }
@@ -381,7 +387,7 @@
 
 // $font <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // font family
-@mixin font-family($fontVal, $default: $fontDefault){
+@mixin font-family($fontVal, $default: $fontDefault) {
   @if $default == base {
     font-family: map-get($useFont, $fontVal), Arial, 'Microsoft JhengHei', sans-serif;
 	}
@@ -389,7 +395,7 @@
 		font-family: map-get($useFont, $fontVal), $default;
 	}
 }
-@mixin ff($fontVal, $default: $fontDefault){
+@mixin ff($fontVal, $default: $fontDefault) {
   @include font-family($fontVal, $default);
 }
 
@@ -400,12 +406,12 @@
   @if $ary != null {
     @each $size ,$var in $ary {
       @if $fun == min {
-        @include mq-min($size){
+        @include mq-min($size) {
           font-size: unit($var, $unit);
         }
       }
       @else{
-        @include mq-max($size){
+        @include mq-max($size) {
           font-size: unit($var, $unit);
         }
       }
@@ -478,11 +484,11 @@
 
 // $function <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Element Display
-@mixin el-hide(){
+@mixin el-hide() {
   opacity: 0;
   pointer-events: none;
 }
-@mixin el-show(){
+@mixin el-show() {
   opacity: 1;
   pointer-events: auto;
 }
@@ -525,7 +531,7 @@
 @mixin pa-h($h: 9, $w: 16, $patch: null) { @include pa-height($h, $w, $patch); }
 
 // Table Width Percentage
-@mixin tab-width($td,$tab){
+@mixin tab-width($td,$tab) {
   width: $td / $tab * 100%;
 }
 
@@ -536,7 +542,7 @@
   mask-repeat: $repeat;
   @if $size != null { mask-size: $size; }
 }
-@mixin mask-img($url: $maskImage){
+@mixin mask-img($url: $maskImage) {
   mask-image: url(#{$url});
 }
 @mixin mask($url: $maskImage, $position: center, $size: contain, $repeat: no-repeat) {
@@ -546,16 +552,16 @@
 
 // $background <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Background linear gradient 背景漸層
-@mixin bg-lg($L: #f00, $R: #00f, $path: to left){
+@mixin bg-lg($L: #f00, $R: #00f, $path: to left) {
   background: linear-gradient($path, $L, $R);
 }
 // background image
-@mixin bg-init($position: center, $size: null, $repeat: no-repeat){
+@mixin bg-init($position: center, $size: null, $repeat: no-repeat) {
   background-repeat: $repeat;
   background-position: $position;
   @if $size != null { background-size: $size; }
 }
-@mixin bg-img($url: $backgroundImage){
+@mixin bg-img($url: $backgroundImage) {
   background-image: url(#{$url});
 }
 @mixin bg($url: $backgroundImage, $position: center, $size: null, $repeat: no-repeat) {

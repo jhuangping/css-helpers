@@ -104,7 +104,7 @@
 
       @each $size, $val in $useMarginBreakpoints {
         @if $val == true {
-          @include mq-min($size){
+          @include mq-min($size) {
             @each $val in $useMarginValue {
               &l\@#{$size}\:#{$val} { margin-left: unit($val, $marginUnit); }
               &r\@#{$size}\:#{$val} { margin-right: unit($val, $marginUnit); }

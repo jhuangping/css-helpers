@@ -1,17 +1,17 @@
 // noRest
 // @mixin noRest($color:cr(base))
-@mixin no-reset(){
+@mixin no-reset() {
   // color: $color;
   // word-wrap: break-word;
 
   ul,ol{
-    // &:not([class*="u-"]){
+    // &:not([class*="u-"]) {
     //     margin: 1.12em 0; //段落
     // }
   }
 
   ol ul, ul ol, ul ul, ol ol {
-    // &:not([class*="u-"]){
+    // &:not([class*="u-"]) {
       // margin-top: 0
       // margin-bottom: 0
     // }
@@ -32,7 +32,7 @@
     // list-style-type: decimal; //預設
   }
   ol,ul {
-    // &:not([class*="u-"]){}
+    // &:not([class*="u-"]) {}
     &.n{
       list-style: none; //沒有標誌，不使用編號
     }
@@ -71,14 +71,14 @@
   }
 
   // ul, ol{
-  //   // &:not([class*="u-"]){}
+  //   // &:not([class*="u-"]) {}
   //   display: block;
   //   page-break-before: avoid;
   //   padding-left: 40px;
-  //  // ul:not([class*="u-"]){}
+  //  // ul:not([class*="u-"]) {}
   //   ul{
   //     list-style-type: circle;
-  //     // ul:not([class*="u-"]){}
+  //     // ul:not([class*="u-"]) {}
   //     ul{
   //       list-style-type: square;
   //     }
@@ -105,7 +105,7 @@
   
   // h4, p, blockquote, fieldset, form, dl, dir, menu
   // blockquote, fieldset, form, dl, dir, menu{
-  //   &:not([class*="u-"]){}
+  //   &:not([class*="u-"]) {}
   //   margin: 1.12em 0;
   // }
   
@@ -171,7 +171,7 @@
       padding: 5px 8px;
       cursor: pointer;
       @include trs();
-      @include mq-min(){
+      @include mq-min() {
         &:hover{
           opacity: .3;
         }

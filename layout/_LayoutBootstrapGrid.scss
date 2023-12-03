@@ -170,29 +170,29 @@
       padding: 0 15px;
       @if $i == 12{ }
       @else if $i >= 6 {
-        @include mq-max($rwdPhone){
+        @include mq-max($rwdPhone) {
           width: 100%;
         }
       }
       @else if $i >= 3 {
-        @include mq-max($rwdPad){
+        @include mq-max($rwdPad) {
           width: 50%;
         }
-        @include mq-max($rwdPhone){
+        @include mq-max($rwdPhone) {
           width: 100%;
         }
       }
       @else if $i >= 1 {
-        @include mq-max(1500){
+        @include mq-max(1500) {
           width: calc(100%/4);
         }
         @include mq-max(1366) {
           width: calc(100%/3);
         }
-        @include mq-max($rwdPad){
+        @include mq-max($rwdPad) {
           width: 50%;
         }
-        @include mq-max($rwdPhone){
+        @include mq-max($rwdPhone) {
           width: 100%;
         }
       }
@@ -225,7 +225,7 @@
 }
 
 // BS row
-@mixin bs-row($val){
+@mixin bs-row($val) {
   margin-left: -$val;
   margin-right: -$val;
   > *{
