@@ -127,8 +127,8 @@
     @if $ai == start { align-items: flex-start; }
     @else if $ai == end { align-items: flex-end; }
     @else if $ai == c { align-items: center; }
-    @else if $ai == bl { align-items: baseline; }
-    @else if $ai == str { align-items: stretch; }
+    @else if $ai == bl or $ai == b { align-items: baseline; }
+    @else if $ai == str or $ai == s { align-items: stretch; }
     @else { align-items: $ai; }
   }
   
@@ -192,12 +192,9 @@
   @if $as != auto { 
     @if $as == start { align-self: flex-start; }
     @else if $as == end { align-self: flex-end; }
-    @else if $as == center { align-self: center; }
     @else if $as == c { align-self: center; }
-    @else if $as == b { align-self: baseline; }
-    @else if $as == bl { align-self: baseline; }
-    @else if $as == s { align-self: stretch; }
-    @else if $as == str { align-self: stretch; }
+    @else if $as == b or $as == bl { align-self: baseline; }
+    @else if $as == s or $as == str  { align-self: stretch; }
     @else { align-self: $as; }
   }
   @if $o != null { order: $o; }
@@ -613,3 +610,22 @@
   }
 }
 @mixin obj($fit: default, $position: default) { @include object($fit, $position) }
+
+// unify parent
+@mixin at-root($parentSelector, $isChild: false) {
+  @if $isChild == false {
+    @at-root #{$parentSelector} #{&} {
+      @content;
+    }
+  }
+  @else {
+    @at-root #{$parentSelector}#{&} {
+      @content;
+    }
+  }
+}
+@mixin unify-parent($parentSelector, $isChild: false) { 
+  @include at-root($parentSelector, $isChild) {
+    @content;
+  }
+}
