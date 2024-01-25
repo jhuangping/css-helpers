@@ -14,6 +14,7 @@
 // $grid
 // $Sizing
 // $Media
+// $input
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 // $Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -626,6 +627,24 @@
 }
 @mixin unify-parent($parentSelector, $isChild: false) { 
   @include at-root($parentSelector, $isChild) {
+    @content;
+  }
+}
+
+// $input <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+@mixin input-hide-arrows() {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@mixin input-placeholder($color) {
+  &::placeholder,
+  &::-webkit-input-placeholder {
+    color: $color;
     @content;
   }
 }
