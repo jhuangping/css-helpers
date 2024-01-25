@@ -641,10 +641,13 @@
   }
 }
 
-@mixin input-placeholder($color) {
+@mixin input-placeholder($color: null) {
   &::placeholder,
   &::-webkit-input-placeholder {
-    color: $color;
+    @if $color != null {
+      color: $color;
+    }
+
     @content;
   }
 }
