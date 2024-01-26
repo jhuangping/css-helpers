@@ -65,11 +65,11 @@
       }
       &::before {
         top: 0px;
-        @include bg-lg(rgba(#000,.15), $cRe, top);
+        @include bg-lg('top rgba(#000, .15), rgba(#000, 0)');
       }
       &::after {
         bottom: 0px;
-        @include bg-lg(rgba(#000,.15), $cRe, bottom);
+        @include bg-lg('bottom rgba(#000, .15), rgba(#000, 0)');
       }
     }
 

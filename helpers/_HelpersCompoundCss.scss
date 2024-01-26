@@ -227,15 +227,15 @@
 
 // $text <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Text Linear Gradient 文字漸層
-@mixin text-lg($L: #f00, $R: #00f, $path: to left) {
-  background: linear-gradient($path, $L, $R);
+@mixin text-lg($setting: '45deg, #f00, #00f') {
+  background: linear-gradient(#{$setting});
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
-@mixin t-lg($L: #f00, $R: #00f, $path: to left) {
-  @include text-lg($L, $R, $path)
+@mixin t-lg($setting: '45deg, #f00, #00f') {
+  @include text-lg($setting)
 }
 
 // Text Overflow
@@ -257,12 +257,12 @@
 
 // $border <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Border Linear Gradient 邊線漸層
-@mixin border-lg($L: #f00, $R: #00f, $path: to left) {
+@mixin border-lg($setting: '45deg, #f00, #00f') {
   border-style: solid;
-  border-image: linear-gradient($path, $L, $R);
+  border-image: linear-gradient(#{$setting});
   border-image-slice: 1;
 }
-@mixin b-lg($L: #f00, $R: #00f, $path: to left) { @include border-lg($L, $R, $path); }
+@mixin b-lg($setting: '45deg, #f00, #00f') { @include border-lg($setting); }
 
 // Arrow (border, ::before, ::after)
 @mixin b-arrow($w: 25px,$h: $w, $path: top,$cr: #f00) {
@@ -550,8 +550,8 @@
 
 // $background <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Background linear gradient 背景漸層
-@mixin bg-lg($L: #f00, $R: #00f, $path: to left) {
-  background: linear-gradient($path, $L, $R);
+@mixin bg-lg($setting: '45deg, #f00, #00f') {
+  background: linear-gradient(#{$setting});
 }
 // background image
 @mixin bg-init($position: center, $size: null, $repeat: no-repeat) {
