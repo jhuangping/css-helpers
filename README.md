@@ -851,6 +851,20 @@
     ...
   ```
 
+ `toCalc($content)`: 簡化 `calc(#{@function})`
+  > Code View
+  ```
+  // 使用 '' 單引號來連接 @function
+  
+  .test
+    width: toCalc(pa(50, 100)'+ 10px')
+  .test2
+    width: toCalc(pa(50, 100)'+ 10px +'vw(10))
+    
+  .test3
+    width: toCalc('10px +'pa(50, 100))
+  ```
+
 - **Font :**
 
   `font($fontVal, $default)`

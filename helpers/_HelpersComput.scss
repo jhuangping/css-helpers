@@ -49,6 +49,11 @@
 
 }
 
+// calc
+@function toCalc($content: 100%) {
+	@return calc(#{$content});
+}
+
 // font
 @function font($fontVal, $default: $fontDefault) {
 	@if $default == base {
