@@ -35,12 +35,10 @@
       }
     }
   }
-  [class*="c-bn-"], [class*="c-bn:"]{
-    @extend .c-bn;
-  }
-  .c-bn {
-    @content;
-  }
+
+  [class*="c-bn-"], [class*="c-bn:"]{ @extend .c-bn; }
+
+  .c-bn { @content; }
 }
 // Banner Edit ----------------------------------------------------------------
 @mixin c-bn($name: null, $el: null) {

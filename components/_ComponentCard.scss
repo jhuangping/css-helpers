@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 @mixin c-card() {
-  .c-crd, [class*="c-crd-"], [class*="c-crd:"] {
+  .c-crd {
     &__pic, &__video {
       position: relative;
     }
@@ -23,7 +23,9 @@
 
     // &_name{  }
   }
-  
+
+  [class*="c-crd-"], [class*="c-crd:"] { @extend .c-crd; }
+
   .c-crd{
     @content;
   }
