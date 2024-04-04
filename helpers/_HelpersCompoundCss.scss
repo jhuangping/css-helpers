@@ -211,7 +211,12 @@
   }
   @if $row != null { gap: $row $col; }
   @if $item != auto {
-    @if $col != 0 { > * { width: calc((100% - #{$col * 2}) / #{$item}); } }
+    @if $col != 0 { 
+      > * { 
+        @if $item % 2 == 0 { width: calc((100% - #{$col * 2} - #{$col}) / #{$item}); }
+        @else { width: calc((100% - #{$col * 2}) / #{$item}); }
+      } 
+    }
     @else { > * { width: calc(100%/#{$item}); } }
   }
 }
