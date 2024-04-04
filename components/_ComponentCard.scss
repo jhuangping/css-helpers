@@ -24,7 +24,7 @@
     // &_name{  }
   }
 
-  [class*="c-crd-"], [class*="c-crd:"] { @extend .c-crd; }
+  // [class*="c-crd-"], [class*="c-crd:"] { @extend .c-crd; }
 
   .c-crd{
     @content;
