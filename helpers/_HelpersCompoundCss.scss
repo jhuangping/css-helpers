@@ -1,3 +1,4 @@
+@use "sass:math";
 // Catalog <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // $Layout
 // $flex
@@ -526,7 +527,7 @@
   // 16:9 (youtube: 1280:720) youtube 56.25%  
 
   // (height / width)
-  padding-bottom: percentage($h / $w);
+  padding-bottom: percentage(calc($h / $w));
   @if $patch != null{
     padding-top: $patch + px;
   }

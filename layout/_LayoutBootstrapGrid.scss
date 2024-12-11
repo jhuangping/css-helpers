@@ -1,8 +1,9 @@
 @charset "utf-8";
+@use 'sass:math';
 // Bootstraap Grid ------------------------------------------------------------
 @mixin bootstrap-grid() {
   $useBgArray: sm, md, lg, xl;
-  $col: 100% / 12;
+  $col: math.div(100%, 12);
 
   .container {
     width: 100%;

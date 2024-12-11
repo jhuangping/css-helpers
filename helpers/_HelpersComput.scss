@@ -9,7 +9,7 @@
 	$unit: $fz;
 	@if $fz == null { $unit: 16 }
 	@if $val == auto { @return auto; }
-	@else{ @return ($val / $unit) + rem; }
+	@else{ @return calc($val / $unit) + rem; }
 }
 
 // Font Size px to em
@@ -22,7 +22,7 @@
 
 // Font line-height
 @function lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
-	@return $lh / $px;
+	@return calc($lh / $px);
 }
 
 // Color map-get 
@@ -33,7 +33,7 @@
 // vw 換算
 @function vw($val,$win: 1920) {
 	@if $val == auto{ @return auto; }
-	@else { @return ($val / ($win / 100)) + vw; }
+	@else { @return calc($val / ($win / 100)) + vw; }
 }
 
 // vh 換算
@@ -45,7 +45,7 @@
 // percentage 簡寫
 @function pa($val, $win: 1920) {
 	@if $val == auto { @return auto; }
-	@else { @return percentage($val / $win); }
+	@else { @return percentage(calc($val / $win)); }
 
 }
 
