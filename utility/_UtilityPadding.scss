@@ -2,7 +2,7 @@
 
 @mixin u-padding() {
   .u-p {
-    @if $paddingDetail == t {
+    @if $paddingDetail == true {
       @each $val in map-get($usePaddingValue, l) {
         &l\:#{$val} { padding-left: unit($val, $paddingUnit); }
       }

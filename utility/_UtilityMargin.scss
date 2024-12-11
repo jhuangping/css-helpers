@@ -2,7 +2,7 @@
 
 @mixin u-margin() {
   .u-m {
-    @if $marginDetail == t {
+    @if $marginDetail == true {
       @each $val in map-get($useMarginValue, l) {
         &l\:#{$val} {
           margin-left: unit($val, $marginUnit);
