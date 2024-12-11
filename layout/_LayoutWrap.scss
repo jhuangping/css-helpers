@@ -54,12 +54,16 @@
 
     @if $custom == true {
       @each $name,$val in $useWarpSize {
-        &\:#{$name} { @include l-wp($val); }
+        @if $val != null {
+          &\:#{$name} { @include l-wp($val); }
+        }
       }
     }
     @else {
       @each $val in $useWarpSize {
-        &\:#{$val}{ @include l-wp($val); }
+        @if $val !=null {
+          &\:#{$val}{ @include l-wp($val); }
+        }
       }
     }
 
@@ -77,12 +81,16 @@
   .l-w {
     @if $custom == true {
       @each $name,$val in $useWarpSize {
-        &\:#{$name} { max-width: $val + px; }
+        @if $val != null {
+          &\:#{$name} { max-width: $val + px; }
+        }
       }
     }
     @else {
       @each $val in $useWarpSize {
-        &\:#{$val} { max-width: $val + px; }
+        @if $val !=null {
+          &\:#{$val} { max-width: $val + px; }
+        }
       }
     }
   }
