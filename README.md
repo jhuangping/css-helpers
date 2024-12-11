@@ -264,7 +264,7 @@
 
   **$useWarp :** `l-wp` 設定預設值
 
-  **$useWarpSize :** 擴充 `l-wp` 其他尺寸
+  **$useWarpSize :** 擴充 `l-wp` 其他尺寸 (值為`null`則關閉不會產出)
 
 - **Grid `l-gd` :**
 
