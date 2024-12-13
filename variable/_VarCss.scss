@@ -13,11 +13,17 @@ $useCssAttributesReset: normal, initial, transparent;
 $cssAttributesInherit: inherit;
 
 // $font <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$resetFont: nth($useCssAttributesReset, 1) !default;
+$reFont: nth($useCssAttributesReset, 1) !default;
+$reF: nth($useCssAttributesReset, 1) !default;
 $fontReset: nth($useCssAttributesReset, 1) !default;
 $fontRe: nth($useCssAttributesReset, 1) !default;
 $fRe: nth($useCssAttributesReset, 1) !default;
 
 // $initial <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$resetCss: nth($useCssAttributesReset, 2) !default;
+$reCss: nth($useCssAttributesReset, 2) !default;
+$reCs: nth($useCssAttributesReset, 2) !default;
 $cssReset: nth($useCssAttributesReset, 2) !default;
 $cssRe: nth($useCssAttributesReset, 2) !default;
 $csRe: nth($useCssAttributesReset, 2) !default;
@@ -27,6 +33,9 @@ $cssDna: $cssAttributesInherit !default;
 $dna: $cssAttributesInherit !default;
 
 // $color <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$resetColor: nth($useCssAttributesReset, 3) !default;
+$reColor: nth($useCssAttributesReset, 3) !default;
+$reC: nth($useCssAttributesReset, 3) !default;
 $colorReset: nth($useCssAttributesReset, 3) !default;
 $colorRe: nth($useCssAttributesReset, 3) !default;
 $cRe: nth($useCssAttributesReset, 3) !default;
