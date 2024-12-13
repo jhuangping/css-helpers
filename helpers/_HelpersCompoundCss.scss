@@ -225,7 +225,7 @@
 // $line-height <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // line height
 @mixin line-height($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
-  line-height: $lh / $px;
+  line-height: calc($lh / $px);
 }
 @mixin lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
   @include line-height($lh, $px);

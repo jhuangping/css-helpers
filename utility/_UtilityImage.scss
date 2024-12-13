@@ -57,7 +57,7 @@
       }
     }
     @else {
-      padding-bottom: percentage($h / $w);
+      padding-bottom: percentage(calc($h / $w));
       @if $patch != null {
         padding-top: $patch + px;
       }
