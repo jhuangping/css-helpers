@@ -22,3 +22,7 @@ uploads/*
 */config/gapi.php
 */config/config.php
 /node_modules
+
+# Test File
+testStyle.sass
+_testconfig.scss
