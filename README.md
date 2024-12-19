@@ -477,11 +477,11 @@
 
   *其他 :*
   
-  `+fx-gd($item, $row, $col, $init)` : flex 網格佈局應用
+  `+fx-gd($item, $col, $row, $init)` : flex 網格佈局應用
 
   - **$item :** 設置網格數量
-  - **$row :** 設置網格佈局 "行" 間隙大小，需 key 單位
-  - **$col :** 設置網格佈局 "列" 間隙大小，需 key 單位 ( 預設值為 $row )
+  - **$col :** 設置網格佈局 "列" 間隙大小，需 key 單位 
+  - **$row :** 設置網格佈局 "行" 間隙大小，需 key 單位 ( 預設值為 $col )
   - **$init :** 是否啟用 $init : init
  
     > 第一次設置需啟用 $init: true
