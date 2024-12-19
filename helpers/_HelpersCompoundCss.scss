@@ -205,17 +205,18 @@
   @include flex-item($b, $s, $g, $as, $o)
 }
 
-@mixin fx-gd($item: auto, $row: null, $col: $row, $init: null) {
+@mixin fx-gd($item: auto, $col: null, $row: $col, $init: null) {
   @if $init != null {
     display: flex;
     flex-wrap: wrap;
   }
-  @if $row != null { gap: $row $col; }
+  @if $col != null { gap: $col $row; }
   @if $item != auto {
-    @if $col != 0 { 
+    @if $row != 0 { 
       > * { 
-        @if $item % 2 == 0 { width: calc((100% - #{$col * 2} - #{$col}) / #{$item}); }
-        @else { width: calc((100% - #{$col} - #{$col} ) / #{$item}); }
+        @if $item ==1 { width: 100%; }
+        @else if $item % 2 == 0 { width: calc((100% - #{$row}) / #{$item}); }
+        @else { width: calc((100% - #{$row} - #{$row}) / #{$item}); }
       } 
     }
     @else { > * { width: calc(100%/#{$item}); } }
