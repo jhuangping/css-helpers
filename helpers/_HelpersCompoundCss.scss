@@ -582,11 +582,21 @@
 
 // $grid <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // grid
-@mixin gd($item: 4, $col: null, $row: null, $d: grid) {
-  display: $d;
-  grid-template-columns: repeat($item, minmax(0, 1fr));
-  @if $col != null { grid-column-gap: $col + px; }
-  @if $row != null { grid-row-gap: $row + px; }
+@mixin gd-init() {
+  display: grid;
+}
+
+@mixin gd-i($item: auto, $col: null, $row: $col) {
+  @if $item != auto {
+    grid-template-columns: repeat($item, 1fr);
+  }
+
+  @if $col != null { gap: $col $row; };
+}
+@mixin gd($item: auto, $col: null, $row: $col, $init: null) {
+  @if $init != null { @include gd-init() };
+
+  @include gd-i($item, $col, $row);
 }
 
 // $Sizing <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
