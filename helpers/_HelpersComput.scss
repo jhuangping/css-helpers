@@ -45,7 +45,7 @@
 // percentage 簡寫
 @function pa($val, $win: 1920) {
 	@if $val == auto { @return auto; }
-	@else { @return percentage(calc($val / $win)); }
+	@else { @return percentage($val / $win); }
 
 }
 

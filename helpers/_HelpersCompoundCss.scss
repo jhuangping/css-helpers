@@ -226,7 +226,7 @@
 // $line-height <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // line height
 @mixin line-height($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
-  line-height: calc($lh / $px);
+  line-height: $lh / $px;
 }
 @mixin lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
   @include line-height($lh, $px);
@@ -528,7 +528,7 @@
   // 16:9 (youtube: 1280:720) youtube 56.25%  
 
   // (height / width)
-  padding-bottom: percentage(calc($h / $w));
+  padding-bottom: percentage($h / $w);
   @if $patch != null{
     padding-top: $patch + px;
   }

@@ -3,7 +3,7 @@
 // Bootstraap Grid ------------------------------------------------------------
 @mixin bootstrap-grid() {
   $useBgArray: sm, md, lg, xl;
-  $col: math.div(100%, 12);
+  $col: 100% / 12;
 
   .container {
     width: 100%;

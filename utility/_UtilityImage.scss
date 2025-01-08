@@ -9,7 +9,7 @@
     &::before {
       content: '';
       display: block;
-      padding-bottom: percentage(calc(9 / 16));
+      padding-bottom: percentage(9 / 16);
     }
     img{
       overflow: hidden;
@@ -57,7 +57,7 @@
       }
     }
     @else {
-      padding-bottom: percentage(calc($h / $w));
+      padding-bottom: percentage($h / $w);
       @if $patch != null {
         padding-top: $patch + px;
       }
