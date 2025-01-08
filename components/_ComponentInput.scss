@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 @mixin c-input($style: default) {
-  input[type="text"],input[type="tel"],input[type="email"],input[type="file"],input[type="password"],textarea {
+  input[type="text"],input[type="tel"],input[type="email"],input[type="file"],input[type="password"],input[type="number"] ,textarea {
     max-width: 100%;
     width: 100%;
     outline: none;
