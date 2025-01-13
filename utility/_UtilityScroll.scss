@@ -3,14 +3,14 @@
 // scroll
 @mixin u-scroll() {
   .u-scroll {
-    &\:no { 
+    &\:no, &-no { 
       overflow: hidden; 
     }
-    &\:x {
+    &\:x, &-x {
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
     }
-    &\:y{
+    &\:y, &-y{
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
     }

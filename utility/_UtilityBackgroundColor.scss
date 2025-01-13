@@ -4,7 +4,7 @@
 @mixin u-bgc() {
   .u-bgc {
     @each $name, $val in $useColor {
-      &\:#{$name} { background: map-get($useColor, $name); }
+      &\:#{$name}, &-#{$name} { background: map-get($useColor, $name); }
     }
   }
 }

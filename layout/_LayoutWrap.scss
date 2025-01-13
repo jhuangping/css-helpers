@@ -38,14 +38,14 @@
   }
 
   .l-wp {
-    &\:html {
+    &\:html, &-html {
       width: 100%;
       max-width: 100%;
       min-width: 320px;
       overflow: hidden;
     }
           
-    &\:main {
+    &\:main, &-main {
       width: 100%;
       max-width: 100%;
     }
@@ -55,19 +55,19 @@
     @if $custom == true {
       @each $name,$val in $useWarpSize {
         @if $val != null {
-          &\:#{$name} { @include l-wp($val); }
+          &\:#{$name}, &-#{$name} { @include l-wp($val); }
         }
       }
     }
     @else {
       @each $val in $useWarpSize {
         @if $val !=null {
-          &\:#{$val}{ @include l-wp($val); }
+          &\:#{$val}, &-#{$val} { @include l-wp($val); }
         }
       }
     }
 
-    &\:full,&\:max {
+    &\:full,&\:max, &-full, &-max {
       max-width: 100%;
       width: 100%;
       // @extend %wpBoth;
@@ -82,14 +82,14 @@
     @if $custom == true {
       @each $name,$val in $useWarpSize {
         @if $val != null {
-          &\:#{$name} { max-width: $val + px; }
+          &\:#{$name}, &-#{$name} { max-width: $val + px; }
         }
       }
     }
     @else {
       @each $val in $useWarpSize {
         @if $val !=null {
-          &\:#{$val} { max-width: $val + px; }
+          &\:#{$val}, &-#{$val} { max-width: $val + px; }
         }
       }
     }
