@@ -35,6 +35,7 @@
 
   .u-googlemap {
     position: relative;
+    overflow: hidden;
     &::before {
       content: '';
       display: block;

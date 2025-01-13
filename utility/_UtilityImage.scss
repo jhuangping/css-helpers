@@ -79,3 +79,11 @@
 @mixin u-imgfit-h($h: 9, $w: 16, $patch: null) {
   @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
 }
+
+@mixin u-googlemap-height($h: 9, $w: 16, $patch: null) {
+  @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
+}
+
+@mixin u-googlemap-h($h: 9, $w: 16, $patch: null) {
+  @include u-imgfix-height($h: $h , $w: $w , $patch: $patch);
+}
