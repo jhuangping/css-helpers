@@ -21,16 +21,19 @@
       object-position: center;
     }
   }
-  .u-imgfix\:full, .u-imgfit\:full {
+  .u-imgfix\:full, .u-imgfit\:full, .u-imgfix-full, .u-imgfit-full {
     img { object-fit: scale-down; }
   }
-  .u-imgfix\:out, .u-imgfix\:cover, .u-imgfit\:out, .u-imgfit\:cover {
+  .u-imgfix\:out, .u-imgfix\:cover, .u-imgfit\:out, .u-imgfit\:cover,
+  .u-imgfix-out, .u-imgfix-cover, .u-imgfit-out, .u-imgfit-cover {
     img { object-fit: cover; }
   }
-  .u-imgfix\:in, .u-imgfix\:contain, .u-imgfit\:in, .u-imgfit\:contain {
+  .u-imgfix\:in, .u-imgfix\:contain, .u-imgfit\:in, .u-imgfit\:contain,
+  .u-imgfix-in, .u-imgfix-contain, .u-imgfit-in, .u-imgfit-contain {
     img{ object-fit: contain }
   }
-  .u-imgfix\:fullScreen, .u-imgfix\:full-screen, .u-imgfit\:fullScreen, .u-imgfit\:full-screen {
+  .u-imgfix\:fullScreen, .u-imgfix\:full-screen, .u-imgfit\:fullScreen, .u-imgfit\:full-screen,
+  .u-imgfix-fullScreen, .u-imgfix-full-screen, .u-imgfit-fullScreen, .u-imgfit-full-screen {
     width: 100%;
     min-width: vh(1920);
     height: 100vh;

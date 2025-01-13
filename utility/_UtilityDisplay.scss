@@ -51,18 +51,18 @@
 
   .u-show, .u-display, .u-d {
     @include mq-max() {
-      &\:pc { display: none !important; }
+      &\:pc, &-pc { display: none !important; }
     }
     @include mq-min() {
-      &\:mobile{ display: none !important; }
+      &\:mobile, &-mobile{ display: none !important; }
     }
     @each $size, $switch in $useDisplayBreakpoints {
       @if $switch == true {
         @include mq-max($size) {
-          &\@#{$size}\:pc { display: none !important; }
+          &\@#{$size}\:pc, &-#{$size}-pc { display: none !important; }
         }
         @include mq-min($size) {
-          &\@#{$size}\:mobile { display: none !important; }
+          &\@#{$size}\:mobile, &-#{$size}-mobile { display: none !important; }
         }
       }
     }
