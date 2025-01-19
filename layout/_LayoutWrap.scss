@@ -75,23 +75,3 @@
     @content;
   }
 }
-
-// Width Mixin ----------------------------------------------------------------
-@mixin l-w($custom: map-get($useWarp , customName)) {
-  .l-w {
-    @if $custom == true {
-      @each $name,$val in $useWarpSize {
-        @if $val != null {
-          &\:#{$name}, &-#{$name} { max-width: $val + px; }
-        }
-      }
-    }
-    @else {
-      @each $val in $useWarpSize {
-        @if $val !=null {
-          &\:#{$val}, &-#{$val} { max-width: $val + px; }
-        }
-      }
-    }
-  }
-}

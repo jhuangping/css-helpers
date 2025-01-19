@@ -1,0 +1,12 @@
+@mixin u-max-w() {
+  .u-max-w {
+    @each $val in $useMaxWidthSize {
+      @if $val != null {
+        &\:#{$val},
+        &-#{$val} {
+          max-width: $val + px;
+        }
+      }
+    }
+  }
+}
