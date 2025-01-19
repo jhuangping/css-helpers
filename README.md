@@ -91,6 +91,9 @@
    $bnHeight: 300;
    
    // Utillity Module //////////////////////////////
+   // Max Width
+   $useMaxWidthSize: null;
+
    // Fonts (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
    $useFontBreakpoints: (
      base: false, 
