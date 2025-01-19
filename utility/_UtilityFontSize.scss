@@ -4,14 +4,14 @@
 @mixin u-fs() {
   .u-fs {
     @each $var in $useFontSizeValue {
-      &\:#{$var} { font-size: rem($var); }
+      &\:#{$var}, &-#{$var} { font-size: rem($var); }
     }
     @each $switchName, $switchVal in $useFontBreakpoints {
       @if $switchVal == true {
         @if $switchName != base {
           @include mq-min($switchName) {
             @each $var in $useFontSizeValue {
-              &\@#{$switchName}\:#{$var} { font-size: rem($var); }
+              &\@#{$switchName}\:#{$var}, &-#{$switchName}-#{$var} { font-size: rem($var); }
             }
           }
         }

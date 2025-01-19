@@ -2,34 +2,34 @@
 
 // display
 @mixin display-attributes() {
-  &\:type { display: type; }
-  &\:none, &\:hide, &\:hidden { display: none; }
-  &\:flex {
+  &\:type, &-type { display: type; }
+  &\:none, &\:hide, &\:hidden, &-none, &-hide, &-hidden { display: none; }
+  &\:flex, &-flex {
     display: -ms-flexbox;
     display: flex;
   }
-  &\:grid { display: grid; }
-  &\:inline { display: inline; }
-  &\:block { display: block; }
-  &\:table { display: table; }
-  &\:contents { display: contents }
-  &\:inline-block{ display: inline-block; }
-  &\:inline-flex {
+  &\:grid, &-grid { display: grid; }
+  &\:inline, &-inline { display: inline; }
+  &\:block, &-block { display: block; }
+  &\:table, &-table { display: table; }
+  &\:contents, &-contents { display: contents }
+  &\:inline-block, &-inline-block { display: inline-block; }
+  &\:inline-flex, &-inline-flex {
     display: -ms-inline-flexbox;
     display: inline-flex;
   }
-  &\:inline-grid { display: inline-grid; }
-  &\:inline-table { display: inline-table; }
-  &\:table-cell { display: table-cell; }
-  &\:table-caption { display: table-caption; }
-  &\:flow-root { display: flow-root; }
-  &\:list-item { display: list-item; }
-  &\:table-row { display: table-row; }
-  &\:table-column { display: table-column; }
-  &\:table-row-group { display: table-row-group; }
-  &\:table-column-group { display: table-column-group; }
-  &\:table-header-group { display: table-header-group; }
-  &\:table-footer-group { display: table-footer-group; }
+  &\:inline-grid, &-inline-grid { display: inline-grid; }
+  &\:inline-table, &-inline-table { display: inline-table; }
+  &\:table-cell, &-table-cell { display: table-cell; }
+  &\:table-caption, &-table-caption { display: table-caption; }
+  &\:flow-root, &-flow-root { display: flow-root; }
+  &\:list-item, &-list-item { display: list-item; }
+  &\:table-row, &-table-row { display: table-row; }
+  &\:table-column, &-table-column { display: table-column; }
+  &\:table-row-group, &-table-row-group { display: table-row-group; }
+  &\:table-column-group, &-table-column-group { display: table-column-group; }
+  &\:table-header-group, &-table-header-grou { display: table-header-group; }
+  &\:table-footer-group, &-table-footer-group { display: table-footer-group; }
 }
 
 @mixin u-display() {
@@ -39,14 +39,14 @@
       @each $size, $switch in $useDisplayBreakpoints {
         @if $switch == true {
           @include mq-min($size) {
-            &\@#{$size} { @include display-attributes(); }
+            &\@#{$size}, &-#{$size} { @include display-attributes(); }
           }
         }
       }
     }
     
-    &\:show { display: initial; }
-    &\:hide { display: none !important; }
+    &\:show, &-show { display: initial; }
+    &\:hide, &-hide { display: none !important; }
   }
 
   .u-show, .u-display, .u-d {

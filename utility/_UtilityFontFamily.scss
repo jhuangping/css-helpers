@@ -3,10 +3,10 @@
 // font-family
 @mixin u-ff() {
   .u-ff {
-    &\:default, &\:clear, &\:main { font-family: $fontDefault; }
+    &\:default, &\:clear, &\:main, &-default, &-clear, &-main { font-family: $fontDefault; }
 
     @each $ffName, $ffVal in $useFont {
-      &\:#{$ffName} { font-family: map-get($useFont, $ffName), $fontDefault; }
+      &\:#{$ffName}, &-#{$ffName} { font-family: map-get($useFont, $ffName), $fontDefault; }
     }
   }
 }

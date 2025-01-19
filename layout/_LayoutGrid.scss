@@ -29,7 +29,7 @@
 }
 // Grid SASS ------------------------------------------------------------------
 @mixin l-grid() {
-  [class*="l-gd:"] {
+  [class*="l-gd:"], [class*="l-gd-"] {
     @include flex($fw: wrap);
   }
 

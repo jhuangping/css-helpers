@@ -5,14 +5,14 @@
   $TextAlign: left, center, right, justify;
   .u-ta {
     @each $val in $TextAlign {
-      &\:#{$val} { text-align: $val; }
+      &\:#{$val}, &-#{$val} { text-align: $val; }
     }
     @each $switchName, $switchVal in $useFontBreakpoints {
       @if $switchVal == true {
         @if $switchName != base {
           @include mq-min($switchName) {
             @each $val in $TextAlign {
-              &\@#{$switchName}\:#{$val} { font-weight: $val; }
+              &\@#{$switchName}\:#{$val}, &-#{$switchName}-#{$val} { font-weight: $val; }
             }
           }
         }
