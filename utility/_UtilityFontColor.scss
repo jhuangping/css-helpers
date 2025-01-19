@@ -3,7 +3,7 @@
 @mixin u-fc() {
   .u-fc {
     @each $fcName, $fcVal in $useColor {
-      &\:#{$fcName} { color: map-get($useColor, $fcName); }
+      &\:#{$fcName}, &-#{$fcName} { color: map-get($useColor, $fcName); }
     }
   }
 }

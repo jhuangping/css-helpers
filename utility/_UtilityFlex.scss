@@ -2,60 +2,66 @@
 
 // flex
 @mixin flex-attributes() {
-    &\:row {
-        flex-direction: row;
-        &-reverse { flex-direction: row-reverse; }
+  &\:row, &-row {
+    flex-direction: row;
+    &-reverse { flex-direction: row-reverse; }
+  }
+  &\:column, &-column {
+    flex-direction: column;
+    &-reverse { flex-direction: column-reverse; }
+  }
+  &\:col, &-col {
+      flex-direction: column;
+    &-r {
+      flex-direction: column-reverse;
     }
-    &\:column {
-        flex-direction: column;
-        &-reverse { flex-direction: column-reverse; }
-    }
-    &\:wrap {
-        flex-wrap: wrap;
-        &-reverse { flex-wrap: wrap-reverse; }
-    }
-    &\:nowrap { flex-wrap: nowrap; }
+  }
+  &\:wrap, &-wrap {
+    flex-wrap: wrap;
+    &-reverse { flex-wrap: wrap-reverse; }
+  }
+  &\:nowrap, &-nowrap { flex-wrap: nowrap; }
 
-    &\:fill { flex: 1 1 auto; }
+  &\:fill, &-fill { flex: 1 1 auto; }
 
-    &-grow {
-        &\:0 { flex-grow: 0; }
-        &\:1 { flex-grow: 1; }
-    }
-    &-shrink {
-        &\:0 { flex-shrink: 0; }
-        &\:1 { flex-shrink: 1; }
-    }
+  &-grow {
+    &\:0, &-0 { flex-grow: 0; }
+    &\:1, &-1 { flex-grow: 1; }
+  }
+  &-shrink {
+    &\:0, &-0 { flex-shrink: 0; }
+    &\:1, &-1 { flex-shrink: 1; }
+  }
 }
 @mixin justify-content-attributes() {
-  &\:start { justify-content: flex-start; }
-  &\:end { justify-content: flex-end; }
-  &\:center { justify-content: center; }
-  &\:between { justify-content: space-between; }
-  &\:around { justify-content: space-around; }
+  &\:start, &-start { justify-content: flex-start; }
+  &\:end, &-end { justify-content: flex-end; }
+  &\:center, &-center { justify-content: center; }
+  &\:between, &-between { justify-content: space-between; }
+  &\:around, &-around { justify-content: space-around; }
 }
 @mixin align-items() {
-  &\:start { align-items: flex-start; }
-  &\:end { align-items: flex-end; }
-  &\:center { align-items: center; }
-  &\:baseline { align-items: baseline; }
-  &\:stretch { align-items: stretch; }
+  &\:start, &-start { align-items: flex-start; }
+  &\:end, &-end { align-items: flex-end; }
+  &\:center, &-center { align-items: center; }
+  &\:baseline, &-baseline { align-items: baseline; }
+  &\:stretch, &-stretch { align-items: stretch; }
 }
 @mixin align-content() {
-  &\:start { align-content: flex-start; }
-  &\:end { align-content: flex-end; }
-  &\:center { align-content: center; }
-  &\:between { align-content: space-between; }
-  &\:around { align-content: space-around; }
-  &\:stretch { align-content: stretch; }
+  &\:start, &-start { align-content: flex-start; }
+  &\:end, &-end { align-content: flex-end; }
+  &\:center, &-center { align-content: center; }
+  &\:between, &-between { align-content: space-between; }
+  &\:around, &-around { align-content: space-around; }
+  &\:stretch, &-stretch { align-content: stretch; }
 }
 @mixin align-self() {
   &\:auto { align-self: auto; }
-  &\:start { align-self: flex-start; }
-  &\:end { align-self: flex-end; }
-  &\:center { align-self: center; }
-  &\:baseline { align-self: baseline; }
-  &\:stretch { align-self: stretch; }
+  &\:start, &-start { align-self: flex-start; }
+  &\:end, &-end { align-self: flex-end; }
+  &\:center, &-center { align-self: center; }
+  &\:baseline, &-baseline { align-self: baseline; }
+  &\:stretch, &-stretch { align-self: stretch; }
 }
 @mixin u-flex() {
   .u {
@@ -70,16 +76,16 @@
     @each $size, $switch in $useFlexBreakpoints {
       @if $switch == true {
         @include mq-min($size) {
-          &-fx\@#{$size} {
+          &-fx\@#{$size}, &-#{$size} {
             @include flex-attributes();
           }
-          &-jc\@#{$size} {
+          &-jc\@#{$size}, &-#{$size} {
             @include justify-content-attributes();
           }
           &-a {
-            &i\@#{$size} { @include align-items(); }
-            &c\@#{$size} { @include align-content(); }
-            &s\@#{$size} { @include align-self(); }
+            &i\@#{$size}, &-#{$size} { @include align-items(); }
+            &c\@#{$size}, &-#{$size} { @include align-content(); }
+            &s\@#{$size}, &-#{$size} { @include align-self(); }
           }
         }
       }

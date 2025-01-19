@@ -4,39 +4,39 @@
   .u-m {
     @if $marginDetail == true {
       @each $val in map-get($useMarginValue, l) {
-        &l\:#{$val} {
+        &l\:#{$val}, &-#{$val} {
           margin-left: unit($val, $marginUnit);
         }
       }
       @each $val in map-get($useMarginValue, r) {
-        &r\:#{$val} {
+        &r\:#{$val}, &-#{$val} {
           margin-right: unit($val, $marginUnit);
         }
       }
       @each $val in map-get($useMarginValue, t) {
-        &t\:#{$val} {
+        &t\:#{$val}, &-#{$val} {
           margin-top: unit($val, $marginUnit);
         }
       }
       @each $val in map-get($useMarginValue, b) {
-        &b\:#{$val} {
+        &b\:#{$val}, &-#{$val} {
           margin-bottom: unit($val, $marginUnit);
         }
       }
       @each $val in map-get($useMarginValue, x) {
-        &x\:#{$val} {
+        &x\:#{$val}, &-#{$val} {
           margin-left: unit($val, $marginUnit);
           margin-right: unit($val, $marginUnit);
         }
       }
       @each $val in map-get($useMarginValue, y) {
-        &y\:#{$val} {
+        &y\:#{$val}, &-#{$val} {
           margin-top: unit($val, $marginUnit);
           margin-bottom: unit($val, $marginUnit);
         }
       }
       @each $val in map-get($useMarginValue, all) {
-        &\:#{$val}{
+        &\:#{$val}, &-#{$val}{
           margin: unit($val, $marginUnit);
         }
       }
@@ -45,39 +45,39 @@
         @if $val == true {
           @include mq-min($size) {
             @each $val in map-get($useMarginValue, l) {
-              &l\@#{$size}\:#{$val} {
+              &l\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-left: unit($val, $marginUnit);
               }
             }
             @each $val in map-get($useMarginValue, r) {
-              &r\@#{$size}\:#{$val} {
+              &r\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-right: unit($val, $marginUnit);
               }
             }
             @each $val in map-get($useMarginValue, t) {
-              &t\@#{$size}\:#{$val} {
+              &t\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-top: unit($val, $marginUnit);
               }
             }
             @each $val in map-get($useMarginValue, b) {
-              &b\@#{$size}\:#{$val} {
+              &b\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-bottom: unit($val, $marginUnit);
               }
             }
             @each $val in map-get($useMarginValue, x) {
-              &x\@#{$size}\:#{$val} {
+              &x\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-left: unit($val, $marginUnit);
                 margin-right: unit($val, $marginUnit);
               }
             }
             @each $val in map-get($useMarginValue, y) {
-              &y\@#{$size}\:#{$val} {
+              &y\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-top: unit($val, $marginUnit);
                 margin-bottom: unit($val, $marginUnit);
               }
             }
             @each $val in map-get($useMarginValue, all) {
-              &\@#{$size}\:#{$val} {
+              &\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin: unit($val, $marginUnit);
               }
             }
@@ -87,38 +87,38 @@
     }
     @else {
       @each $val in $useMarginValue {
-        &l\:#{$val} { margin-left: unit($val, $marginUnit); }
-        &r\:#{$val} { margin-right: unit($val, $marginUnit); }
-        &t\:#{$val} { margin-top: unit($val, $marginUnit); }
-        &b\:#{$val} { margin-bottom: unit($val, $marginUnit); }
-        &x\:#{$val} {
+        &l\:#{$val}, &-#{$val} { margin-left: unit($val, $marginUnit); }
+        &r\:#{$val}, &-#{$val} { margin-right: unit($val, $marginUnit); }
+        &t\:#{$val}, &-#{$val} { margin-top: unit($val, $marginUnit); }
+        &b\:#{$val}, &-#{$val} { margin-bottom: unit($val, $marginUnit); }
+        &x\:#{$val}, &-#{$val} {
           margin-left: unit($val, $marginUnit);
           margin-right: unit($val, $marginUnit);
         }
-        &y\:#{$val} {
+        &y\:#{$val}, &-#{$val} {
           margin-top: unit($val, $marginUnit);
           margin-bottom: unit($val, $marginUnit);
         }
-        &\:#{$val} { margin: unit($val, $marginUnit); }
+        &\:#{$val}, &-#{$val} { margin: unit($val, $marginUnit); }
       }
 
       @each $size, $val in $useMarginBreakpoints {
         @if $val == true {
           @include mq-min($size) {
             @each $val in $useMarginValue {
-              &l\@#{$size}\:#{$val} { margin-left: unit($val, $marginUnit); }
-              &r\@#{$size}\:#{$val} { margin-right: unit($val, $marginUnit); }
-              &t\@#{$size}\:#{$val} { margin-top: unit($val, $marginUnit); }
-              &b\@#{$size}\:#{$val} { margin-bottom: unit($val, $marginUnit); }
-              &x\@#{$size}\:#{$val} {
+              &l\@#{$size}\:#{$val}, &-#{$size}-#{$val} { margin-left: unit($val, $marginUnit); }
+              &r\@#{$size}\:#{$val}, &-#{$size}-#{$val} { margin-right: unit($val, $marginUnit); }
+              &t\@#{$size}\:#{$val}, &-#{$size}-#{$val} { margin-top: unit($val, $marginUnit); }
+              &b\@#{$size}\:#{$val}, &-#{$size}-#{$val} { margin-bottom: unit($val, $marginUnit); }
+              &x\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-left: unit($val, $marginUnit);
                 margin-right: unit($val, $marginUnit);
               }
-              &y\@#{$size}\:#{$val} {
+              &y\@#{$size}\:#{$val}, &-#{$size}-#{$val} {
                 margin-top: unit($val, $marginUnit);
                 margin-bottom: unit($val, $marginUnit);
               }
-              &\@#{$size}\:#{$val} { margin: unit($val, $marginUnit); }
+              &\@#{$size}\:#{$val}, &-#{$size}-#{$val} { margin: unit($val, $marginUnit); }
             }
           }
         }
