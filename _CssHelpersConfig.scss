@@ -131,6 +131,9 @@ $isBannerMask: false !default; // true, false
 $bnMaskStyle: style01 !default;
 
 // Utillity Module <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Max Width
+$useMaxWidthSize: null !default;
+
 // Fonts (u-ff, u-fs, u-fw, u-ta, u-ls, u-lh)
 $useFontBreakpoints: (
   base: false, 

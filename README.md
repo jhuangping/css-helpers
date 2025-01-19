@@ -212,7 +212,6 @@
    +l-typography()
    +l-main()
    +l-wrap()
-   +l-w()
    +l-grid()
    +bootstrap-grid() // 仿 bootstrap grid v3，可刪
    
