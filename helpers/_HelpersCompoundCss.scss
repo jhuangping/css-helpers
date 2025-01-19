@@ -290,6 +290,91 @@
   border-#{$path}-color: $cr;
 }
 
+// Border Radius
+@mixin rt($radiusLeft: 0, $radiusRight: $radiusLeft){
+  border-top-left-radius: $radiusLeft;
+  border-top-right-radius: $radiusRight;
+}
+
+@mixin rb($radiusLeft: 0, $radiusRight: $radiusLeft) {
+  border-bottom-left-radius: $radiusLeft;
+  border-bottom-right-radius: $radiusRight;
+}
+
+@mixin rl($radiusTop: 0, $radiusBottom: $radiusTop) {
+  border-top-left-radius: $radiusTop;
+  border-bottom-left-radius: $radiusBottom;
+}
+
+@mixin rr($radiusTop: 0, $radiusBottom: $radiusTop) {
+  border-top-right-radius: $radiusTop;
+  border-bottom-right-radius: $radiusBottom;
+}
+
+@mixin rtl($radius: 0, $radius2: $radius) {
+  @if $radius2 != $radius {
+    border-top-left-radius: $radius $radius2
+  } @else {
+    border-top-left-radius: $radius
+  }
+}
+
+@mixin rlt($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-top-left-radius: $radius $radius2
+  } @else {
+    border-top-left-radius: $radius
+  }
+}
+
+@mixin rtr($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-top-right-radius: $radius $radius2
+  } @else {
+    border-top-right-radius: $radius
+  }
+}
+
+@mixin rrt($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-top-right-radius: $radius $radius2
+  } @else {
+    border-top-right-radius: $radius
+  }
+}
+
+@mixin rbl($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-bottom-left-radius: $radius $radius2
+  } @else {
+    border-bottom-left-radius: $radius
+  }
+}
+
+@mixin rlb($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-bottom-left-radius: $radius $radius2
+  } @else {
+    border-bottom-left-radius: $radius
+  }
+}
+
+@mixin rbr($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-bottom-right-radius: $radius $radius2
+  } @else {
+    border-bottom-right-radius: $radius
+  }
+}
+
+@mixin rrb($radius: 0, $radius2: $radius) {
+  @if $radius2 !=$radius {
+    border-bottom-right-radius: $radius $radius2
+  } @else {
+    border-bottom-right-radius: $radius
+  }
+}
+
 // $appearance <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // appearance
 @mixin appearance($arrow: none) {
