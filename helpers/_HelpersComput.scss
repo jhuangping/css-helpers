@@ -9,7 +9,7 @@
 	$unit: $fz;
 	@if $fz == null { $unit: 16 }
 	@if $val == auto { @return auto; }
-	@else{ @return calc($val / $unit) + rem; }
+	@else{ @return ($val / $unit) + rem; }
 }
 
 // Font Size px to em
@@ -33,13 +33,13 @@
 // vw 換算
 @function vw($val,$win: 1920) {
 	@if $val == auto{ @return auto; }
-	@else { @return calc($val / ($win / 100)) + vw; }
+	@else { @return ($val / ($win / 100)) + vw; }
 }
 
 // vh 換算
 @function vh($val,$win: 1080) {
 	@if $val == auto{ @return auto; }
-	@else { @return calc($val / ($win / 100)) + vh; }
+	@else { @return ($val / ($win / 100)) + vh; }
 }
 
 // percentage 簡寫
