@@ -22,7 +22,7 @@
 
 // Font line-height
 @function lh($lh: map-get($useWebBase, bodyLineHeight), $px: map-get($useWebBase, bodyFontSize)) {
-	@return calc($lh / $px);
+	@return $lh / $px;
 }
 
 // Color map-get 
