@@ -1,7 +1,7 @@
 @charset "utf-8";
     
 @mixin c-table() {
-  .c-tab {
+  .c-table {
     width: 100%;
     // text-align: center;
     // border-bottom: 1px solid #DADADA;
@@ -18,7 +18,7 @@
     //     color: #fff;
   }
 
-  [class*="c-tab-"], [class*="c-tab:"] { @extend .c-tab; }
+  [class*="c-table-"], [class*="c-table:"] { @extend .c-tab; }
 
-  .c-tab { @content; }
+  .c-table { @content; }
 }
