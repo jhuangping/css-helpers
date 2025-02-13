@@ -12,6 +12,11 @@
    
    ```
    @import '{ path }/css-helpers/CssHelpersConfig.scss'
+
+   // Global Config ////////////////////////////////
+   $useConfig: (
+     cssLibrary: null
+   );
    
    // Module Default ///////////////////////////////
    //- Breakpoints
