@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@mixin l-reset() {
+@mixin reset-base() {
 	@-ms-viewport{
 		width: device-width;
 	}
@@ -212,7 +212,7 @@
 	@content;
 }
 
-@mixin l-reset-master() {
+@mixin reset-master() {
 	@-ms-viewport{
 		width: device-width;
 	}
@@ -417,4 +417,12 @@
 	}
 	
 	@content;
+}
+
+@mixin l-reset($settingCssLibrary: map-get($useConfig, cssLibrary)) {
+	@if $settingCssLibrary ==master {
+		@include reset-master();
+	} @else {
+		@include reset-base();
+	}
 }

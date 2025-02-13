@@ -2,6 +2,12 @@
 @import 'variable/_VarCss';
 @import 'variable/_VarOther';
 
+// Global Config ////////////////////////////////
+// Css Library : [ master, bootstrap ]
+$useConfig: (
+  cssLibrary: null
+) !default;
+
 // Module Default ///////////////////////////////
 // Media 
 //-----------------------------------------------
