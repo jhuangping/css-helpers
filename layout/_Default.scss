@@ -16,7 +16,7 @@
 	body {
 		font-family: $fontDefault;
 		font-size: rem(map-get($useWebBase, bodyFontSize));
-		line-height: lh();
+		line-height: lh(map-get($useWebBase, bodyLineHeight), map-get($useWebBase, bodyFontSize));
 		letter-spacing: 1px;
 		color: map-get($useWebBase, bodyFontColor);
 		overflow-x: hidden;
@@ -27,5 +27,5 @@
 	}
 }
 @mixin l-base() {
-	@include l-default();
+	@include l-default() { @content; };
 };
