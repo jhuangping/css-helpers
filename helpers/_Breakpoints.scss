@@ -32,13 +32,13 @@
 	}
 
 	// Custom
-	@media all and (min-width: ($breakpoint + 1 + px)) { @content; }
+	@media all and (min-width: ($breakpoint + px)) { @content; }
 }
 
 // 自訂 range-width
 // $breakpoint-range
 @mixin mq-range($max: 1920, $min: map-get($useBreakpoints, changeMobile)) {
-	@media all and (min-width: ($min + 1 + px)) and (max-width: ($max + px)) { @content; }
+	@media all and (min-width: ($min + px)) and (max-width: ($max + px)) { @content; }
 }
 
 // 自訂 Max-height
@@ -50,11 +50,11 @@
 // 自訂 min-height
 // $breakpoint-height-up
 @mixin mq-min-h($size: map-get($useBreakpoints, changeMobile)) {
-	@media all and (min-height: ($size + 1 + px)) { @content; }
+	@media all and (min-height: ($size + px)) { @content; }
 }
 
 // 自訂 range-height
 // $breakpoint-height-range
 @mixin mq-range-h($max: 1080, $min: map-get($useBreakpoints, changeMobile)) {
-	@media screen and (min-height: ($min + 1 + px)) and (max-height: ($max + px)) { @content; }
+	@media screen and (min-height: ($min + px)) and (max-height: ($max + px)) { @content; }
 }
